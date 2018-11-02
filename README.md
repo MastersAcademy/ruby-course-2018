@@ -81,3 +81,16 @@ Ruby Course 2018-2019
 # Lesson #5.1 (22/01/2019, Workshop)
 ### TOPIC: Bundler and Gems
 ### Mentor: Oleg Monastyreckyi
+
+
+
+
+
+
+
+
+
+
+
+
+
