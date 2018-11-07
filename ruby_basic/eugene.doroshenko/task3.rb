@@ -8,7 +8,7 @@ class CommonValues
 	end
 
 	def list_of_elements
-		array = []
+		array = Array.new
 		element = gets.chomp
 		while element != '' && element != nil
 			array = array.push element
