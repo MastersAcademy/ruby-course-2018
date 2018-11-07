@@ -1,6 +1,6 @@
-# @param [String] strf_array. format [first_el,second_el,third_el,etc]
-def parse_argv_array(strf_array)
-  strf_array.tr('[]', '').split(',')
+# @param [String] value. format [first_el,second_el,third_el,etc]
+def parse_argv_array(value = '')
+  value.tr('[]', '').split(',')
 end
 
 first_array = parse_argv_array(ARGV.first)
