@@ -2,26 +2,27 @@ class Number
   @value
   attr_reader :value
 
+  # @param [String, Integer, Float] value
   def initialize(value)
     @value = value.to_f
   end
 
-  def self.from_string(string)
-    Number.new(string.to_f)
-  end
-
+  # @param [Number] number
   def +(number)
     Number.new(@value + number.value)
   end
 
+  # @param [Number] number
   def -(number)
     Number.new(@value - number.value)
   end
 
+  # @param [Number] number
   def /(number)
     Number.new(@value / number.value)
   end
 
+  # @param [Number] number
   def *(number)
     Number.new(@value * number.value)
   end
@@ -35,13 +36,13 @@ first_number, operation, second_number = ARGV
 
 case operation
 when '+'
-  puts Number.from_string(first_number) + Number.from_string(second_number)
+  puts Number.new(first_number) + Number.new(second_number)
 when '-'
-  puts Number.from_string(first_number) - Number.from_string(second_number)
+  puts Number.new(first_number) - Number.new(second_number)
 when '*'
-  puts Number.from_string(first_number) * Number.from_string(second_number)
+  puts Number.new(first_number) * Number.new(second_number)
 when '/'
-  puts Number.from_string(first_number) / Number.from_string(second_number)
+  puts Number.new(first_number) / Number.new(second_number)
 else
   puts 'Incorrect operation'
 end

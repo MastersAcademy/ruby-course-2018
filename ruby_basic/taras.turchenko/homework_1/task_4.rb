@@ -1,7 +1,8 @@
 strg_boolean = ARGV.first
 
-def strg_boolean_to_int(strg_boolean)
-  case strg_boolean
+# @param [String] value
+def strg_boolean_to_int(value)
+  case value
   when 'true'
     1
   when 'false'
@@ -11,13 +12,15 @@ def strg_boolean_to_int(strg_boolean)
   end
 end
 
+# @param [String] value
 def print_string_result(value)
   puts "Value as String : #{value}. And it has #{value.bytesize} bytes"
 end
 
-def print_number_result(value)
+# @param [Integer] value
+def print_integer_result(value)
   puts "Value as Integer: #{value}. And it has #{value.size} bytes"
 end
 
 print_string_result(strg_boolean)
-print_number_result(strg_boolean_to_int strg_boolean)
+print_integer_result(strg_boolean_to_int strg_boolean)

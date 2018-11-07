@@ -6,6 +6,7 @@ TIMEZONES = {
     'Europe/Minsk': '+03:00'
 }
 
+# @param [Symbol] timezone
 def get_localtime(timezone)
   time = Time.now
 

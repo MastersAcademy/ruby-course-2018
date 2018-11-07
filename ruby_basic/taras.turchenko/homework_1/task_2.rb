@@ -9,6 +9,8 @@ COLORS = {
     gray: 37
 }
 
+# @param [String] string
+# @param [Symbol] color
 def colorize(string, color)
   "\e[#{COLORS[color]}m#{string}\e[0m"
 end
