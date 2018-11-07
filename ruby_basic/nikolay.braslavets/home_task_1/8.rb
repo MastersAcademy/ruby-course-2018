@@ -14,7 +14,7 @@ puts "Sotring result:"
 print array
 =end
 
-puts "Input the words/numbers to make an array. Enter twice to stop :)"
+puts 'Input the words/numbers to make an array. Enter twice to stop :)'
 
 array = [ ]
 input = gets.chomp
@@ -23,5 +23,5 @@ while
   array.push input
   input = gets.chomp
 end
-puts "defsescending sorted array:"
+puts 'Defsescending sorted array:'
 print array.sort.reverse
