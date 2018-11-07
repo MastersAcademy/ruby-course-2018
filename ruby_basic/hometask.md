@@ -15,7 +15,7 @@
 #### Input example: ruby yourscript.rb <array1> <array2>
 #
 #
-### TASK #4 *
+### TASK #4 **
 Скрипт приймає boolean, перетворює його в integer, в string, виводить результат та об'єм пам'яті, який кожен з результатів займає
 #### Input example: ruby yourscript.rb <array1> <array2>
 #
