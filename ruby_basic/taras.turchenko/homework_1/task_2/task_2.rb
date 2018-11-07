@@ -13,8 +13,7 @@ def colorize(string, color)
   "\e[#{COLORS[color]}m#{string}\e[0m"
 end
 
-color = ARGV.first
-path_to_file = ARGV[1]
+color, path_to_file = ARGV
 
 File.open path_to_file do |file|
   file.each do |line|
