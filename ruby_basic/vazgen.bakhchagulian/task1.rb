@@ -1,0 +1,1 @@
+puts Time.now.utc + ARGV[0].downcase.sub(/utc/, '').to_i * 3600
