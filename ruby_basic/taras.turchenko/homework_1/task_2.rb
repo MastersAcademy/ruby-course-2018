@@ -12,7 +12,9 @@ COLORS = {
 # @param [String] string
 # @param [Symbol] color
 def colorize(string, color)
-  "\e[#{COLORS[color]}m#{string}\e[0m"
+  color_code = COLORS[color]
+  return string if color_code.nil?
+  "\e[#{color_code}m#{string}\e[0m"
 end
 
 color, path_to_file = ARGV
