@@ -23,6 +23,6 @@ def text_color(file_text)
 	 end 
 end
 
-File.foreach ("#{file_name}") do |line|
+File.foreach (file_name) do |line|
 	puts text_color(line)
 end
