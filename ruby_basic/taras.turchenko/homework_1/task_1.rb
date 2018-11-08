@@ -8,18 +8,9 @@ TIMEZONES = {
 
 # @param [Symbol] timezone
 def get_localtime(timezone)
-  time = Time.now
-
-  if timezone == :UTC
-    return time.utc
-  end
-
-  if TIMEZONES.key? timezone
-    format = TIMEZONES[timezone]
-    time.localtime format
-  else
-    '[ERROR] Incorrect timezone'
-  end
+  return Time.now.utc if timezone == :UTC
+  format = TIMEZONES[timezone]
+  !format.nil? ? Time.now.localtime(format) : '[ERROR] Incorrect timezone'
 end
 
 ARGV.each do |timezone|
