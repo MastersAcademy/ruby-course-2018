@@ -1,5 +1,11 @@
 require 'objspace'
 
+class Integer
+  def to_b
+    !self.zero?
+  end
+end
+
 class FalseClass
   def to_i
     0
@@ -12,7 +18,7 @@ class TrueClass
   end
 end
 
-puts (1==1).to_i
+puts ARGV[0].to_b.to_i
 puts ObjectSpace.memsize_of((1==1).to_i)
-puts (1==1).to_s
+puts ARGV[0].to_b.to_s
 puts ObjectSpace.memsize_of((1==1).to_s)

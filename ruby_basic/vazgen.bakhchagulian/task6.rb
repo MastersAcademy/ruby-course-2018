@@ -1,29 +1,24 @@
 class MyNum
-  @methods = {
-      "sum" => "+",
-      "sub" => "-",
-      "div" => "/",
-      "mult" => "*"
-  }
-  puts eval(ARGV[0]+@methods[ARGV[2]]+ARGV[1])
-  #
-  # def sum
-  #   puts ARGV[0]+ARGV[1]
-  # end
-  #
-  # def sub
-  #   puts ARGV[0]-ARGV[1]
-  # end
-  #
-  # def div
-  #   puts ARGV[0]/ARGV[1]
-  # end
-  #
-  # def mult
-  #   puts ARGV[0]*ARGV[1]
-  # end
+  def initialize(operand1,operand2)
+    @operand1 = operand1
+    @operand2 = operand2
+  end
+
+  def sum
+    @operand1+@operand2
+  end
+
+  def sub
+    @operand1-@operand2
+  end
+
+  def div
+    @operand1/@operand2
+  end
+
+  def mult
+    @operand1*@operand2
+  end
 end
 
-MyNum.new
-# a=MyNum.new
-# a.eval(ARGV[2])
+puts MyNum.new(ARGV[0].to_f,ARGV[1].to_f).send(ARGV[2].gsub(/\s+/,'_').downcase.to_sym)
