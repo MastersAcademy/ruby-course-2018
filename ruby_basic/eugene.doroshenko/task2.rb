@@ -3,26 +3,26 @@ if ARGV.length != 2
 	exit
 end
 
-set_color = ARGV[0].to_s
+@set_color = ARGV[0].to_s
 file_name = ARGV[1].to_s
 
-def colorize(color_code)
-  "\e[#{color_code}m#{self}\e[0m"
+def colorize(color_code, file_text)
+  "\e[#{color_code}m#{file_text}\e[0m"
 end
 
-def text_color
-	case set_color
+def text_color(file_text)
+	case @set_color
 	 when 'red'
-	 	corolize(31)
+	 	colorize(31, file_text)
 	 when 'green'
-	 	colorize(32)
+	 	colorize(32, file_text)
 	 when 'blue'
-	 	colorize(34)
+	 	colorize(34, file_text)
 	 when 'gray'
-	 	colorize(37)
+	 	colorize(37, file_text)
 	 end 
 end
 
 File.foreach ("#{file_name}") do |line|
-	puts line
+	puts text_color(line)
 end
