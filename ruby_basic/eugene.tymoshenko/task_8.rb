@@ -2,4 +2,4 @@
 # Input example: ruby yourscript.rb
 
 array = gets.chomp.split
-print array.sort!.reverse
+print array.sort.reverse
