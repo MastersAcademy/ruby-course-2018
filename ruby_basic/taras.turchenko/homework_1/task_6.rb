@@ -1,5 +1,4 @@
 class Number
-  @value
   attr_reader :value
 
   # @param [String, Integer, Float] value
@@ -9,26 +8,22 @@ class Number
 
   # @param [Number] number
   def +(number)
-    Number.new(@value + number.value)
+    value + number.value
   end
 
   # @param [Number] number
   def -(number)
-    Number.new(@value - number.value)
+    value - number.value
   end
 
   # @param [Number] number
   def /(number)
-    Number.new(@value / number.value)
+    value / number.value
   end
 
   # @param [Number] number
   def *(number)
-    Number.new(@value * number.value)
-  end
-
-  def to_s
-    @value.to_s
+    value * number.value
   end
 end
 
