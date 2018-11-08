@@ -6,7 +6,8 @@ color_codes = {
     :blue => 34,
     :pink => 35,
     :light_blue => 36,
-    :grey => 37
+    :grey => 37,
+    :gray => 37
 }
 
 File.open(ARGV[1]) do |f|
