@@ -8,19 +8,16 @@ def strg_boolean_to_int(value)
   when 'false'
     0
   else
-    throw '[ERROR] You must pass as argument true or false'
+    raise '[ERROR] You must pass as argument true or false'
   end
 end
 
-# @param [String] value
-def print_string_result(value)
-  puts "Value as String : #{value}. And it has #{value.bytesize} bytes"
+# @param [Integer, String] value
+def print_result(value, bytesize)
+  puts "Value as #{value.class} : #{value}. And it has #{bytesize} bytes"
 end
 
-# @param [Integer] value
-def print_integer_result(value)
-  puts "Value as Integer: #{value}. And it has #{value.size} bytes"
-end
+print_result(strg_boolean, strg_boolean.bytesize)
 
-print_string_result(strg_boolean)
-print_integer_result(strg_boolean_to_int strg_boolean)
+int_boolean = strg_boolean_to_int strg_boolean
+print_result(int_boolean, int_boolean.size)
