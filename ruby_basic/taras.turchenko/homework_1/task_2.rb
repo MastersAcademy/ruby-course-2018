@@ -7,7 +7,7 @@ COLORS = {
     magenta: 35,
     cyan: 36,
     gray: 37
-}
+}.freeze
 
 # @param [String] string
 # @param [Symbol] color

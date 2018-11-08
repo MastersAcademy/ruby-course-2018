@@ -4,7 +4,7 @@ TIMEZONES = {
     'Europe/Paris': '+01:00',
     'Europe/Kyiv': '+02:00',
     'Europe/Minsk': '+03:00'
-}
+}.freeze
 
 # @param [Symbol] timezone
 def get_localtime(timezone)
