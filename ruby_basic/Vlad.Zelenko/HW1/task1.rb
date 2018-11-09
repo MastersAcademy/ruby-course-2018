@@ -11,10 +11,10 @@ class TimeZone
     Alaska:    "-09:00"
 }.freeze
 
-  def timeZoneChange
+  def time_zone_change
     Time.now.localtime(HASH_TIMEZONES[@location])
   end
 end
 
 locations = TimeZone.new(gets.chomp)
-puts locations.timeZoneChange
+puts locations.time_zone_change
