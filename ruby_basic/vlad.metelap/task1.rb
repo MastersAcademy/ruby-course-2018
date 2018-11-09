@@ -3,6 +3,7 @@ class Task1
   def self.current_time
     Time.now.utc
   end
+
   def self.utc(time_utc)
     puts "UTC time: #{time_utc.strftime('%H:%M')}"
   end
@@ -16,7 +17,6 @@ class Task1
     time_cet = time_utc + (60 * 60)
     puts "CET time: #{time_cet.strftime('%H:%M')}"
   end
-
 end
 
 time_zone = ARGV[0]

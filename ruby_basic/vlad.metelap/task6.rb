@@ -1,13 +1,17 @@
 class Task6
+
   def sum(a,b)
     a+b
   end
+
   def dif(a,b)
     a-b
   end
+
   def multi(a,b)
     a*b
   end
+
   def div(a,b)
     b!=0 ? a/b :0
   end
@@ -23,9 +27,7 @@ class Task6
     when "div"
       div(a,b)
     end
-
   end
-
 end
 a = ARGV[0]
 b = ARGV[1]
