@@ -9,12 +9,12 @@ class TimeZone
     Tokio:     "+09:00",
     Praga:     "+01:00",
     Alaska:    "-09:00"
-  }
+}.freeze
 
   def timeZoneChange
     Time.now.localtime(HASH_TIMEZONES[@location])
   end
 end
 
-locations = TimeZone.new("Tokio")
+locations = TimeZone.new(gets.chomp)
 puts locations.timeZoneChange
