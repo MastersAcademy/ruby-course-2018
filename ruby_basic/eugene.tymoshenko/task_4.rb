@@ -3,7 +3,7 @@
 
 boolean = gets.chomp.eql?('true') ? true : false
 integer = boolean && 1 || 0
-string = integer.to_s
+string = boolean.to_s
 
-puts "result of transformation: int = #{integer}, string = #{string} " +
-  "memsize for: int #{integer.size}, string: #{string.bytesize}"
+puts "result of transformation: int = #{integer}, string = #{string}"
+puts "memsize for: int #{integer.size}, string: #{string.bytesize}"
