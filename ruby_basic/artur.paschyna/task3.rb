@@ -1,5 +1,13 @@
 class Task3
-  a=[3,6,2,4,8,5,2,4,6]
-  b=[3,6,3,1,4,6,0,9,5,6,3]
+  b=[]
+  a=[]
+  l=ARGV.length
+  for i in 0..l
+    if i%2==0
+      a<<ARGV[i]
+    else
+      b<<ARGV[i]
+    end
+  end
   puts a&b
 end
