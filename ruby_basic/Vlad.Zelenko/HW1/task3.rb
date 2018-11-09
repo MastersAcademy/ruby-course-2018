@@ -1,6 +1,8 @@
+first_arr = gets.chomp.split(",").map(&:to_i)
+second_arr = gets.chomp.split(",").map(&:to_i)
 
-# p [1,2,4,5] & [1,5,7,8,9]
-def arrCommonElem(a, b)
+def arr_common_elem(a, b)
   a & b
 end
-p arrCommonElem([1,2,4,5], [1,5,7,8,9])
+
+p arr_common_elem(first_arr, second_arr)
