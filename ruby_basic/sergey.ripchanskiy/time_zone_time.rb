@@ -6,7 +6,7 @@ class TimeZone
     @params = ARGV
     @time_zone = @params[0].to_s.downcase
     @time_now = Time.now
-    self.send(@time_zone.to_sym)
+    send @time_zone
   end
 
   def utc
