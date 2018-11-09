@@ -1,8 +1,6 @@
 require 'objspace'
 
-bool = true
-# bool = gets.chomp
-bool = 
+bool = gets.chomp
   if bool == "true" || true
     1
   else 
