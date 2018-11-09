@@ -15,7 +15,7 @@ class CommonValues
 			element = gets.chomp
 		end
 		puts "Array is: #{array}"
-		return array
+		array
 	end
 
 	def common_elements
