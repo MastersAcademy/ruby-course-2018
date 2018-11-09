@@ -13,17 +13,17 @@ class TextColor
     purple: 35,
     cyan:   36,
     gray:   37
-  }
+}.freeze
 
   #На випадок якщо знадобиться текст до покраски
-  def getFileToString
+  def get_file_to_string
     File.readlines(@file_name, "r").join(",")
   end
 
-  def paintText     
+  def paint_text     
     "\e[#{HASH_COLOR[@color]}m#{getFileToString()}\e[0m"
   end
 end
 
-text_color = TextColor.new("red", "test.txt")
-puts text_color.paintText
+text_color = TextColor.new(gets.chomp, gets.chomp)
+puts text_color.paint_text
