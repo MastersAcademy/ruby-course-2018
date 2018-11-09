@@ -4,8 +4,7 @@ class TimeZone
 
   def recieve_data
     @params = ARGV
-    time_zone = @params[0].to_s.downcase
-    @time_now = Time.now
+    time_zone = @params[0].downcase
     send time_zone
   end
 
