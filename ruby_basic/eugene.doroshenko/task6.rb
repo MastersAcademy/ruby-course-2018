@@ -38,8 +38,7 @@ class MathOperations
 		operand1 - operand2
 	end
 
-	element_start = MathOperations.new
-
-	puts "result is: #{element_start.element_result}"
-
 end
+
+element_start = MathOperations.new
+puts "result is: #{element_start.element_result}"
