@@ -20,12 +20,11 @@ class BooleanToStrInt
 		mem_size_str = ObjectSpace.memsize_of(@bln_to_int)
 	end
 
-	start_boolean = BooleanToStrInt.new
+end
 
+start_boolean = BooleanToStrInt.new
 
-	puts "Memory size of string type: #{start_boolean.boolean_size_str}"	
-	puts "Memory size of integer type: #{start_boolean.boolean_size_int}"
+puts "Memory size of string type: #{start_boolean.boolean_size_str}"	
+puts "Memory size of integer type: #{start_boolean.boolean_size_int}"
 
 #Странный вывод 40 для строки и 0 для целого
-
-end
