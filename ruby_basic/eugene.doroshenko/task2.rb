@@ -12,14 +12,14 @@ end
 
 def text_color(file_text)
 	case @set_color
-	 when 'red'
-	 	colorize(31, file_text)
-	 when 'green'
-	 	colorize(32, file_text)
-	 when 'blue'
-	 	colorize(34, file_text)
-	 when 'gray'
-	 	colorize(37, file_text)
+		when 'red'
+			colorize(31, file_text)
+		when 'green'
+			colorize(32, file_text)
+		when 'blue'
+			colorize(34, file_text)
+		when 'gray'
+			colorize(37, file_text)
 	 end 
 end
 
