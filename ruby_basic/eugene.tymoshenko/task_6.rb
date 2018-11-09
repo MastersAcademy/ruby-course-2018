@@ -3,19 +3,19 @@
 
 class Calc
   def sum(arg1, arg2)
-    puts arg1 + arg2
+    arg1 + arg2
   end
 
   def sub(arg1, arg2)
-    puts arg1 - arg2
+    arg1 - arg2
   end
 
   def mult(arg1, arg2)
-    puts arg1 * arg2
+    arg1 * arg2
   end
 
   def div(arg1, arg2)
-    puts arg1/arg2
+    arg1/arg2
   end
 end
 
@@ -23,4 +23,4 @@ calc = Calc.new
 arg1 = gets.chomp.to_i
 arg2 = gets.chomp.to_i
 method = gets.chomp
-calc.send(method, arg1, arg2)
+puts calc.send(method, arg1, arg2)
