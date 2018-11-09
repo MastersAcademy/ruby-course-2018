@@ -13,11 +13,11 @@ class BooleanToStrInt
 	end
 
 	def boolean_size_str
-		mem_size_str = ObjectSpace.memsize_of(@bln_string)
+		ObjectSpace.memsize_of(@bln_string)
 	end
 
 	def boolean_size_int
-		mem_size_str = ObjectSpace.memsize_of(@bln_to_int)
+		ObjectSpace.memsize_of(@bln_to_int)
 	end
 
 end
