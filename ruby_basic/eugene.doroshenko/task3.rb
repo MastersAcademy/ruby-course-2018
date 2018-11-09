@@ -23,7 +23,7 @@ class CommonValues
 		common_array = @array1 & @array2
 	end
 
-	arrays = CommonValues.new
-	puts "Common elements are: #{arrays.common_elements}"
-
 end
+
+arrays = CommonValues.new
+puts "Common elements are: #{arrays.common_elements}"
