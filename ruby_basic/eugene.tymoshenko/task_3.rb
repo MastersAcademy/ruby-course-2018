@@ -1,4 +1,4 @@
-# Скрипт приймає два масиви та виводить їх спільні елементи
+# Script accepts two arrays and displays their common elements
 # Input example: ruby yourscript.rb
 
 array_first = gets.chomp.split

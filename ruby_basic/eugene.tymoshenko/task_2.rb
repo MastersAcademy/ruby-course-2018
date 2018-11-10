@@ -1,4 +1,4 @@
-# Скрипт приймає код кольору в виді тексту та назву файла, після чого виводить текст з файла в заданому кольорі
+# Script accepts the color code as a text and filename, and then displays the text from the file in a given color.
 # Input example: ruby yourscript.rb red some.txt
 # Supported colors: red, green, yellow, blue, white
 

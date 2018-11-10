@@ -1,6 +1,6 @@
-# Скрипт приймає таймзону в виді тексту та виводить поточний час в заданій таймзоні
+# Script takes a timezone as a text and displays the current time in a given timezone.
 # Input example: ruby yourscript.rb UTC
-# Скрипт не повинен використовувати сторонніх гемів Скрипт повинен підтримувати 3-5 таймзон.
+# Script should not use third-party gems and should support 3-5 times.
 
 TIMEZONES = {cet: '+01:00', eet: '+02:00', est: '-05:00', egypt: '+02:00', cuba: '-05:00'}.freeze
 

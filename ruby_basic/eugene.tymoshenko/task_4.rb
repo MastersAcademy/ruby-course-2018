@@ -1,7 +1,7 @@
-# Скрипт приймає boolean, перетворює його в integer, в string, виводить результат та об'єм пам'яті, який кожен з результатів займає
+# Script takes a boolean, converts it into an integer, into a string, outputs the result and memory that each of the results holds.
 # Input example: ruby yourscript.rb
 
-boolean = gets.chomp.eql?('true') ? true : false
+boolean = gets.chomp.eql?('true')
 integer = boolean && 1 || 0
 string = boolean.to_s
 

@@ -1,4 +1,4 @@
-# Скрипт створює клас для роботи з числами. Треба реалізувати в класі методи суми, різниці, ділення, множення
+# Script creates a class for working with numbers. It is necessary to realize in the class methods of sum, difference, division, multiplication
 # Input example: ruby yourscript.rb 5 10 sum
 
 class Calc
@@ -15,7 +15,7 @@ class Calc
   end
 
   def div(arg1, arg2)
-    arg1/arg2
+    arg1 / arg2
   end
 end
 
