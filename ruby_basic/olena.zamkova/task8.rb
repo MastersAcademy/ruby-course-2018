@@ -1,19 +1,19 @@
 class Array
-	def getFromStdin
-		$stdin.each_line do |line|
-			self.push(line.strip)
-		end
-	end
-	
-	def sortDescendant
-		self.sort {|x, y| y <=> x }
-	end
+  def read_from_stdin
+    $stdin.each_line do |line|
+      self.push(line.strip)
+    end
+  end
+
+  def sort_descendant
+    self.sort { |x, y| y <=> x }
+  end
 end
 
-array = Array.new
+array = []
 
-print "Enter array members: "
+print 'Enter array members: '
 
-array.getFromStdin
+array.read_from_stdin
 
-puts "Sorted array: #{array.sortDescendant.join(', ')}"
+puts "Sorted array: #{array.sort_descendant.join(', ')}"
