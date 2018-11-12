@@ -7,24 +7,24 @@ operation = ARGV[2]
 class Calculator
   attr_accessor :num1, :num2, :operation
 
-  def initialize()
+  def initialize
     @operation = 'sum'
     @num1 = 5
     @num2 = 6
   end
 
-  def calculate()
+  def calculate
     case @operation
     when 'sum'
-        puts @num1 + @num2
-      when 'sub'
-        puts @num1 - @num2
-      when 'mult'
-        puts @num1 * @num2
-      when 'div'
-        puts @num1 / @num2
-      else
-        puts 'Not understand comand. Use: sum, sub, mult or div'
+      puts @num1 + @num2
+    when 'sub'
+      puts @num1 - @num2
+    when 'mult'
+      puts @num1 * @num2
+    when 'div'
+      puts @num1 / @num2
+    else
+      puts 'Not understand comand. Use: sum, sub, mult or div'
     end
   end
 end

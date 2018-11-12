@@ -5,35 +5,35 @@ class String
     VALID_COLORS.include?(color)
   end
 
-  def black;
+  def black
     "\e[30m#{self}\e[0m"
   end
 
-  def red;
+  def red
     "\e[31m#{self}\e[0m"
   end
 
-  def green;
+  def green
     "\e[32m#{self}\e[0m"
   end
 
-  def brown;
+  def brown
     "\e[33m#{self}\e[0m"
   end
 
-  def blue;
+  def blue
     "\e[34m#{self}\e[0m"
   end
 
-  def magenta;
+  def magenta
     "\e[35m#{self}\e[0m"
   end
 
-  def cyan;
+  def cyan
     "\e[36m#{self}\e[0m"
   end
 
-  def gray;
+  def gray
     "\e[37m#{self}\e[0m"
   end
 end
