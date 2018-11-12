@@ -5,8 +5,8 @@
 TIMEZONES = {cet: '+01:00', eet: '+02:00', est: '-05:00', egypt: '+02:00', cuba: '-05:00'}.freeze
 
 def current_time(timezone)
-  obtained_timezone = TIMEZONES.dig(timezone)
-  return "Unsupported key provided. Supported keys are: #{TIMEZONES.keys}!" if obtained_timezone.nil?
+  obtained_timezone = TIMEZONES[timezone]
+  return "Unsupported key provided. Supported keys are: #{TIMEZONES.keys}!" unless obtained_timezone
   Time.now.localtime(obtained_timezone)
 end
 

@@ -15,7 +15,8 @@ class Calc
   end
 
   def div(arg1, arg2)
-    arg1 / arg2
+    return 'You can\'t divide by zero!' if arg2.zero?
+    arg1.to_f / arg2
   end
 end
 
