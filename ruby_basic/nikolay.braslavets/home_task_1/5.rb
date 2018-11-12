@@ -11,10 +11,8 @@ unless File.exists?(filename)
   exit
 end
 
-count = 0
 File.open(filename, "r") do |f|
-  f.each do |line|
-    count +=1
+  f.each_with_index do |line, count|
     if line.match(/\b#{word}\b/i)
       puts "#{word} was found on line #{count}"
       exit
