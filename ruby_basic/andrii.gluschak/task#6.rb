@@ -1,17 +1,17 @@
 p "enter first value"
-  a = gets.chomp.to_i
+first_value = gets.chomp.to_i
 p "enter second value"
-  b = gets.chomp.to_i
+second_value = gets.chomp.to_i
 p "enter plus or minus, sum or div"
-  v = gets.chomp
+v = gets.chomp
 case v
-  when "plus"
-    c = a + b
-  when "minus"
-    c = a - b
-  when "sum"
-    c = a * b
-  when "div"
-    c = a / b
+when "plus"
+  result = first_value + second_value
+when "minus"
+  result = first_value - second_value
+when "sum"
+  result = first_value * second_value
+when "div"
+  result = first_value / second_value
 end
-p "final result of #{v} is #{c}"
+p "final result of #{v} is #{result}"

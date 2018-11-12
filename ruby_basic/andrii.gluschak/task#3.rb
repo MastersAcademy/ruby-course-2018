@@ -1,8 +1,5 @@
-  array1 = []
 puts 'Enter first mass'
-  array1 = gets.gsub("\n","").split(/,/)
-  array2 = []
+array1 = gets.gsub("\n","").split(/,/)
 puts 'Enter second mass'
-  array2 = gets.gsub("\n","").split(/,/)
-  array3 = array1 & array2
-puts array3
+array2 = gets.gsub("\n","").split(/,/)
+puts array1 & array2
