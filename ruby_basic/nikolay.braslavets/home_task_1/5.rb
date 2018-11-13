@@ -12,9 +12,9 @@ unless File.exists?(filename)
 end
 
 File.open(filename, "r") do |f|
-  f.each_with_index do |line, count|
+  f.each_with_index do |line, index|
     if line.match(/\b#{word}\b/i)
-      puts "#{word} was found on line #{count}"
+      puts puts "#{word} was found on line #{index + 1}"
       exit
     end
  end
