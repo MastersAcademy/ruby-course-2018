@@ -1,0 +1,4 @@
+If replacement is a String it will be substituted for the matched text.
+It may contain back-references to the pattern's capture groups of the form \\d, where d is a group number, or \\k<n>, where n is a group name.
+If it is a double-quoted string, both back-references must be preceded by an additional backslash.
+However, within replacement the special match variables, such as &$, will not refer to the current match.
