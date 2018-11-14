@@ -1,6 +1,6 @@
-def random_obj(array)
+def array_sort_reverse(array)
     array.sort.reverse
 end
 
-first  = (1..20).collect { rand(1..30) }
-p random_obj first
+argument  = (1..20).collect { rand(1..30) }
+p array_sort_reverse argument

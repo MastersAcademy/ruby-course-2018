@@ -7,15 +7,13 @@ def set_color
 end
 
 def colorzite_text
-  lines = []
-
+  color = set_color
+  
   File.open("#{ARGV.last}", 'r') do |file|
-    while (line = file.gets)
-      lines.push line.colorize(set_color)
+    file.each do |line|
+      puts line.colorize(color)
     end
   end
-  
-  lines.each { |l| puts l } 
 end
 
 colorzite_text

@@ -1,5 +1,5 @@
 class Calculator
-	attr_accessor :arg1, :arg2
+	attr_reader :arg1, :arg2
 
 	def initialize(arg1: 0, arg2: 0)
 		@arg1 = arg1.to_i
@@ -9,11 +9,11 @@ class Calculator
 	def sum
 		arg1 + arg2
 	end
-	
+
 	def	mult
 		arg1 * arg2
 	end
-	
+
 	def divide
 		begin
 			arg1 / arg2
@@ -27,9 +27,9 @@ class Calculator
 	end
 end
 
-first  = ARGV.first
-second = ARGV[1]
-third  = ARGV.last.to_sym
+first_argument  = ARGV.first
+second_argument = ARGV[1]
+operation       = ARGV.last.to_sym
 
-a = Calculator.new(arg1: first, arg2: second)
-p a.send(third)
+a = Calculator.new(arg1: first_argument, arg2: second_argument)
+p a.send(operation)

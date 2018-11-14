@@ -1,12 +1,15 @@
 def string_index
-  lines = []
+  get_index = 1
 
   File.open("#{ARGV.first}", 'r') do |file|
-    while (line = file.gets)
-      lines.push line
+    file.each.with_index do |line, index|
+      if line.include? ARGV.last
+        get_index += index
+        break 
+      end
     end
   end
-  lines.select.with_index { |l, i| puts i + 1  if l.include? ARGV.last}
+  get_index
 end
 
-string_index
+p string_index
