@@ -18,7 +18,7 @@ end
 Person.new.say_hello
 Person.say_hola
 
-# Till be error this
+# Return error
 migel = Person.new
 migel.say_hola
 
