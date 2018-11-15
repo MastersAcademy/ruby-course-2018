@@ -1,3 +1,3 @@
 class Task8
-  puts ARGV.sort
+  puts ARGV.sort.reverse
 end
