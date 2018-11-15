@@ -4,11 +4,7 @@ end
 
 # @param [Array] array
 def get_even_numbers(array)
-  array.select do |item|
-    is_number?(item) && item.to_i.even?
-  end
+  array.select {|item| is_number?(item) && item.to_i.even?}
 end
 
-array = ARGV
-
-puts get_even_numbers array
+puts get_even_numbers ARGV
