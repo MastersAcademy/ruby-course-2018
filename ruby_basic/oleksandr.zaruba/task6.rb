@@ -1,11 +1,9 @@
-# Скрипт створює клас для роботи з числами. Треба реалізувати в класі методи
-# суми, різниці, ділення, множення
 # Input example: ruby yourscript.rb 5 10 sum
 
 class Numbers
-  def initialize(one, two)
-    @first_number = one.to_i
-    @second_number = two.to_i
+  def initialize(first_number, second_number)
+    @first_number = first_number.to_i
+    @second_number = second_number.to_i
   end
 
   def sum
@@ -25,14 +23,17 @@ class Numbers
   end
 end
 
-arif = Numbers.new(ARGV[0], ARGV[1])
-
 if ARGV.length != 3
   puts 'We need exactly 3 arguments!'
   exit
 end
-if arif.respond_to?(ARGV[2])
-  p arif.send(ARGV[2])
+
+namber_one = ARGV[0]
+namber_two = ARGV[1]
+arif_func = ARGV[2]
+arif = Numbers.new(namber_one, namber_two)
+if arif.respond_to?(arif_func)
+  p arif.send(arif_func)
 else
   p 'Error in the third argument! Available arguments is: sum, subtraction, multiplication, division.'
 end

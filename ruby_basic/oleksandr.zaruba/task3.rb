@@ -1,4 +1,3 @@
-# Скрипт приймає два масиви та виводить їх спільні елементи
 # Input example: ruby yourscript.rb
 
 array_one = []

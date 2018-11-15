@@ -1,55 +1,47 @@
-# Скрипт приймає код кольору в виді тексту та назву файла,
-# після чого виводить текст з файла в заданому кольорі
-# Input example: ruby yourscript.rb red some.txt
-
-require 'colorize'
-
 class String
-  def initialize(color)
-    @color = color
+  def black
+    "\e[30m#{self}\e[0m"
   end
 
   def red
-    colorize(self, "\e[1m\e[31m")
+    "\e[31m#{self}\e[0m"
   end
 
   def green
-    colorize(self, "\e[1m\e[32m")
+    "\e[32m#{self}\e[0m"
   end
 
-  def dark_green
-    colorize(self, "\e[32m")
-  end
-
-  def yellow
-    colorize(self, "\e[1m\e[33m")
+  def brown
+    "\e[33m#{self}\e[0m"
   end
 
   def blue
-    colorize(self, "\e[1m\e[34m")
+    "\e[34m#{self}\e[0m"
   end
 
-  def dark_blue
-    colorize(self, "\e[34m")
+  def magenta
+    "\e[35m#{self}\e[0m"
   end
 
-  def pur
-    colorize(self, "\e[1m\e[35m")
+  def cyan
+    "\e[36m#{self}\e[0m"
   end
 
-  def colorize(color_code, text)
-    "#{color_code}#{text}\e[0m"
+  def gray
+    "\e[37m#{self}\e[0m"
   end
 end
 
 if ARGV.length != 2
-  puts 'We need exactly two parameter. Color end the name of file'
+  puts 'We need exactly 2 arguments: color, file! Available colors is: black, red, green, brown, blue, magenta, cyan, gray.'
   exit
-
 end
-filename = ARGV[1]
-puts "Going to open '#{filename}'"
+color = ARGV[0]
+text_file = ARGV[1]
+puts "Going to open '#{text_file}'"
 
-fh = open filename
-fh.each { |line| puts line }
-fh.close
+File.open(text_file) do |text|
+  text.each_line do |line|
+    print line.send(color)
+  end
+end
