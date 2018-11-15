@@ -14,9 +14,7 @@ class DynamicMath
   end
 
   OPERATIONS.each do |name, operation|
-    define_method name do
-      a.send(operation, b)
-    end
+    define_method(name) {a.send(operation, b)}
   end
 end
 
