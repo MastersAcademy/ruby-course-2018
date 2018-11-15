@@ -1,3 +1,5 @@
+# Realize a class that selects all of the even numbers from the array. An array can consist not only of numbers.
+
 class Numbers
   def initialize(*args)
     @args = args
