@@ -1,17 +1,33 @@
 class Task6
-  def find_the_result(operation, first_value, second_value)
-    if operation == "sum"
-      puts first_value.to_i + second_value.to_i
-    elsif operation == "diff"
-      puts first_value.to_i - second_value.to_i
-    elsif operation == "mult"
-      puts first_value.to_i * second_value.to_i
-    elsif operation == "div"
-      puts first_value.to_i / second_value.to_i
-    else
-      puts "Try again =)"
-    end
+  def addition(a,b)
+    puts a.to_i+b.to_i
+  end
+
+  def difference(a,b)
+    puts a.to_i-b.to_i
+  end
+
+  def multiplication(a,b)
+    puts a.to_i*b.to_i
+  end
+
+  def division (a,b)
+    puts a.to_i/b.to_i
   end
 end
-ftr = Task6.new
-ftr.find_the_result(ARGV[0],ARGV[1],ARGV[2])
+
+a,b,operation = ARGV
+add = Task6.new
+diff = Task6.new
+mult = Task6.new
+div = Task6.new
+
+if operation == "sum"
+ add.addition(a,b)
+elsif operation == "diff"
+  diff.difference(a,b)
+elsif operation == "mult"
+  mult.multiplication(a,b)
+elsif operation == "div"
+  div.division(a,b)
+end
