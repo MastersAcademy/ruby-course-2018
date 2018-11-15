@@ -1,3 +1,8 @@
 class Task7
-  puts ARGV.sample
+  def sample(a = ARGV)
+    puts a.sample
+  end
 end
+
+s = Task7.new
+s.sample
