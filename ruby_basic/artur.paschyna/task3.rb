@@ -1,13 +1,10 @@
-class Task3
-  b=[]
-  a=[]
-  l=ARGV.length
-  for i in 0..l
-    if i%2==0
-      a<<ARGV[i]
-    else
-      b<<ARGV[i]
-    end
+b = []
+a = []
+ARGV.each_with_index do |value,key|
+  if key % 2 == 0
+    a << value
+  else
+    b << value
   end
-  puts a&b
 end
+puts a & b
