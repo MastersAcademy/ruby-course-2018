@@ -1,4 +1,4 @@
-require '../mario_game'
+require './mario_game'
 
 def add_final_screen_to(game)
   game.instance_eval do
