@@ -26,7 +26,7 @@ first = ARGV[0].to_f
 second = ARGV[1].to_f
 action = ARGV[2]
 num = Calc.new(first, second)
-if num.class.method_defined?(action)
+if num.respond_to?(action)
   puts num.send(action)
 else
   puts 'Method not defined'

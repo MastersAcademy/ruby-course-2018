@@ -3,8 +3,10 @@ require 'objspace'
 bool_value = ARGV[0]
 if bool_value =~ (/(true|t|yes|y|1)$/i)
   bool_value = true
-else bool_value =~ (/(false|f|no|n|0)$/i)
+elsif bool_value =~ (/(false|f|no|n|0)$/i)
   bool_value = false
+else
+  raise ArgumentError
 end
 
 bool_to_int = bool_value ? 1 : 0
