@@ -1,12 +1,7 @@
 # Implement a class for mathematical operations. Result of each operation must be displayed in a different color
 # Supported operations: plus, minus, divide, multiply
 
-class Calc
-  def initialize(arg1, arg2)
-    @arg1 = arg1
-    @arg2 = arg2
-  end
-
+module ClassMethods
   def plus
     "\e[32m#{@arg1 + @arg2}\e[0m"
   end
@@ -16,11 +11,21 @@ class Calc
   end
 
   def divide
-    "\e[34m#{@arg1 / @arg2}\e[0m"
+    return "\e[34mYou can't divide by zero\e[0m" if @arg2.zero?
+    "\e[34m#{@arg1.to_f / @arg2}\e[0m"
   end
 
   def multiply
     "\e[31m#{@arg1 * @arg2}\e[0m"
+  end
+end
+
+class Calc
+  include ClassMethods
+
+  def initialize(arg1, arg2)
+    @arg1 = arg1
+    @arg2 = arg2
   end
 end
 
