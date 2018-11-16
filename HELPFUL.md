@@ -7,6 +7,7 @@ https://goo.gl/8Hr4Ma
 https://www.codewars.com/ - допомагає бути в тонусі і не втрачати практичні навички.
 https://rubygems.org/ - хаб гемів для рубі. Якщо гема немає там або на https://github.com, то його не існує в природі
 http://rubular.com/ - прекрасний чекер регулярних виразів
+https://habr.com/post/143990/ - прекрасна стаття по метакласам
 
 ## Literature
 https://goo.gl/ovP247 - книга від самого автора Ruby
