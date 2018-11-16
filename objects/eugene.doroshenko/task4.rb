@@ -5,7 +5,7 @@ class MathOperations
    OPERATORS = {
       plus: '+',
       minus: '-',
-      divide: '/',
+      divide: '/'
       myltiply: '*'
   }.freeze
 
