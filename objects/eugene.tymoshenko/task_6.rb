@@ -12,7 +12,7 @@ class Calc
   end
 end
 
-arg1 = ARGV[0].to_i
-arg2 = ARGV[1].to_i
+arg1      = ARGV[0].to_i
+arg2      = ARGV[1].to_i
 operation = ARGV[2]
 puts Calc.new(arg1, arg2).send(operation)

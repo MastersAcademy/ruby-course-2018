@@ -3,9 +3,9 @@
 
 class Calc
   OPERATORS = {
-    plus: '+',
-    minus: '-',
-    divide: '/',
+    plus:     '+',
+    minus:    '-',
+    divide:   '/',
     multiply: '*'
   }.freeze
 
@@ -21,7 +21,7 @@ class Calc
   end
 end
 
-arg1 = ARGV[0].to_i
-arg2 = ARGV[1].to_i
+arg1   = ARGV[0].to_i
+arg2   = ARGV[1].to_i
 method = ARGV[2]
 puts Calc.new(arg1, arg2).send(method)

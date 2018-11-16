@@ -20,6 +20,6 @@ class Colorize
   end
 end
 
-text = gets.chomp
+text  = gets.chomp
 color = gets.chomp
 puts Colorize.new(text).send(color)

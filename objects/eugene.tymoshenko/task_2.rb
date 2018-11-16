@@ -14,10 +14,10 @@ class MarioGame
   end
 
   def initialize(level_background, count_of_enemies, speed_enemies)
-    @background = level_background
-    @enemies = count_of_enemies
+    @background    = level_background
+    @enemies       = count_of_enemies
     @speed_enemies = speed_enemies
-    @id = ObjectSpace.each_object(MarioGame).count
+    @id            = ObjectSpace.each_object(MarioGame).count
     add_last_level_notice
   end
 
