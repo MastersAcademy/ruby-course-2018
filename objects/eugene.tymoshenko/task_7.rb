@@ -1,16 +1,18 @@
+# Realize a class that checks the syntactic correctness of the closed. Open parenthesis in the passed string.
+# Example: "{aaa}" - valid "{aaa" - invalid "{(aaa}" - invalid "{(aaa})" - invalid
+
 class Validator
+  BRACES = { '{' => '}', '[' => ']', '(' => ')', '<' => '>' }.freeze
+
   def initialize(string)
     @string = string
   end
 
   def valid_string?
     stack = []
-    braces = { '{' => '}', '[' => ']', '(' => ')' }
     @string.each_char do |character|
-      stack << character if braces.key?(character)
-      print stack
-      return false if braces.key(character) && braces.key(character) != stack.pop
-      print stack
+      stack << character if BRACES.key?(character)
+      return false if BRACES.key(character) && BRACES.key(character) != stack.pop
     end
     stack.empty?
   end

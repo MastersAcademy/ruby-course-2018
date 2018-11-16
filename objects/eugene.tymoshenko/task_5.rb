@@ -3,14 +3,14 @@
 
 class Colorize
   COLORS = {
-    red: '31',
-    green: '32',
+    red:    '31',
+    green:  '32',
     yellow: '33',
-    blue: '34'
-  }
+    blue:   '34'
+  }.freeze
 
   def initialize(text)
-  @text = text
+    @text = text
   end
 
   COLORS.each do |method_name, value|
