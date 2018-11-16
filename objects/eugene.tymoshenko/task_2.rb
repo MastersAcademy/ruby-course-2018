@@ -35,15 +35,17 @@ end
 class MarioGame
   attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
   include MarioActions
-  LEVELS = 20
+
   def initialize(level_background, count_of_enemies, speed_enemies)
     @background = level_background
     @enemies = count_of_enemies
     @speed_enemies = speed_enemies
-    define_singleton_method(:final_game_screen, -> { 'last level reached' }) if ObjectSpace.each_object(MarioGame).count == LEVELS
+    @id = ObjectSpace.each_object(MarioGame).count
   end
 
-  def final_game_screen; end
+def id
+  @id
+end
 end
 
 mario1 = MarioGame.new('green', 5, 1)
@@ -68,6 +70,10 @@ mario19 = MarioGame.new('green', 95, 10)
 mario20 = MarioGame.new('green', 100, 10)
 
 
-puts mario19.final_game_screen
+
+last_instance = ObjectSpace.each_object(MarioGame).to_a.sort_by {|o| o.id}.last
+last_instance.define_singleton_method :qqq, -> { 'last level reached' }
+
+puts mario19.qqq rescue nil
 puts '==='
-puts mario20.final_game_screen
+puts mario20.qqq
