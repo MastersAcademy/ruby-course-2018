@@ -1,4 +1,3 @@
-require_relative 'game_constructor'
 require_relative 'colorize'
 
 class SomethingLikeMario
@@ -6,12 +5,19 @@ class SomethingLikeMario
   LAST_LEVEL = 5
 
   def initialize
-    last_level if ObjectSpace.each_object(self.class).count == LAST_LEVEL
+    greeting_message if last_level_reached?
   end
-  
-  def last_level
-    image = ['\(*-*)/ |Last level', '  |||   |', ' _/ \_  |']
-    image.each { |i| green i }
+
+  def greeting_message
+    image = ['  _o_ ',
+             '\(*-*)/ |Last level',
+             '  |||   |', 
+             ' _/ \_  |']
+    image.each { |i| puts green i }
+  end
+
+  def last_level_reached?
+    ObjectSpace.each_object(self.class).count == LAST_LEVEL
   end
 end
 

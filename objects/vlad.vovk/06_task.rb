@@ -23,10 +23,7 @@ class Maths
   end
 
   def take_color_index
-    colors = Colorize::COLORS
-    color = []
-    colors.each_value { |i| color.push i}
-    color.sample
+    Colorize::COLORS.values.sample
   end
 end
 

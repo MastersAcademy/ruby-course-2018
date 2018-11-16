@@ -9,7 +9,7 @@ module Colorize
 
   COLORS.each do |key, value|
     define_method key do |text|
-      colorize(text, value)
+      puts colorize(text, value)
     end
   end
 

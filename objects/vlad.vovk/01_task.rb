@@ -6,7 +6,7 @@ end
 
 class BattleToads
   include GameConstructor
-  attr_accessor :toad_health, :toad_strength, :toad_speed
+  attr_reader :toad_health, :toad_strength, :toad_speed
 
   def initialize(toad_health: 0,
                 toad_speed: 0,
@@ -37,14 +37,14 @@ class BattleToads
   end
 
   def show_toad_health
-    "Toad health is: #{@toad_health}"
+    "Toad health is: #{toad_health}"
   end
 
   def show_toad_speed
-    "Toad speed is: #{@toad_speed}"
+    "Toad speed is: #{toad_speed}"
   end
 
   def show_toad_strength
-    "Toad strength is: #{@toad_strength}"
+    "Toad strength is: #{toad_strength}"
   end
 end
