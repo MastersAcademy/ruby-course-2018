@@ -43,6 +43,10 @@ module GamesMethods
     puts "Level background #{@background}"
   end
 
+  def final_level
+    puts 'Sorry, Mario, but your princess in another castle'    
+  end
+
 end
 
 # end of module MariomMethods

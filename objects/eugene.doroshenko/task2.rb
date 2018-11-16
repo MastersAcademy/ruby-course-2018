@@ -8,7 +8,14 @@
 #І от на останньому рівні в нас має бути метод, який виводить фінальну заставку гри, яка не доступна на інших рівнях.
 
 class MarioGame
+
   attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
+
+  require_relative 'task1'
+  include GamesMethods
+  require 'objspace'
+
+  FINAL_LVL = 20
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
     @background = level_background
@@ -17,23 +24,12 @@ class MarioGame
     @level_number = level_number
   end
 
-  def change_level(new_level_number)
-    @level_number = new_level_number
+  def self.all_lvl
+    ObjectSpace.each_object(self).to_a
   end
 
-  def change_background(new_background_color)
-    @background = new_background_color
+  if all_lvl.count == FINAL_LVL
+    final_level #this method in module GamesMethods
   end
 
-  def change_speed_enemies(new_speed_enemies)
-    @speed_enemies = new_speed_enemies
-  end
-
-  def change_counf_of_enemies(new_count_of_enemies)
-    @enemies = new_count_of_enemies
-  end
-
-  def show_count_of_enemies
-    "Count of enemies on level is: #{@enemies}"
-  end
 end
