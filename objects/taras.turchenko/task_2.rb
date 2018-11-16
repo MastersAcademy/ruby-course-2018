@@ -1,5 +1,11 @@
 require './mario_game'
 
+class MarioGame
+  def show_final_screen
+    "It's not a final level"
+  end
+end
+
 def add_final_screen_to(game)
   game.instance_eval do
     def show_final_screen
