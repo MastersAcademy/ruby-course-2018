@@ -7,10 +7,10 @@ class Numbers
 
   def even_elements
     @args.flatten.select do |elem|
-      elem if elem.is_a?(Integer) && elem.even?
+      elem if elem.to_s.to_i.even?
     end
   end
 end
 
-arr = [nil, false, '212', '123', 1, 2, 3, 4, 5, 6]
+arr = [nil, false, 4.0, 0, '212', 'asd124', 1, 2, 3, 4, 5, 6, 0]
 puts Numbers.new(arr).even_elements
