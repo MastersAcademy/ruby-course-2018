@@ -1,13 +1,8 @@
 # task 7
 class Bracket
   def check_validate(string, brackets_pairs, brackets_symbols)
-    arr = string.split("")
     if brackets_pairs.has_key?(string[0])
-      array_of_symbols = []
-      arr.each do |x|
-        array_of_symbols << x if brackets_symbols.include? x
-      end
-
+      array_of_symbols = string.chars.select { |char| brackets_symbols.include? char }
       arr_compare_results = []
       if array_of_symbols.count.even?
         first_element = 0
@@ -40,6 +35,6 @@ brackets_symbols = ["(", ")", "{", "}", "[", "]"]
 # Try this strings:
 #string = '{(aaa})'
 #string = '{(aaa)'
- string = '{(aaa)}'
+string = '{(aaa)}'
 
 Bracket.new.check_validate(string, brackets_pairs, brackets_symbols)
