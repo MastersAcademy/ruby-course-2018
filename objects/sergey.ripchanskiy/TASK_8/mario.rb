@@ -1,5 +1,10 @@
 # Mario game class
 class Mario
+  USER_PARTS = {
+    user_body: 4,
+    user_top_bottom: 2
+  }.freeze
+
   def initialize
     @steps = 0
   end
@@ -20,10 +25,8 @@ class Mario
     @space_before_user = 5 + @steps
     @space_before_user_body = 4 + @steps
     @space_to_pyramid = 80 - @steps
-    @user_top_bottom = 2
-    @user_body = 4
-    @bu_space = @space_before_user + @user_top_bottom
-    @bb_space = @space_before_user_body + @user_body
+    @bu_space = @space_before_user + USER_PARTS[:user_top_bottom]
+    @bb_space = @space_before_user_body + USER_PARTS[:user_body]
 
     100.times do print '#' end
     puts ''
@@ -42,11 +45,11 @@ class Mario
     puts ''
     line6 = repeat(' ', @steps) + repeat(' ', @space_to_pyramid - 2) + repeat('#', 8)
     puts ''
-    line7 = repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', @user_top_bottom) + repeat(' ', @space_to_pyramid - 3 - @bu_space) + repeat('#', 10)
+    line7 = repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', USER_PARTS[:user_top_bottom]) + repeat(' ', @space_to_pyramid - 3 - @bu_space) + repeat('#', 10)
     puts ''
-    line8 = repeat(' ', @steps) + repeat(' ', @space_before_user_body) + repeat('#', @user_body) + repeat(' ', @space_to_pyramid - 4 - @bb_space) + repeat('#', 12)
+    line8 = repeat(' ', @steps) + repeat(' ', @space_before_user_body) + repeat('#', USER_PARTS[:user_body]) + repeat(' ', @space_to_pyramid - 4 - @bb_space) + repeat('#', 12)
     puts ''
-    line9 = repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', @user_top_bottom) + repeat(' ', @space_to_pyramid - 5 - @bu_space) + repeat('#', 14)
+    line9 = repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', USER_PARTS[:user_top_bottom]) + repeat(' ', @space_to_pyramid - 5 - @bu_space) + repeat('#', 14)
     puts ''
     100.times do print '#' end
     puts ''
