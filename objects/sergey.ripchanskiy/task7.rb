@@ -9,7 +9,7 @@ class Bracket
       end
 
       arr_compare_results = []
-      if (array_of_symbols.count % 2).zero?
+      if array_of_symbols.count.even?
         i = 0
         c = array_of_symbols.length - 1
         while i < array_of_symbols.count / 2
@@ -25,7 +25,7 @@ class Bracket
           puts 'Good job, buddy!'
         end
       else
-        puts 'The number of characters must be a couples'
+        puts 'The number of characters must be even'
       end
 
     else
@@ -37,8 +37,8 @@ brackets_pairs = {"(" => ")", "{" => "}", "[" => "]"}
 brackets_symbols = ["(", ")", "{", "}", "[", "]"]
 
 # Try this strings:
- string = '{(aaa})'
-# string = '{(aaa)'
+#string = '{(aaa})'
+ string = '{(aaa)'
 # string = '{(aaa)}'
 
 Bracket.new.check_validate(string, brackets_pairs, brackets_symbols)
