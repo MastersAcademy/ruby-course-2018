@@ -30,13 +30,13 @@ class Mario
 
     100.times do print '#' end
     puts ''
-    repeat(' ', 100) if !final_stage?
+    repeat(' ', 100) unless final_stage?
     repeat(' ', 80) + repeat('#', 3) if final_stage?
     puts ''
-    repeat(' ', 100) if !final_stage?
+    repeat(' ', 100) unless final_stage?
     repeat(' ', 80) + repeat('#', 3) if final_stage?
     puts ''
-    repeat(' ', 100) if !final_stage?
+    repeat(' ', 100) unless final_stage?
     repeat(' ', 82) + repeat('#', 1) if final_stage?
     puts ''
     repeat(' ', @steps) + repeat(' ', @space_to_pyramid) + repeat('#', 4)
