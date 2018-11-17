@@ -40,6 +40,4 @@ puts MarioGame.new(1, 2, 3, 4).show_count_of_enemies
 puts MarioGame.new(5, 18, 3, 4).show_count_of_enemies
 puts MarioGame.new(5, 7, 3, 4).show_count_of_enemies
 
-20.times do
-  MarioGame.new(5, 7, 3, 4)
-end
+20.times { MarioGame.new(5, 7, 3, 4) }
