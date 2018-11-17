@@ -2,7 +2,7 @@ require './mario'
 
 game = true
 current_game = Mario.new
-while game
+loop do game
   break if current_game.end_game?
   puts 'To move forward type "step"'
   command = gets.chomp.to_sym
