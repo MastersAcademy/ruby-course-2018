@@ -6,7 +6,7 @@ class ArrayFilter
   def select_even_numbers(array)
     validate(array)
 
-    array.map! { |item| item.to_i != 0 && item == item.to_i.to_s ? item.to_i : item }
+    array.map! { |item| item.to_i != 0 && item == item.to_i.to_s || item == '0' ? item.to_i : item }
 
     array.select { |item| item.is_a?(Integer) && item.even? }
   end
