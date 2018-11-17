@@ -1,4 +1,4 @@
-require './colorized_string'
+require_relative './colorized_string'
 
 string, color = ARGV
 

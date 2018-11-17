@@ -1,4 +1,4 @@
-require './task_1/base_game'
+require_relative './base_game'
 
 class TheWitcher
   include BaseGame

@@ -1,4 +1,4 @@
-require './task_8/console_io'
+require_relative './console_io'
 
 class Mario
   PERSON_WIDTH = 4

@@ -1,4 +1,4 @@
-require './mario_game'
+require_relative './mario_game'
 
 class MarioGame
   def show_final_screen

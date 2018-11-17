@@ -1,4 +1,4 @@
-require './dynamic_math'
+require_relative './dynamic_math'
 
 class DynamicMath
   OPERATIONS.each do |name, operation|

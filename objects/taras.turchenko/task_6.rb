@@ -1,5 +1,5 @@
-require './dynamic_math'
-require './colorized_string'
+require_relative './dynamic_math'
+require_relative './colorized_string'
 
 module ColorizedMath
   def random_colorizing(string)
