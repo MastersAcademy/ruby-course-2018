@@ -1,5 +1,7 @@
 # This is module Extencion for our games
 module Extension
+  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
+
   def show_count_of_enemies
     "Count of enemies on level is: #{@enemies}"
   end

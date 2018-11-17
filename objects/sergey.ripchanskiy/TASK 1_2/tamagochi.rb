@@ -2,7 +2,6 @@ require './extension'
 # Tamagochi game
 class Tamagochi
   include Extension
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
 
   def speed
     "#{@speed_enemies}.to_s" + ' km'

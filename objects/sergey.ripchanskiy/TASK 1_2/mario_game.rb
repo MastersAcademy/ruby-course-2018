@@ -3,7 +3,6 @@ require './extension'
 # Mario game
 class MarioGame
   include Extension
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
   LEVELS = 20
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
