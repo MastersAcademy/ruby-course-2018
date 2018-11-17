@@ -21,6 +21,33 @@ class Mario
     @steps >= 30
   end
 
+  def print_first_line
+    if final_stage?
+      repeat(' ', 80)
+      repeat('#', 3)
+    else
+      repeat(' ', 100)
+    end
+  end
+
+  def print_second_line
+    if final_stage?
+      repeat(' ', 80)
+      repeat('#', 3)
+    else
+      repeat(' ', 100)
+    end
+  end
+
+  def print_third_line
+    if final_stage?
+      repeat(' ', 82)
+      repeat('#', 1)
+    else
+      repeat(' ', 100)
+    end
+  end
+
   def step
     @space_before_user = 5 + @steps
     @space_before_user_body = 4 + @steps
@@ -30,14 +57,11 @@ class Mario
 
     100.times do print '#' end
     puts ''
-    repeat(' ', 100) unless final_stage?
-    repeat(' ', 80) + repeat('#', 3) if final_stage?
+    print_first_line
     puts ''
-    repeat(' ', 100) unless final_stage?
-    repeat(' ', 80) + repeat('#', 3) if final_stage?
+    print_second_line
     puts ''
-    repeat(' ', 100) unless final_stage?
-    repeat(' ', 82) + repeat('#', 1) if final_stage?
+    print_third_line
     puts ''
     repeat(' ', @steps) + repeat(' ', @space_to_pyramid) + repeat('#', 4)
     puts ''
