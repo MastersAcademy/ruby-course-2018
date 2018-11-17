@@ -1,17 +1,13 @@
 # Task 4,6
+require './colors'
+# Maths class
 class Maths
+  include Colors
   OPERATORS = {
     plus: '+',
     minus: '-',
     divide: '/',
     multiply: '*'
-  }.freeze
-
-  COLORS = {
-    minus: 31,
-    plus: 32,
-    devide: 33,
-    multiply: 34
   }.freeze
 
   def initialize(a, b)
