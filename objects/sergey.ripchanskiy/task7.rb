@@ -12,7 +12,8 @@ class Bracket
       if array_of_symbols.count.even?
         first_element = 0
         last_element = array_of_symbols.length - 1
-        while first_element < array_of_symbols.count / 2
+        count_of_iterations = array_of_symbols.count / 2
+        while first_element < count_of_iterations
           compare_elements = array_of_symbols[last_element] == brackets_pairs["#{array_of_symbols[first_element]}"]
           first_element += 1
           last_element -= 1
