@@ -10,13 +10,13 @@ class Bracket
 
       arr_compare_results = []
       if array_of_symbols.count.even?
-        i = 0
-        c = array_of_symbols.length - 1
-        while i < array_of_symbols.count / 2
-          x = array_of_symbols[c] == brackets_pairs["#{array_of_symbols[i]}"]
-          i += 1
-          c -= 1
-          arr_compare_results << x
+        first_element = 0
+        last_element = array_of_symbols.length - 1
+        while first_element < array_of_symbols.count / 2
+          compare_elements = array_of_symbols[last_element] == brackets_pairs["#{array_of_symbols[first_element]}"]
+          first_element += 1
+          last_element -= 1
+          arr_compare_results << compare_elements
         end
 
         if arr_compare_results.include? false
@@ -38,7 +38,7 @@ brackets_symbols = ["(", ")", "{", "}", "[", "]"]
 
 # Try this strings:
 #string = '{(aaa})'
- string = '{(aaa)'
-# string = '{(aaa)}'
+#string = '{(aaa)'
+ string = '{(aaa)}'
 
 Bracket.new.check_validate(string, brackets_pairs, brackets_symbols)
