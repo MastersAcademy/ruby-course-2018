@@ -4,10 +4,8 @@ class Mario
     @steps = 0
   end
 
-  def repeat(text, c)
-    c.times do
-      print text 
-    end
+  def repeat(text, quantity)
+    quantity.times do print text end
   end
 
   def end_game?
@@ -27,9 +25,7 @@ class Mario
     @bu_space = @space_before_user + @user_top_bottom
     @bb_space = @space_before_user_body + @user_body
 
-    100.times do
-      print '#'
-    end
+    100.times do print '#' end
     puts ''
     line1 = repeat(' ', 100) if !final_stage?
     line1 = repeat(' ', 80) + repeat('#', 3) if final_stage?
@@ -52,9 +48,7 @@ class Mario
     puts ''
     line9 = repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', @user_top_bottom) + repeat(' ', @space_to_pyramid - 5 - @bu_space) + repeat('#', 14)
     puts ''
-    100.times do
-      print '#'
-    end
+    100.times do print '#' end
     puts ''
     @steps += 10
   end
