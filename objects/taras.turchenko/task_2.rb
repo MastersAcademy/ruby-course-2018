@@ -1,15 +1,12 @@
 require_relative './mario_game'
 
 class MarioGame
-  def show_final_screen
-    "It's not a final level"
-  end
-end
-
-def add_final_screen_to(game)
-  game.instance_eval do
-    def show_final_screen
-      "My congratulations! It's end of the game"
+  def self.add_final_screen
+    last_instance = ObjectSpace.each_object(self).to_a.first
+    last_instance.instance_eval do
+      def show_final_screen
+        "My congratulations! It's end of the game"
+      end
     end
   end
 end
@@ -35,6 +32,5 @@ mario18 = MarioGame.new('Overworld', 29, 15, '5-2')
 mario19 = MarioGame.new('Athletic', 25, 16, '5-3')
 mario20 = MarioGame.new('Castle', 21, 17, '5-4')
 
-add_final_screen_to mario20
-
+MarioGame.add_final_screen
 puts mario20.show_final_screen
