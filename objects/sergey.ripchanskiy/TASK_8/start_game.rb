@@ -1,13 +1,13 @@
 require './mario'
 
 game = true
-start_game = Mario.new
+current_game = Mario.new
 while game
-  break if start_game.end_game?
+  break if current_game.end_game?
   puts 'To move forward type "step"'
   command = gets.chomp.to_sym
-  if start_game.methods.include?(command)
-    start_game.send(command.to_sym)
+  if current_game.methods.include?(command)
+    current_game.send(command.to_sym)
   elsif command == :exit
     break
   else
