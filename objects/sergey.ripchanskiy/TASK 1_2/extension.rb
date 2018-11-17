@@ -5,14 +5,14 @@ module Extension
   end
 
   def show_level_background
-    "Count of enemies on level is: #{@background}"
+    "Background level is: #{@background}"
   end
 
   def show_speed_enemies
-    "Count of enemies on level is: #{@speed_enemies}"
+    "Speed of enemies is: #{@speed_enemies}"
   end
 
   def show_level_number
-    "Count of enemies on level is: #{@level_number}"
+    "Nnumber of level is: #{@level_number}"
   end
 end
