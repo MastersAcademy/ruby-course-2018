@@ -6,38 +6,38 @@ class Mario
 	DISTANCE = 50
 	FLAG_OFFSET = DISTANCE + (PYRAMID_WIDTH / 2) - 3
 
-	attr_accessor :offset
+	attr_accessor :person_offset
 
 	def initialize
-		@offset = 0
+		self.person_offset = 0
+	end
+
+	def start
 		render
-		on_input until is_end?
+		read_input until end?
 		render_final
 	end
 
-	def is_end?
-		offset > DISTANCE - 9
+	def end?
+		person_offset > DISTANCE - 9
 	end
 
-	def on_input
-		readed_char = ConsoleIO::read_char
+	def read_input
+		readed_char = ConsoleIO.read_char
 
 		case readed_char
-		when ConsoleIO::BUTTONS[:ctrl_c]
-			puts "EXIT"
-			exit 0
 		when ConsoleIO::BUTTONS[:left]
-			@offset -= 1
+			self.person_offset -= 1 if person_offset > 0
 		when ConsoleIO::BUTTONS[:right]
-			@offset += 1
+			self.person_offset += 1
 		end
 
 		render
 	end
 
 	def render
-		unless is_end?
-			ConsoleIO::clear_screen
+		unless end?
+			ConsoleIO.clear_screen
 			puts "\n" * 4
 		end
 
@@ -46,8 +46,8 @@ class Mario
 		puts pyramid_top_offset + '        ####'
 		puts pyramid_top_offset + '      ########'
 
-		person_offset = ' ' * offset
-		pyramid_offset = ' ' * (DISTANCE - offset - PERSON_WIDTH)
+		person_offset = ' ' * self.person_offset
+		pyramid_offset = ' ' * (DISTANCE - self.person_offset - PERSON_WIDTH)
 
 		puts person_offset + ' ## ' + pyramid_offset + '    ############'
 		puts person_offset + '####' + pyramid_offset + '  ################'
@@ -59,16 +59,13 @@ class Mario
 		flag_chars_offset = ' ' * FLAG_OFFSET
 
 		4.times do |frame_number|
-			ConsoleIO::clear_screen
+			ConsoleIO.clear_screen
 
 			puts "\n" * (4 - frame_number)
 
 			frame_number.times do |flag_height|
-				if flag_height != 2
-					puts flag_chars_offset + '####'
-				else
-					puts flag_chars_offset + '   #'
-				end
+				flag_line = flag_height != 2 ? '####' :  '   #'
+				puts flag_chars_offset + flag_line
 			end
 
 			render
@@ -78,4 +75,4 @@ class Mario
 	end
 end
 
-Mario.new
+Mario.new.start

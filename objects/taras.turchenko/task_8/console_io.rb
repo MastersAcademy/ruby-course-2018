@@ -2,7 +2,6 @@ require 'io/console'
 
 module ConsoleIO
 	BUTTONS = {
-		ctrl_c: "\u0003",
 		left: "\e[D",
 		right: "\e[C"
 	}.freeze
@@ -10,7 +9,9 @@ module ConsoleIO
 	def self.read_char
 		STDIN.raw!
 		input = STDIN.getc.chr
-		input << STDIN.read_nonblock(2) rescue nil
+		input << STDIN.read_nonblock(2)
+	rescue IO::EAGAINWaitReadable
+		nil
 	ensure
 		STDIN.cooked!
 		input
