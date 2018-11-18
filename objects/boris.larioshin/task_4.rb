@@ -1,9 +1,9 @@
 class MathMethod
   OPERATORS = {
-      addition: '+',
-      subtraction: '-',
-      division: '/',
-      multiplication: '*'
+    addition: '+',
+    subtraction: '-',
+    division: '/',
+    multiplication: '*'
   }.freeze
 
   def initialize(first_arg, second_arg)

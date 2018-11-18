@@ -1,3 +1,4 @@
+# created class WorkWithArray for task number 3
 class WorkWithArray
   def integer?(item)
     item =~ /^-?\d+$/ ? true : false
