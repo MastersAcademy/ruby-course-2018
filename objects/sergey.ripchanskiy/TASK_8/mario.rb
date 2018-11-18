@@ -63,17 +63,35 @@ class Mario
     print_first_line
     print_second_line
     print_third_line
-    repeat(' ', @steps) + repeat(' ', @space_to_pyramid) + repeat('#', 4)
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid)
+    repeat('#', 4)
     puts ''
-    repeat(' ', @steps) + repeat(' ', @space_to_pyramid - 1) + repeat('#', 6)
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid - 1)
+    repeat('#', 6)
     puts ''
-    repeat(' ', @steps) + repeat(' ', @space_to_pyramid - 2) + repeat('#', 8)
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid - 2)
+    repeat('#', 8)
     puts ''
-    repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', USER_PARTS[:user_top_bottom]) + repeat(' ', @space_to_pyramid - 3 - @bu_space) + repeat('#', 10)
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user)
+    repeat('#', USER_PARTS[:user_top_bottom])
+    repeat(' ', @space_to_pyramid - 3 - @bu_space)
+    repeat('#', 10)
     puts ''
-    repeat(' ', @steps) + repeat(' ', @space_before_user_body) + repeat('#', USER_PARTS[:user_body]) + repeat(' ', @space_to_pyramid - 4 - @bb_space) + repeat('#', 12)
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user_body)
+    repeat('#', USER_PARTS[:user_body])
+    repeat(' ', @space_to_pyramid - 4 - @bb_space)
+    repeat('#', 12)
     puts ''
-    repeat(' ', @steps) + repeat(' ', @space_before_user) + repeat('#', USER_PARTS[:user_top_bottom]) + repeat(' ', @space_to_pyramid - 5 - @bu_space) + repeat('#', 14)
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user)
+    repeat('#', USER_PARTS[:user_top_bottom])
+    repeat(' ', @space_to_pyramid - 5 - @bu_space)
+    repeat('#', 14)
     puts ''
     100.times { print '#' }
     puts ''
