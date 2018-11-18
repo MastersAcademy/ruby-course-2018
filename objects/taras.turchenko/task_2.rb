@@ -1,14 +1,14 @@
 require_relative './mario_game'
 
 class MarioGame
-  def self.add_final_screen
-    last_instance = ObjectSpace.each_object(self).to_a.first
-    last_instance.instance_eval do
-      def show_final_screen
-        "My congratulations! It's end of the game"
-      end
-    end
-  end
+	def self.add_final_screen
+		last_instance = ObjectSpace.each_object(self).to_a.first
+		last_instance.instance_eval do
+			def show_final_screen
+				"My congratulations! It's end of the game"
+			end
+		end
+	end
 end
 
 mario1 = MarioGame.new('Overworld', 21, 10, '1-1')
