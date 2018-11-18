@@ -1,12 +1,12 @@
 require_relative './dynamic_math'
 
 class DynamicMath
-	OPERATIONS.each do |name, operation|
-		define_method(name) do
-			result = a.send(operation, b)
-			"#{a} #{operation} #{b} = #{result}"
-		end
-	end
+  OPERATIONS.each do |name, operation|
+    define_method(name) do
+      result = a.send(operation, b)
+      "#{a} #{operation} #{b} = #{result}"
+    end
+  end
 end
 
 first_number, operation, second_number = ARGV
