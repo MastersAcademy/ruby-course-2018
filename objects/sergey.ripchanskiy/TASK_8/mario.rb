@@ -10,7 +10,7 @@ class Mario
   end
 
   def repeat(text, quantity)
-    quantity.times do print text end
+    quantity.times { print text }
   end
 
   def end_game?
