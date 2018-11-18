@@ -21,4 +21,3 @@ class ColoredText
     define_method(name) { "\e[#{color_code}m#{text_line}\e[0m" }
   end
 end
-
