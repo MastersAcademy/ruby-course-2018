@@ -28,6 +28,7 @@ class Mario
     else
       repeat(' ', 100)
     end
+    puts ''
   end
 
   def print_second_line
@@ -37,6 +38,7 @@ class Mario
     else
       repeat(' ', 100)
     end
+    puts ''
   end
 
   def print_third_line
@@ -46,6 +48,7 @@ class Mario
     else
       repeat(' ', 100)
     end
+    puts ''
   end
 
   def step
@@ -58,11 +61,8 @@ class Mario
     100.times { print '#' }
     puts ''
     print_first_line
-    puts ''
     print_second_line
-    puts ''
     print_third_line
-    puts ''
     repeat(' ', @steps) + repeat(' ', @space_to_pyramid) + repeat('#', 4)
     puts ''
     repeat(' ', @steps) + repeat(' ', @space_to_pyramid - 1) + repeat('#', 6)
