@@ -1,7 +1,7 @@
 # Implement a class for mathematical operations. Result of each operation must be displayed in a different color
 # Supported operations: plus, minus, divide, multiply
 
-require './math_operations'
+require_relative 'math_operations'
 
 class Calc
   include MathOperations
