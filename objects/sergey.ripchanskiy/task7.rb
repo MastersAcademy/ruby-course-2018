@@ -5,13 +5,14 @@ class Bracket
       array_of_symbols = string.chars.select { |char| brackets_symbols.include? char }
       arr_compare_results = []
       if array_of_symbols.count.even?
-        first_element = 0
-        last_element = array_of_symbols.length - 1
+        first_element_index = 0
+        last_element_index = array_of_symbols.length - 1
         count_of_iterations = array_of_symbols.count / 2
-        while first_element < count_of_iterations
-          compare_elements = array_of_symbols[last_element] == brackets_pairs["#{array_of_symbols[first_element]}"]
-          first_element += 1
-          last_element -= 1
+        while first_element_index < count_of_iterations
+          opened_bracket = array_of_symbols[first_element_index]
+          compare_elements = array_of_symbols[last_element_index] == brackets_pairs["#{opened_bracket}"]
+          first_element_index += 1
+          last_element_index -= 1
           arr_compare_results << compare_elements
         end
 
