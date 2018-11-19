@@ -1,8 +1,8 @@
+require_relative 'games_methods'
+
 class TanksGame
 
   attr_accessor :level_map
-
-  require_relative 'games_methods'
   include GamesMethods
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number, level_map)

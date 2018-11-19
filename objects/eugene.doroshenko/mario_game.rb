@@ -1,6 +1,7 @@
+require_relative 'games_methods'
+
 class MarioGame
 
-  require_relative 'games_methods'
   include GamesMethods
   
   FINAL_LVL = 20
