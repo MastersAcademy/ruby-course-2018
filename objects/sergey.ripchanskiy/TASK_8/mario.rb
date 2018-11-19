@@ -51,6 +51,11 @@ class Mario
     puts ''
   end
 
+  def print_solid_line
+    100.times { print '#' }
+    puts ''
+  end
+
   def step
     @space_before_user = 5 + @steps
     @space_before_user_body = 4 + @steps
@@ -58,8 +63,7 @@ class Mario
     @bu_space = @space_before_user + USER_PARTS[:user_top_bottom]
     @bb_space = @space_before_user_body + USER_PARTS[:user_body]
 
-    100.times { print '#' }
-    puts ''
+    print_solid_line
     print_first_line
     print_second_line
     print_third_line
@@ -93,8 +97,7 @@ class Mario
     repeat(' ', @space_to_pyramid - 5 - @bu_space)
     repeat('#', 14)
     puts ''
-    100.times { print '#' }
-    puts ''
+    print_solid_line
     @steps += 10
   end
 end
