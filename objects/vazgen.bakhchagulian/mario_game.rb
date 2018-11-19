@@ -1,4 +1,6 @@
 module GameExtensions
+  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
+
   def show_background
     "Level background is: #{@background}"
   end
@@ -15,6 +17,13 @@ module GameExtensions
     "Level is: #{@level_number}"
   end
 
+  def assign(level_background, count_of_enemies, speed_enemies, level_number)
+    @background = level_background
+    @enemies = count_of_enemies
+    @speed_enemies = speed_enemies
+    @level_number = level_number
+  end
+
   def final_level_background
     puts "You're on final level"
   end
@@ -22,27 +31,23 @@ end
 
 class Tetris
   include GameExtensions
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
+
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
-    @background = level_background
-    @enemies = count_of_enemies
-    @speed_enemies = speed_enemies
-    @level_number = level_number
+    assign(level_background, count_of_enemies, speed_enemies, level_number)
   end
 end
 
 class MarioGame
   include GameExtensions
 
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
-
   FINAL_LEVEL = 20
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
-    @background = level_background
-    @enemies = count_of_enemies
-    @speed_enemies = speed_enemies
-    @level_number = level_number
+    assign(level_background, count_of_enemies, speed_enemies, level_number)
+    on_final_level?
+  end
+
+  def on_final_level?
     if ObjectSpace.each_object(self.class).count >= FINAL_LEVEL
       final_level_background
     end
@@ -63,8 +68,6 @@ class MarioGame
   def change_counf_of_enemies(new_count_of_enemies)
     @enemies = new_count_of_enemies
   end
-
-
 end
 
 level_background = 1
