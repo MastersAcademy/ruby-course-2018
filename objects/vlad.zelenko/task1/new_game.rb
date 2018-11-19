@@ -1,4 +1,4 @@
-require_relative "output_methods"
+require "output_methods"
 
 class NewGame
   include OutPutMethods

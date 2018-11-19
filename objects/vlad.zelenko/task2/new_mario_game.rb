@@ -1,4 +1,4 @@
-require_relative "../../mario_game"
+require "../../mario_game"
 
 class NewMarioGame < MarioGame; end
 

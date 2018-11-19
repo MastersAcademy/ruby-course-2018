@@ -1,7 +1,7 @@
 class DynamicMath
-  def initialize(num_1,num_2)
-    @num_1 = num_1
-    @num_2 = num_2
+  def initialize(first_num,second_num)
+    @first_num = first_num
+    @second_num = second_num
   end
 
   OPERATORS = {
@@ -13,12 +13,14 @@ class DynamicMath
 
   OPERATORS.each do |method_name, operator|
     define_method method_name do
-      @num_1.send(operator.to_sym, @num_2)
+      @first_num.send(operator.to_sym, @second_num)
+    rescue ZeroDivisionError
+      "Cannot be divided by 0"
     end
   end
 end 
 
-dynamic_math = DynamicMath.new(2, 3)
+dynamic_math = DynamicMath.new(3, 2)
 p dynamic_math.multiplication
 p dynamic_math.plus
 p dynamic_math.divide

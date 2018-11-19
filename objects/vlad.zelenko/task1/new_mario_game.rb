@@ -1,5 +1,5 @@
-require_relative "../../mario_game"
-require_relative "output_methods"
+require "../../mario_game"
+require "output_methods"
 
 class NewMarioGame < MarioGame
   include OutPutMethods
