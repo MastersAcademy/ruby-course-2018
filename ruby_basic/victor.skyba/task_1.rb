@@ -4,7 +4,7 @@ ZONES = {
   new_york: '-06:00',
   astana: '+06:00',
   tokyo: '+09:00'
-  }
+  }.freeze
 
 def local_time(timezone)
   settled_time = ZONES[timezone]

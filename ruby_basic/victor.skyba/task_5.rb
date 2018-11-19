@@ -7,7 +7,7 @@ find = gets.chomp
 file = File.new(file)
 
 file.each_with_index do |line, index|
-  if line.chomp == find
+  if line.chomp value.include?
     p index + 1
   end
 end
