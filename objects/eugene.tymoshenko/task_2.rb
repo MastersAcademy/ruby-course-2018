@@ -1,6 +1,6 @@
 class MarioGame
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies
-  attr_reader :level_number
+  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
+  private :level_number=
 
   class << self
     def define_last_level_notice
@@ -14,7 +14,7 @@ class MarioGame
     self.level_background = level_background
     self.count_of_enemies = count_of_enemies
     self.speed_enemies    = speed_enemies
-    @level_number         = ObjectSpace.each_object(MarioGame).count
+    self.level_number     = ObjectSpace.each_object(MarioGame).count
     add_last_level_notice
   end
 
