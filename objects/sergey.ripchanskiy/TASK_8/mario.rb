@@ -5,6 +5,11 @@ class Mario
     user_top_bottom: 2
   }.freeze
 
+  LINE_SEQUENCE = %i(
+    solid first second third fourth fifth
+    sixth seventh eighth ninth solid
+  ).freeze
+
   def initialize
     @steps = 0
   end
@@ -110,17 +115,7 @@ class Mario
     @space_to_pyramid = 80 - @steps
     @bu_space = @space_before_user + USER_PARTS[:user_top_bottom]
     @bb_space = @space_before_user_body + USER_PARTS[:user_body]
-    print_solid_line
-    print_first_line
-    print_second_line
-    print_third_line
-    print_fourth_line
-    print_fifth_line
-    print_sixth_line
-    print_seventh_line
-    print_eighth_line
-    print_ninth_line
-    print_solid_line
+    LINE_SEQUENCE.each { |line_name| send("print_#{line_name}_line") }
     @steps += 10
   end
 end
