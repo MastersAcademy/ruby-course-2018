@@ -1,14 +1,14 @@
 module Colorize
   color_codes = {
-      :black => 30,
-      :red => 31,
-      :green => 32,
-      :yellow => 33,
-      :blue => 34,
-      :pink => 35,
-      :light_blue => 36,
-      :grey => 37,
-      :gray => 37
+      black: 30,
+      red: 31,
+      green: 32,
+      yellow: 33,
+      blue: 34,
+      pink: 35,
+      light_blue: 36,
+      grey: 37,
+      gray: 37
   }.freeze
 
   color_codes.each do |key, value|

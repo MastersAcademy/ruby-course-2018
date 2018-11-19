@@ -2,10 +2,10 @@ module Brackets
   def parentheses_valid?
     stack = []
     mapping = {
-        ")" => "(",
-        "}" => "{",
-        "]" => "[",
-        # ">" => "<"
+        ')' => '(',
+        '}' => '{',
+        ']' => '[',
+        # '>' => '<'
     }
 
     self.each_char do |char|
