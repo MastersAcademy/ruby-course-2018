@@ -23,7 +23,7 @@ module GamesMethods
   end
 
   def show_enemy_speed
-    puts "Anemy speed is: #{@speed_enemies}"
+    puts "Enemy speed is: #{@speed_enemies}"
   end
 
   def show_level

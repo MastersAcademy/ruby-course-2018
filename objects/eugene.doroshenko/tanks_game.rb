@@ -14,19 +14,13 @@ class TanksGame
   end
 
   def level_map (new_level_map)
-    @lev_map = new_count_of_enemies
+    @lvl_map = new_level_map
   end
 
   def show_level_map
-    "Level map is: #{@lev_map}"
+    "Level map is: #{@lvl_map}"
   end
 
 end
 
-lvl_bground = 1
-cnt_of_enems = 15
-spd_enems = 1 
-lvl_number = 1
-lvl_map = 1
-
-TanksGame.new(lvl_bground, cnt_of_enems, spd_enems, lvl_number, lvl_map)
+80.times {TanksGame.new(1, 20, 1, 1, 1)}
