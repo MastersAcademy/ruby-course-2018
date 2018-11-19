@@ -51,6 +51,54 @@ class Mario
     puts ''
   end
 
+  def print_fourth_line
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid)
+    repeat('#', 4)
+    puts ''
+  end
+
+  def print_fifth_line
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid - 1)
+    repeat('#', 6)
+    puts ''
+  end
+
+  def print_sixth_line
+    repeat(' ', @steps)
+    repeat(' ', @space_to_pyramid - 2)
+    repeat('#', 8)
+    puts ''
+  end
+
+  def print_seventh_line
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user)
+    repeat('#', USER_PARTS[:user_top_bottom])
+    repeat(' ', @space_to_pyramid - 3 - @bu_space)
+    repeat('#', 10)
+    puts ''
+  end
+
+  def print_eighth_line
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user_body)
+    repeat('#', USER_PARTS[:user_body])
+    repeat(' ', @space_to_pyramid - 4 - @bb_space)
+    repeat('#', 12)
+    puts ''
+  end
+
+  def print_ninth_line
+    repeat(' ', @steps)
+    repeat(' ', @space_before_user)
+    repeat('#', USER_PARTS[:user_top_bottom])
+    repeat(' ', @space_to_pyramid - 5 - @bu_space)
+    repeat('#', 14)
+    puts ''
+  end
+
   def print_solid_line
     100.times { print '#' }
     puts ''
@@ -62,41 +110,16 @@ class Mario
     @space_to_pyramid = 80 - @steps
     @bu_space = @space_before_user + USER_PARTS[:user_top_bottom]
     @bb_space = @space_before_user_body + USER_PARTS[:user_body]
-
     print_solid_line
     print_first_line
     print_second_line
     print_third_line
-    repeat(' ', @steps)
-    repeat(' ', @space_to_pyramid)
-    repeat('#', 4)
-    puts ''
-    repeat(' ', @steps)
-    repeat(' ', @space_to_pyramid - 1)
-    repeat('#', 6)
-    puts ''
-    repeat(' ', @steps)
-    repeat(' ', @space_to_pyramid - 2)
-    repeat('#', 8)
-    puts ''
-    repeat(' ', @steps)
-    repeat(' ', @space_before_user)
-    repeat('#', USER_PARTS[:user_top_bottom])
-    repeat(' ', @space_to_pyramid - 3 - @bu_space)
-    repeat('#', 10)
-    puts ''
-    repeat(' ', @steps)
-    repeat(' ', @space_before_user_body)
-    repeat('#', USER_PARTS[:user_body])
-    repeat(' ', @space_to_pyramid - 4 - @bb_space)
-    repeat('#', 12)
-    puts ''
-    repeat(' ', @steps)
-    repeat(' ', @space_before_user)
-    repeat('#', USER_PARTS[:user_top_bottom])
-    repeat(' ', @space_to_pyramid - 5 - @bu_space)
-    repeat('#', 14)
-    puts ''
+    print_fourth_line
+    print_fifth_line
+    print_sixth_line
+    print_seventh_line
+    print_eighth_line
+    print_ninth_line
     print_solid_line
     @steps += 10
   end
