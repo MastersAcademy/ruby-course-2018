@@ -1,7 +1,7 @@
 # task 7
 class Bracket
   def check_validate(string, brackets_pairs, brackets_symbols)
-    if brackets_pairs.has_key?(string[0])
+    if brackets_pairs.key?(string[0])
       array_of_symbols = string.chars.select { |char| brackets_symbols.include? char }
       arr_compare_results = []
       if array_of_symbols.count.even?
