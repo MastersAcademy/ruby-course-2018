@@ -1,4 +1,4 @@
-require_relative 'initializer'
+require './initializer'
 class MarioGame
   include GameModuls
 
@@ -7,22 +7,26 @@ class MarioGame
     @count_of_enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
+    define_show_last_screen if last_level?
   end
 
   # Second task
 
-  def last_level
-    if @level_number == 20
-      show_final_screen
-    elsif p "Your level is #{level_number},to finish game you need: 20"
+  private
+
+  def define_show_last_screen
+    self.instance_eval do
+      def show_final_screen
+        file = File.open('final.txt', 'r') do |text|
+          text.each_line { |line| print line }
+        end
+        file.close
+      end
     end
   end
 
-  def show_final_screen
-    file = File.open('final.txt', 'r') do |text|
-      text.each_line { |line| print line }
-    end
-    file.close
+  def last_level?
+    @level_number == 20
   end
 end
 
@@ -51,4 +55,4 @@ p mario5.show_count_of_enemies
 p mario5.show_level_number
 p mario5.show_background_color
 p mario5.show_speed_of_enemies
-mario19.last_level
+mario19.show_final_screen

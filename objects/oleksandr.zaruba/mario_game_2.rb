@@ -1,4 +1,4 @@
-require_relative 'initializer'
+require './initializer'
 class MarioGame
   include GameModuls
 
@@ -7,15 +7,15 @@ class MarioGame
     @count_of_enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
+    last_level?
   end
 
   # Second task
 
-  def last_level
-    if @level_number == 20
-      show_final_screen
-    elsif p "Your level is #{level_number},to finish game you need: 20"
-    end
+  private
+
+  def last_level?
+    show_final_screen if @level_number == 20
   end
 
   def show_final_screen
@@ -47,8 +47,7 @@ mario18 = MarioGame.new(9, 37, 5, 18)
 mario19 = MarioGame.new(10, 39, 5, 19)
 mario20 = MarioGame.new(10, 41, 5, 20)
 
-p mario5.show_count_of_enemies
-p mario5.show_level_number
-p mario5.show_background_color
-p mario5.show_speed_of_enemies
-mario19.last_level
+p mario1.show_count_of_enemies
+p mario1.show_level_number
+p mario1.show_background_color
+p mario1.show_speed_of_enemies
