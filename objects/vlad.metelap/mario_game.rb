@@ -1,9 +1,7 @@
 require './extramodule'
 
-# Mario game
 class MarioGame
   include Extramodule
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
   LEVELS = 20
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
@@ -11,8 +9,8 @@ class MarioGame
     @enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
-    count = ObjectSpace.each_object(self.class).count
-    final_level if count == LEVELS
+    objects_number = ObjectSpace.each_object(self.class).count
+    final_level if objects_number == LEVELS
   end
 
   def change_level(new_level_number)
@@ -32,15 +30,16 @@ class MarioGame
   end
 
   def final_level
-    puts 'This is final level'
+    puts 'This is the FINAL LEVEL!!!'
+    puts
   end
 end
 
+#Task #2
+20.times { |i| puts MarioGame.new(5, 7, 3, i).show_level_number }
+
+#Task #1
 MarioGame.new(5, 2, 3, 4).show_count_of_enemies
 MarioGame.new(3, 1, 3, 4).show_level_background
 MarioGame.new(2, 6, 5, 4).show_speed_enemies
 MarioGame.new(1, 7, 3, 4).show_level_number
-
-20.times do |i|
-  puts MarioGame.new(5, 7, 3, i).show_level_number
-end
