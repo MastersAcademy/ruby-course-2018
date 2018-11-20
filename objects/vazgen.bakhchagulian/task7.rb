@@ -1,17 +1,16 @@
 module Brackets
+  MAPPING = {
+      ')' => '(',
+      '}' => '{',
+      ']' => '[',
+      '>' => '<'
+  }
   def parentheses_valid?
     stack = []
-    mapping = {
-        ')' => '(',
-        '}' => '{',
-        ']' => '[',
-        # '>' => '<'
-    }
-
     each_char do |char|
-      if mapping.has_key?(char)
+      if MAPPING.has_key?(char)
         top_element = stack.empty? ? '#' : stack.pop
-        if mapping[char] != top_element
+        if MAPPING[char] != top_element
           return false
         end
       else
