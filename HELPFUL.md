@@ -9,6 +9,7 @@
 ##### http://rubular.com/ - прекрасний чекер регулярних виразів
 ##### https://habr.com/post/143990/ - прекрасна стаття по метакласам
 ##### https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md - стайлгайд по рубі. Пишіть, притримуючись його
+##### http://rusrails.ru/active-record-basics - матеріали по ActiveRecord
 ## Literature
 ###### https://goo.gl/ovP247 - книга від самого автора Ruby
 ##### https://goo.gl/Eq2mnx - чудесна книга по метапрограмуванню в Ruby
