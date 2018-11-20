@@ -15,7 +15,7 @@ class MarioGame
   end
 
   def reached_final_lvl?
-      ObjectSpace.each_object(self.class).count == FINAL_LVL
+    ObjectSpace.each_object(self.class).count == FINAL_LVL
   end
 
 end
