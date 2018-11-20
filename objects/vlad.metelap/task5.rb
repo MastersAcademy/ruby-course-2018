@@ -27,8 +27,8 @@ class StringColored
   def initialize(text)
     @text = text
   end
-  colours = {black: "black", red: "red", green: "green", blue: "blue"}.freeze
-  colours.each do |method_name, colour|
+  COLOURS = {black: "black", red: "red", green: "green", blue: "blue"}.freeze
+  COLOURS.each do |method_name, colour|
     define_method method_name do
       @text.send(colour)
     end
@@ -37,4 +37,7 @@ class StringColored
 
 end
 
-puts StringColored.new('Hello,World!').green
+puts StringColored.new('Hello, GREEN World!').green
+puts StringColored.new('Hello, BLACK World!').black
+puts StringColored.new('Hello, RED World!').red
+puts StringColored.new('Hello, BLUE World!').blue
