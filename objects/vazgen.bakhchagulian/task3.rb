@@ -1,12 +1,6 @@
 module EvenNumbers
   def even_numbers
-    even_numbers = []
-    self.each do |f|
-      if f%2==0
-        even_numbers << f
-      end
-    end
-    even_numbers
+    select { |f| f % 2 == 0 }
   end
 end
 

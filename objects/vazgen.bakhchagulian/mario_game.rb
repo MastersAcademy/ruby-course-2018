@@ -23,10 +23,6 @@ module GameExtensions
     @speed_enemies = speed_enemies
     @level_number = level_number
   end
-
-  def final_level_background
-    puts "You're on final level"
-  end
 end
 
 class Tetris
@@ -44,12 +40,12 @@ class MarioGame
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
     assign(level_background, count_of_enemies, speed_enemies, level_number)
-    on_final_level?
+    final_level
   end
 
-  def on_final_level?
+  def final_level
     if ObjectSpace.each_object(self.class).count >= FINAL_LEVEL
-      final_level_background
+      puts "You're on final level"
     end
   end
 

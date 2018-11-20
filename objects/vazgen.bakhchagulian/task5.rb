@@ -1,5 +1,5 @@
 module Colorize
-  color_codes = {
+  COLOR_CODES = {
       black: 30,
       red: 31,
       green: 32,
@@ -11,7 +11,7 @@ module Colorize
       gray: 37
   }.freeze
 
-  color_codes.each do |key, value|
+  COLOR_CODES.each do |key, value|
     define_method key do
       # Using puts directly in method, because colorization is not usable beyond UNIX console
       puts "\e[#{value}m#{self}\e[0m"

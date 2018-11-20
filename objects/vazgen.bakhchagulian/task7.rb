@@ -8,13 +8,9 @@ module Brackets
         # '>' => '<'
     }
 
-    self.each_char do |char|
+    each_char do |char|
       if mapping.has_key?(char)
-        if !stack.empty?
-          top_element = stack.pop
-        else
-          top_element = '#'
-        end
+        top_element = stack.empty? ? '#' : stack.pop
         if mapping[char] != top_element
           return false
         end
@@ -22,8 +18,7 @@ module Brackets
         stack.push(char)
       end
     end
-
-    return stack.empty?
+    stack.empty?
   end
 end
 
