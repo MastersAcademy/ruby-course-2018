@@ -1,5 +1,4 @@
 module GameFeature
-
   def show_count_of_enemies
     "Count of enemies on level is: #{@enemies}"
   end
@@ -18,16 +17,14 @@ module GameFeature
 end
 
 class MarioGame
-
   include GameFeature
-
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
     @background = level_background
     @enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
-
   end
+
   def change_level(new_level_number)
     @level_number = new_level_number
   end
@@ -46,9 +43,7 @@ class MarioGame
 end
 
 class Crash
-
   include GameFeature
-
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
     @background = level_background
     @enemies = count_of_enemies
@@ -56,5 +51,4 @@ class Crash
     @level_number = level_number
   end
 end
-
 MarioGame.new(13, 13, 13, 13)
