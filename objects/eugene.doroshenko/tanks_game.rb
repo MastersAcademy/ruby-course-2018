@@ -22,6 +22,4 @@ class TanksGame
 
 end
 
-puts TanksGame.new(5, 50, 5, 2, 5).show_level_map
-
-80.times {TanksGame.new(1, 20, 1, 1, 1)}
+5.times {puts TanksGame.new(1, 20, 1, 1, 1).show_level_map}
