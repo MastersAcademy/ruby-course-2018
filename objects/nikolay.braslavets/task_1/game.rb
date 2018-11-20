@@ -19,19 +19,19 @@ module Game
 
   module ShowHelper
     def show_count_of_enemies
-      "Count of enemies on level is: #{@enemies}"
+      puts "Count of enemies on level is: #{@enemies}"
     end
 
     def show_speed_enemies
-      "Speed of enemies on level is: #{@speed_enemies}"
+      puts "Speed of enemies on level is: #{@speed_enemies} mPh"
     end
 
     def show_background_color
-      "Background color is: #{@background}"
+      puts "Background color is: #{@background}"
     end
 
     def show_level
-      "You in level number: #{@level_number}"
+      puts "You in level number: #{@level_number}"
     end
   end
 end

@@ -2,29 +2,47 @@ require './game'
 
 class MortalVombat
   include Game
-  attr_accessor(
-    :angry,
-    :level_number,
-    :count_of_enemies,
-  )
+  include ShowHelper
+  include ChangeHelper
 
-  def initialize
+  attr_accessor :angry,
+                :level_number,
+                :count_of_enemies
+
+  def initialize(level_number, count_of_enemies, angry)
     @level_number = level_number
     @enemies = count_of_enemies
     @angry = angry
   end
 
-  level_number, count_of_enemies, angry = 1, 0, 0
-
-  def vombat_start
-    unless angry || count_of_enemies == 0
-      puts 'You are a pacifist, you can not be afraid. On this level...'
+  def play
+    if @angry&&@enemies.zero?
+      puts 'You are a pacifist, you can not be afraid. You move to next level..'
     end
   end
 
-MortalVombat.new.vombat_start
-sleep 0.5
-puts "You on #{level_number} level, you has #{count_of_enemies} enemies."
-sleep 0.5
-puts 'See you letter'
+  def kill
+    puts 'You kill yourself. Go to work'
+  end
+
+  def change_angry(new_count_angry)
+    @angry = new_count_angry
+  end
+
+  def show_count_angry
+    puts "Count of angry on level is: #{@angry}"
+  end
 end
+
+vombat = MortalVombat.new(1, 0, 0)
+vombat.play
+sleep 1
+vombat.change_level(1)
+vombat.change_counf_of_enemies(15)
+vombat.change_angry(10)
+sleep 1
+vombat.show_level
+vombat.show_count_of_enemies
+vombat.show_count_angry
+sleep 1
+vombat.kill
