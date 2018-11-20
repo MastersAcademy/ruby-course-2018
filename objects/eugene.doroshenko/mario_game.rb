@@ -11,9 +11,11 @@ class MarioGame
     @enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
-    if ObjectSpace.each_object(self.class).count == FINAL_LVL
-      final_level
-    end
+    final_level if reached_final_lvl?
+  end
+
+  def reached_final_lvl?
+      ObjectSpace.each_object(self.class).count == FINAL_LVL
   end
 
 end
