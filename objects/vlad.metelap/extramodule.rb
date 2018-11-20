@@ -5,14 +5,14 @@ module Extramodule
   end
 
   def show_level_background
-    puts "Count of enemies on level is: #{@background}"
+    puts "background level is: #{@background}"
   end
 
   def show_speed_enemies
-    puts "Count of enemies on level is: #{@speed_enemies}"
+    puts "Level of enemies speed is: #{@speed_enemies}"
   end
 
   def show_level_number
-    puts "Count of enemies on level is: #{@level_number}"
+    puts "Level number is: #{@level_number}"
   end
 end
