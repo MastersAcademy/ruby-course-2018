@@ -19,19 +19,19 @@ module GamesMethods
   end
 
   def show_count_of_enemies
-    puts "Count of enemies on level is: #{@enemies}"
+    "Count of enemies on level is: #{@enemies}"
   end
 
   def show_enemy_speed
-    puts "Enemy speed is: #{@speed_enemies}"
+    "Enemy speed is: #{@speed_enemies}"
   end
 
   def show_level
-    puts "Level #{@level_number}"
+    "Level #{@level_number}"
   end
 
   def show_background
-    puts "Level background #{@background}"
+    "Level background #{@background}"
   end
 
   def final_level
