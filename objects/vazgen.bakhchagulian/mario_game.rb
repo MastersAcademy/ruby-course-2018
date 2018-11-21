@@ -1,6 +1,4 @@
 module GameExtensions
-  attr_accessor :level_background, :count_of_enemies, :speed_enemies, :level_number
-
   def show_background
     "Level background is: #{@background}"
   end

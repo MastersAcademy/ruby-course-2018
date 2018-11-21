@@ -21,8 +21,6 @@ module Brackets
   end
 end
 
-class String
-  include Brackets
-end
+String.include Brackets
 
-puts ARGV[0].parentheses_valid? ? "valid" : "invalid"
+puts ARGV[0].gsub(/\w*\s*/, '').parentheses_valid? ? "valid" : "invalid"
