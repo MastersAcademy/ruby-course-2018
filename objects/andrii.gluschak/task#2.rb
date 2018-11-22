@@ -15,6 +15,7 @@ module GameFeature
     "show level number is:#{@level_number}"
   end
 end
+
 class MarioGame
   include GameFeature
   LEVEL = 20
@@ -41,10 +42,16 @@ class MarioGame
     @enemies = new_count_of_enemies
   end
 
+  def final_level_method
+    final_message if last_level_reached?
+  end
+
   def final_message
-    if ObjectSpace.each_object(MarioGame).count == LEVEL
-    p "You, Win"
-    end
+    "You, Win"
+  end
+
+  def last_level_reached?
+    ObjectSpace.each_object(MarioGame).count == LEVEL
   end
 end
 
@@ -77,4 +84,4 @@ mario17 = MarioGame.new(3, 4, 2, 9)
 mario18 = MarioGame.new(3, 4, 2, 9)
 mario19 = MarioGame.new(1, 4, 2, 1)
 mario20 = MarioGame.new(3, 5, 6, 7)
-mario20.final_message
+p mario20.final_level_method
