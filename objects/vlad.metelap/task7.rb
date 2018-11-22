@@ -1,9 +1,8 @@
 # task 7
 class Parentheses
   def check_validate(string, parentheses_pairs, parentheses_symbols)
-    arr = string.chars
     if parentheses_pairs.key?(string[0])
-      array_of_symbols = arr.select {|x| parentheses_symbols.include? x}
+      string.chars.select {|character| parentheses_symbols.include? character}
       arr_compare_results = []
       if array_of_symbols.count.even?
         first_element_index = 0

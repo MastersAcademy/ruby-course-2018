@@ -31,7 +31,6 @@ class MarioGame
 
   def final_level
     puts 'This is the FINAL LEVEL!!!'
-    puts
   end
 end
 
