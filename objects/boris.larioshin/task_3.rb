@@ -9,19 +9,18 @@ class WorkWithArray
   end
 
   def even_numbers(array)
-    array_num = []
-    array.each do |element|
+    array_num = array.map do |element|
       if element.is_a?(String) && integer?(element)
-        array_num.push(element.to_i)
+        element.to_i
       elsif element.is_a?(String) && float?(element)
-        array_num.push(element.to_f)
+        element.to_f
       elsif element.is_a? Numeric
-        array_num.push(element)
+        element
       end
     end
-    array_num.select { |element| (element % 2).zero? }
+    array_num.compact.select { |element| (element % 2).zero? }
   end
 end
 
-arr_test = ['1', '2.5', '3.14235888', 2, 4.0, 'aaaa']
+arr_test = ['1', '2.5', '3.14235888', 2, 4.0, 'aaa', '2.0', '-6']
 puts WorkWithArray.new.even_numbers(arr_test)

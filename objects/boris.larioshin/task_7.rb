@@ -5,30 +5,24 @@ class BalancedBrackets
   attr_accessor :str
 
   def initialize(str)
-    @str = str
+    self.str = str
   end
 
-  def brackets_correct
+  def validate_brackets
     stack = []
     str.each_char do |symbol|
       if OPEN_BRACKETS.include?(symbol)
         stack.push(symbol)
       elsif CLOSE_BRACKETS.include?(symbol)
         index = CLOSE_BRACKETS.index(symbol)
-        if stack.last == OPEN_BRACKETS[index]
-          stack.pop
-        else
-          return puts 'invalid'
-        end
+        return puts 'invalid' if stack.last != OPEN_BRACKETS[index]
+
+        stack.pop
       end
     end
-    if stack.empty?
-      puts 'valid'
-    else
-      puts 'invalid'
-    end
+    puts stack.empty? ? 'valid' : 'invalid'
   end
 end
 
 str_from_terminal = ARGV.first
-BalancedBrackets.new(str_from_terminal).brackets_correct
+BalancedBrackets.new(str_from_terminal).validate_brackets

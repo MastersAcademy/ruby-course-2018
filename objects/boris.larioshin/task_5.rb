@@ -14,7 +14,7 @@ class ColoredText
   attr_accessor :text_line
 
   def initialize(text_line)
-    @text_line = text_line
+    self.text_line = text_line
   end
 
   COLOR_NAME.each do |name, color_code|

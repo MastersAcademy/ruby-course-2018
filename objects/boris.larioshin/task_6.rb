@@ -1,4 +1,4 @@
-require './task_6_module'
+require './colored_line'
 # created class NumCalculate for task number 6
 class NumCalculate
   include ColoredLine

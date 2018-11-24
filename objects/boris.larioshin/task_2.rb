@@ -1,4 +1,4 @@
-require './task_1_module'
+require './base_game'
 # class include the module
 class MarioGame
   include BaseGame
@@ -11,14 +11,14 @@ class MarioGame
                  count_of_enemies,
                  speed_enemies,
                  level_number)
-    @background = level_background
-    @enemies = count_of_enemies
-    @speed_enemies = speed_enemies
-    @level_number = level_number
+    self.level_background = level_background
+    self.count_of_enemies = count_of_enemies
+    self.speed_enemies = speed_enemies
+    self.level_number = level_number
   end
 
   def self.final
-    last_instance = ObjectSpace.each_object(self).to_a.last
+    last_instance = ObjectSpace.each_object(self).to_a.first
     last_instance.instance_eval do
       def final_game
         'Game over'
