@@ -1,7 +1,6 @@
 require_relative "math_operations_list"
 
 class MathOperations
-  attr_accessor :el1, :el2
   extend MathMethodsAndOperators
 
   def initialize

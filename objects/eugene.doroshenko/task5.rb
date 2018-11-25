@@ -1,8 +1,6 @@
 require_relative "colors"
 
 class ColorInputText
-  attr_accessor :input_text, :chosen_color
-  include ColorizeText
   
   def initialize
     puts "Please, input yor text"
@@ -22,7 +20,7 @@ class ColorInputText
   end
 
   def color_text_sym
-    raise "there's no such color in hash" if color_present? == false
+    raise "there's no such color in hash" unless color_present?
     send @chosen_color
   end
 

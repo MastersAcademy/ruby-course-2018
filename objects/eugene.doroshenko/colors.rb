@@ -8,7 +8,7 @@ module ColorizeText
         green: '32',
         blue: '34',
         gray: '37',
-      }.freeze
+      }
     end
 
   end
