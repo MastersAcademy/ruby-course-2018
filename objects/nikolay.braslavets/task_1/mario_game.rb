@@ -10,10 +10,10 @@ class MarioGame
                 :level_number
 
   def initialize(level_background, count_of_enemies, speed_enemies, level_number)
-    @background = level_background
-    @enemies = count_of_enemies
-    @speed_enemies = speed_enemies
-    @level_number = level_number
+    self.level_background = level_background
+    self.count_of_enemies = count_of_enemies
+    self.speed_enemies = speed_enemies
+    self.level_number = level_number
   end
 
   def go_work

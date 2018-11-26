@@ -10,13 +10,13 @@ class MortalVombat
                 :count_of_enemies
 
   def initialize(level_number, count_of_enemies, angry)
-    @level_number = level_number
-    @enemies = count_of_enemies
-    @angry = angry
+    self.level_number = level_number
+    self.count_of_enemies = count_of_enemies
+    self.angry = angry
   end
 
   def play
-    if @angry&&@enemies.zero?
+    if angry&&count_of_enemies.zero?
       puts 'You are a pacifist, you can not be afraid. You move to next level..'
     end
   end
@@ -30,7 +30,7 @@ class MortalVombat
   end
 
   def show_count_angry
-    puts "Count of angry on level is: #{@angry}"
+    puts "Count of angry on level is: #{angry}"
   end
 end
 
