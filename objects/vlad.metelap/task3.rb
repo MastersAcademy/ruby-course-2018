@@ -1,7 +1,8 @@
 class EvenNumbers
 
   def select_even_numbers(array)
-    array.select {|item| (item.to_i.even?) && ((item.is_a? (Integer)) || (item.is_a?(String)))}
+    array.map!(&:to_i)
+    array.select{|item| item.even?}
   end
 end
 
