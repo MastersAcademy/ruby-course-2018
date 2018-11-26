@@ -6,7 +6,7 @@ module MathMethodsAndOperators
       minus: '-',
       divide: '/',
       multiply: '*'
-    }.freeze
+    }
   end
   
 end
