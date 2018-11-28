@@ -1,6 +1,8 @@
 require 'active_record'
 
 class User < ActiveRecord::Base
+  belongs_to :movie
+
   before_validation :strip_strings
 
   validates :avatar, presence: true
