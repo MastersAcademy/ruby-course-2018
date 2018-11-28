@@ -1,17 +1,17 @@
 require 'active_record'
 
 class User < ActiveRecord::Base
-  before_validation :strip_first_name
+  before_validation :strip_strings
 
-  validates :first_name, presence: true
-
-  def full_name
-    [first_name, last_name].map(&:strip).delete_if(&:blank?).join(' ')
-  end
+  validates :avatar, presence: true
+  validates :password, presence: true
+  validates :login, presence: true
 
   private
 
-  def strip_first_name
-    self.first_name.strip! if first_name
+  def strip_strings
+    self.avatar.strip! if avatar
+    self.password.strip! if password
+    self.login.strip! if login
   end
 end
