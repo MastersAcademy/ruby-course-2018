@@ -1,3 +1,6 @@
 require 'pry'
+require './config/initializers/database'
 
-puts 'Gotcha! It works for you, master!'
+
+User.create!(first_name: '    Doctor     ', last_name: 'Who')
+puts User.last.full_name
