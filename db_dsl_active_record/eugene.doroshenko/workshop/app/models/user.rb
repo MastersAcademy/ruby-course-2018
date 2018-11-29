@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :galleries, dependent: :destroy
-  has_many :photos, through: :galleries
+  has_many :photos
 
   before_validation :strip_first_name
   validates :first_name, presence: true
