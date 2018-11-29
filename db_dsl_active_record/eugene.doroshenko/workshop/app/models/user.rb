@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  has_many :galleries, dependent: :destroy
+  has_many :photos, through: :galleries
 
   before_validation :strip_first_name
-
   validates :first_name, presence: true
 
   def full_name
@@ -13,5 +14,6 @@ class User < ActiveRecord::Base
   def strip_first_name
     self.first_name.strip! if first_name
   end
+
 end
 
