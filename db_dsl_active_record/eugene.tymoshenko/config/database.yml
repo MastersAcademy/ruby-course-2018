@@ -1,0 +1,8 @@
+defaults: &defaults
+  adapter: postgresql
+  host: db
+  database: sales_development
+  username: postgres
+
+development:
+  <<: *defaults
