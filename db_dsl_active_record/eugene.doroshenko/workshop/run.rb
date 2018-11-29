@@ -15,7 +15,7 @@ puts "His galleries are #{author_galleries}"
 
 #user's photos output
 author_photos = @photorapher.photos.map { |ph| ph.photo_name }
-puts "His photographs are #{ }"
+puts "His photographs are #{author_photos}"
 
 #show author of last photo
 puts Photo.last.user.first_name
