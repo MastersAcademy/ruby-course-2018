@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :items
+  has_many :reviews
+
   before_validation :strip_first_name
 
   validates :first_name, presence: true, format: { with: /[a-zA-Z]+/ }
