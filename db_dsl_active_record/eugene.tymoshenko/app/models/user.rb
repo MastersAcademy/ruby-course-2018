@@ -1,17 +1,8 @@
+require_relative 'concerns/name_formatter'
+
 class User < ActiveRecord::Base
+  include NameFormatter
+
   has_many :playlists, dependent: :destroy
   has_many :songs, through: :playlists
-
-  before_validation :strip_first_name
-  validates :first_name, presence: true
-
-  def full_name
-    [first_name, last_name].map(&:strip).delete_if(&:blank?).join(' ')
-  end
-
-  private
-
-  def strip_first_name
-    self.first_name.strip! if first_name
-  end
 end
