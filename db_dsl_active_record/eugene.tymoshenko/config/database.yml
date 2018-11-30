@@ -1,7 +1,7 @@
 defaults: &defaults
   adapter: postgresql
   host: db
-  database: soundcloud
+  database: soundcloud_development
   username: postgres
 
 development:
