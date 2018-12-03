@@ -20,7 +20,7 @@ namespace :db do
     Rake::Task["db:schema"].invoke
   end
 
-  desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
+  desc 'Create a db/schema.rb file that is portable against any DB supported by ARrake db:'
   task :schema do
     ActiveRecord::Base.establish_connection(DB_CONFIG)
     require 'active_record/schema_dumper'
