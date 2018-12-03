@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
 
     add_column :items, :user_id, :integer
     add_column :items, :name, :string
+    add_reference :item, :user
   end
 
   def down
