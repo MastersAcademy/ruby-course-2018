@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_222015) do
+ActiveRecord::Schema.define(version: 2018_12_03_124509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "galleries", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "gallery_name"
-    t.text "gallery_desc"
+    t.string "name"
+    t.text "desc"
     t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
   create_table "photos", force: :cascade do |t|
     t.bigint "gallery_id"
-    t.string "photo_name"
-    t.text "photo_desc"
-    t.string "photo_url"
+    t.string "name"
+    t.text "desc"
+    t.string "url"
     t.bigint "user_id"
     t.index ["gallery_id"], name: "index_photos_on_gallery_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
