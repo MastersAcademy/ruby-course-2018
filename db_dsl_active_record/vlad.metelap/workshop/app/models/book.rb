@@ -1,5 +1,4 @@
 class Book < ActiveRecord::Base
-  attr_accessor :name, :author, :category, :year
   before_validation :book_information
   validates :name, presence: true
   validates :author, presence: true

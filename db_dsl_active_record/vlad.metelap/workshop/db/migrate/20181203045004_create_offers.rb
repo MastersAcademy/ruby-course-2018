@@ -1,7 +1,7 @@
 class CreateOffers < ActiveRecord::Migration[5.1]
   def up
     create_table :offers
-    add_column :offers, :offer_number, :string
+    add_column :offers, :offer_name, :string
     add_column :offers, :price,   :float
     add_column :offers, :discount,:float
     add_column :offers, :book_id, :integer

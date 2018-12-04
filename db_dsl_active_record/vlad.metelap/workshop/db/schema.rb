@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_045004) do
   end
 
   create_table "offers", force: :cascade do |t|
-    t.string "offer_number"
+    t.string "offer_name"
     t.float "price"
     t.float "discount"
     t.integer "book_id"
