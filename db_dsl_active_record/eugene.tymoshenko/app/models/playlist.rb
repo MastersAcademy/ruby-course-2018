@@ -4,16 +4,9 @@ class Playlist < ActiveRecord::Base
 
   validates :title, presence: true, uniqueness: { scope: :user }
 
-  before_save :update_counter
-
   def add_song(song)
     songs << song
-    save
-  end
-
-  private
-
-  def update_counter
     self.songs_count = songs.count
+    save
   end
 end
