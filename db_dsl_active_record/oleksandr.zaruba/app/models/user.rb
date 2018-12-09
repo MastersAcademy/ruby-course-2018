@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
     [first_name, last_name].map(&:strip).delete_if(&:blank?).join(' ')
   end
 
+  def user_profession
+    self.works.map { |worker| p "Profession #{worker.profession}" }
+  end
+
+  def user_department
+    self.employers.map { |worker| p "Department #{worker.department}" }
+  end
+
   private
 
   def strip_first_name
