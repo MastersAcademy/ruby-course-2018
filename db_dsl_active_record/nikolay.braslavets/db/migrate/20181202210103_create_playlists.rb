@@ -4,8 +4,7 @@ class CreatePlaylists < ActiveRecord::Migration[5.1]
 
     add_column :playlists, :name, :string
     add_column :playlists, :description, :text
-    add_column :playlists, :user_id, :integer
-
+    add_reference :playlists, :user, foreign_key: true
   end
 
   def down
