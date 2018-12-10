@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
 
   def show_all_playlists
     puts 'List your playlist:'
-    User.last.playlists.map { |pl| puts "Name: #{pl.name}\nDicsription: #{pl.description}" }
+    playlists.map { |pl| puts "Name: #{pl.name}\nDicsription: #{pl.description}" }
   end
 
   def show_all_songs
     puts 'List your song:'
-    User.last.songs.map do |pl| puts "Song: #{pl.artist} - #{pl.name} / #{pl.genre} genre\nfound in palylist #{pl.playlist_id}"
+    songs.map do |pl| puts "Song: #{pl.artist} - #{pl.name} / #{pl.genre} genre\nfound in palylist #{pl.playlist}"
     end
   end
 
