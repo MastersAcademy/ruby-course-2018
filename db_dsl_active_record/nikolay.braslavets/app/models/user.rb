@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   def show_all_songs
     puts 'List your song:'
-    songs.map do |pl| puts "Song: #{pl.artist} - #{pl.name} / #{pl.genre} genre\nfound in palylist #{pl.playlist}"
+    songs.map do |pl| puts "Song: #{pl.artist} - #{pl.name} / #{pl.genre} genre\nfound in palylist: #{pl.playlist.name}"
     end
   end
 
