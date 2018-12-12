@@ -1,5 +1,5 @@
 require 'active_record'
 
 class Category < ActiveRecord::Base
-  has_many :movies, through: :category_movies
+  has_and_belongs_to_many :movies
 end
