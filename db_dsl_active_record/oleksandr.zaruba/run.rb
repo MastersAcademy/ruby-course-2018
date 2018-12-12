@@ -1,11 +1,16 @@
 require 'pry'
 require './config/initializers/database'
 
-worker = User.new(first_name: ' Homer ', last_name: 'Simpson')
-p worker
+Work.create(profession: 'Texas Ranger')
+work_id = Work.last.id
 
-profession = Work.new(profession: 'Safety inspector')
-p profession
+Employer.create(department: 'Texas PD')
+employer_id = Employer.first.id
 
-department = Employer.new(department: 'Department of Labor Protection')
-p department
+unit = User.create(first_name: 'Chuck', last_name: 'Norris', work_id: work_id, employer_id: employer_id)
+p unit
+p unit.work
+p unit.employer.department 
+
+p Work.last.users
+p Employer.last.users

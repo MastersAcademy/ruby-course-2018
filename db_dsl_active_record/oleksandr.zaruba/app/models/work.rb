@@ -1,6 +1,6 @@
 class Work < ActiveRecord::Base
-  belongs_to :users
+  has_many :users
 
-  validates :profession, presence: true
+  validates :profession, presence: true, uniqueness: true
 
 end

@@ -17,21 +17,22 @@ ActiveRecord::Schema.define(version: 2018_11_29_181855) do
 
   create_table "employers", force: :cascade do |t|
     t.string "department"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_employers_on_user_id"
+    t.integer "employer_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.bigint "employer_id"
+    t.bigint "work_id"
     t.string "first_name"
     t.string "last_name"
+    t.index ["employer_id"], name: "index_users_on_employer_id"
+    t.index ["work_id"], name: "index_users_on_work_id"
   end
 
   create_table "works", force: :cascade do |t|
     t.string "profession"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_works_on_user_id"
   end
 
-  add_foreign_key "employers", "users"
-  add_foreign_key "works", "users"
+  add_foreign_key "users", "employers"
+  add_foreign_key "users", "works"
 end
