@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(version: 2018_12_12_221404) do
     t.string "description"
   end
 
-  create_table "category_movies", force: :cascade do |t|
+  create_table "categories_movies", force: :cascade do |t|
     t.integer "category_id"
     t.integer "movie_id"
-    t.index ["category_id"], name: "index_category_movies_on_category_id"
-    t.index ["movie_id"], name: "index_category_movies_on_movie_id"
+    t.index ["category_id"], name: "index_categories_movies_on_category_id"
+    t.index ["movie_id"], name: "index_categories_movies_on_movie_id"
   end
 
   create_table "movies", force: :cascade do |t|
