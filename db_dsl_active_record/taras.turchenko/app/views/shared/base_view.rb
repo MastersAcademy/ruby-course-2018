@@ -25,4 +25,8 @@ class BaseView
     print " #{label}: "
     gets.chomp
   end
+
+  def on_incorrect_option_selected
+    puts '  Please. Select correct option!'
+  end
 end

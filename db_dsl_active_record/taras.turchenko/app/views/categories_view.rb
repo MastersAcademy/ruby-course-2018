@@ -16,15 +16,15 @@ class CategoriesView < BaseView
     selected_menu_option = get_user_selection 'Categories menu options'
     return if selected_menu_option === :back
     case selected_menu_option.to_s
+      when 'show all'
+        print_all_categories
       when 'show all movies in category'
         category_id = request_user_input 'Category id'
         print_movies_in_category category_id
-      when 'show all'
-        print_all_categories
       when 'create new category'
         create_category
       else
-        puts '  Please. Select correct option!'
+        on_incorrect_option_selected
     end
     puts
     start
@@ -42,16 +42,17 @@ class CategoriesView < BaseView
       return
     end
 
-    category.movies.each do |movie|
-      puts "  #{movie.id}. #{movie.name}"
-      puts(' ' + movie.description) if movie.description.present?
-      puts " Author: #{movie.author.login}"
-      puts " Rating: #{movie.rating}"
-    end
+    movies.each(&method(:print_movie))
   end
 
   def print_all_categories
-    Category.all.each do |category|
+    categories = Category.all
+    if categories.empty?
+      puts " No categories found"
+      return
+    end
+
+    categories.each do |category|
       puts "  #{category.id}. #{category.name}"
       puts(' ' + category.description) if category.description.present?
     end
