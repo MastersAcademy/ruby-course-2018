@@ -1,17 +1,19 @@
 require_relative './shared/base_view'
 
-class CategoriesView
-  include BaseView
-
+class CategoriesView < BaseView
   MENU_OPTIONS = {
     back: 0,
     'show all': 1,
-    'show movies by category': 2,
+    'show all movies in category': 2,
     'create new category': 3
   }.freeze
 
+  def initialize
+    super MENU_OPTIONS
+  end
+
   def start
-    selected_menu_option = get_user_selection MENU_OPTIONS, 'Categories menu options'
+    selected_menu_option = get_user_selection 'Categories menu options'
     return if selected_menu_option === :back
     case selected_menu_option.to_s
     when 'show all'
