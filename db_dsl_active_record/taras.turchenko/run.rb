@@ -1,6 +1,6 @@
 require 'pry'
 require './config/initializers/database.rb'
 
-require_relative './app/views/app'
+require_relative './app/views/app_view'
 
-App.new.start
+AppView.new.start
