@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative './shared/base_view'
 
 class CategoriesView < BaseView
@@ -7,17 +9,18 @@ class CategoriesView < BaseView
 
   def start
     selected_menu_option = get_user_selection 'Categories menu options'
-    return if selected_menu_option === :back
+    return if selected_menu_option == :back
+
     case selected_menu_option.to_s
-      when 'show all'
-        print_all_categories
-      when 'show all movies in category'
-        category_id = request_user_input 'Category id'
-        print_movies_in_category category_id
-      when 'create new category'
-        create_category
-      else
-        on_incorrect_option_selected
+    when 'show all'
+      print_all_categories
+    when 'show all movies in category'
+      category_id = request_user_input 'Category id'
+      print_movies_in_category category_id
+    when 'create new category'
+      create_category
+    else
+      on_incorrect_option_selected
     end
     puts
     start
@@ -44,13 +47,13 @@ class CategoriesView < BaseView
       return
     end
 
-    movies.each {|movie| ViewHelpers.print_movie movie}
+    movies.each { |movie| ViewHelpers.print_movie movie }
   end
 
   def print_all_categories
     categories = Category.all
     if categories.empty?
-      puts " No categories found"
+      puts ' No categories found'
       return
     end
 

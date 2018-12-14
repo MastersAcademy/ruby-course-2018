@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require_relative './shared/base_view'
 require_relative './categories_view'
 require_relative './movies_view'
 require_relative './auth_view'
 
 class AppView < BaseView
-
   def initialize
     super MENU_OPTIONS
     self.categories_view = CategoriesView.new
@@ -18,14 +19,15 @@ class AppView < BaseView
     end
 
     selected_menu_option = get_user_selection 'Main menu options'
-    return if selected_menu_option === :exit
+    return if selected_menu_option == :exit
+
     case selected_menu_option
-      when :categories
-        categories_view.start
-      when :movies
-        movies_view.start
-      else
-        on_incorrect_option_selected
+    when :categories
+      categories_view.start
+    when :movies
+      movies_view.start
+    else
+      on_incorrect_option_selected
     end
     puts
     start
@@ -40,7 +42,6 @@ class AppView < BaseView
   }.freeze
 
   attr_accessor :categories_view, :movies_view, :current_user
-
 
   def authorised?
     current_user.present?

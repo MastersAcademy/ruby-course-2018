@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCategoriesMovies < ActiveRecord::Migration[5.1]
   def up
     create_table :categories_movies

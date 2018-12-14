@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ViewHelpers
   def self.print_movie(movie)
     puts "  #{movie.id}. #{movie.name}"

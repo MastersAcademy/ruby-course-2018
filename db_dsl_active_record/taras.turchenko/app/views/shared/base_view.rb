@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseView
   attr_accessor :menu_options
 
