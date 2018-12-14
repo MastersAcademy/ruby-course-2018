@@ -2,9 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tamagotchi</title>
+
+    <style>
+        .block { display: block }
+    </style>
 </head>
 <body>
-    Hello world
+<div data-health></div>
+
+<button class="block" type="button" data-action="to-feed">To feed (+15)</button>
+<button class="block" type="button" data-action="put-to-bad">Put to bad (+10)</button>
+<button class="block" type="button" data-action="play-game">Play a game (+13)</button>
+
+Timeout after any action is 3 seconds
+
+<script defer>
+    syncHealth();
+
+    function syncHealth() {
+        fetch('/health')
+            .then(responce => responce.text())
+            .then(renderHealthFactory())
+            .then(onSynced);
+    }
+
+    function renderHealthFactory() {
+        const healthEl = document.querySelector('[data-health]');
+        return (health) => {
+            if (health === 'dead') {
+                healthEl.innerText = 'Your tamagotchi is dead';
+                return true;
+            }
+            healthEl.innerText = `Health: ${health}`;
+        }
+    }
+
+    function onSynced(isDead) {
+        if (!isDead) {
+            return setTimeout(syncHealth, 1000);
+        }
+        document
+            .querySelectorAll('[data-action]')
+            .forEach(buttonEl => buttonEl.disabled = true);
+    }
+
+    initializeActionButton('to-feed');
+    initializeActionButton('put-to-bad');
+    initializeActionButton('play-game');
+
+    function initializeActionButton(action) {
+        document
+            .querySelector(`[data-action="${action}"]`)
+            .addEventListener('click', () => doAction(action));
+    }
+
+    function doAction(action) {
+        fetch(`/actions/${action}`).then(disableActionButtons);
+    }
+
+    function disableActionButtons() {
+        document.querySelectorAll('[data-action]').forEach(buttonEl => {
+            buttonEl.disabled = true;
+            setTimeout(() => buttonEl.disabled = false, 3000);
+        });
+    }
+</script>
 </body>
 </html>
