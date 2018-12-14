@@ -5,6 +5,7 @@ require_relative './categories_view'
 require_relative './movies_view'
 require_relative './auth_view'
 
+# Main app view
 class AppView < BaseView
   MENU_OPTIONS = {
     exit: 0,

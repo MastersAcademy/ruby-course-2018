@@ -2,6 +2,7 @@
 
 require_relative './shared/base_view'
 
+# Authentication view
 class AuthView < BaseView
   MENU_OPTIONS = {
     login: 0,

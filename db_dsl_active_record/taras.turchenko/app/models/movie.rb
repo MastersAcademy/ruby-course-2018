@@ -3,6 +3,7 @@
 require 'active_record'
 require 'uri'
 
+# Movie ActiveRecord model
 class Movie < ActiveRecord::Base
   has_and_belongs_to_many :categories
   belongs_to :author, {

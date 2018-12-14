@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# creating table for many to many relation between categories and movies
 class CreateCategoriesMovies < ActiveRecord::Migration[5.1]
   def up
     create_table :categories_movies

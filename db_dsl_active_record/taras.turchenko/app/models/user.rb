@@ -2,6 +2,7 @@
 
 require 'active_record'
 
+# User ActiveRecord model
 class User < ActiveRecord::Base
   has_many :movies, {
     class_name: 'Movie',

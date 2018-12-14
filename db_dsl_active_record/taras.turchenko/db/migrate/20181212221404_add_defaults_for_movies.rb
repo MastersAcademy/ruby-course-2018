@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Adding default value for column 'rating'
 class AddDefaultsForMovies < ActiveRecord::Migration[5.1]
   def up
     change_column_default(:movies, :rating, 0)

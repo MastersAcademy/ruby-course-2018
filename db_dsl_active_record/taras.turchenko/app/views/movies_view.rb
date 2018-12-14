@@ -3,6 +3,7 @@
 require_relative './shared/base_view'
 require_relative './shared/view_helpers'
 
+# View for movie model
 class MoviesView < BaseView
   MENU_OPTIONS = {
     back: 0,

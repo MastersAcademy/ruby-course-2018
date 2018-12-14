@@ -2,6 +2,7 @@
 
 require_relative './shared/base_view'
 
+# View for category model
 class CategoriesView < BaseView
   MENU_OPTIONS = {
     back: 0,
