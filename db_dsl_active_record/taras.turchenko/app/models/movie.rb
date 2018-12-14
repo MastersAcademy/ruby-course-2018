@@ -8,8 +8,8 @@ class Movie < ActiveRecord::Base
   has_and_belongs_to_many :categories
   belongs_to :author,
              class_name: 'User',
-             primary_key: 'id',
-             foreign_key: 'author_id'
+             primary_key: :id,
+             foreign_key: :author_id
 
   validates :name, presence: true
   validates :rating, numericality: {
