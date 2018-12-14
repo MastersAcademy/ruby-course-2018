@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Tamagotchi model
 class Tamagotchi
   attr_accessor :health
 
@@ -5,9 +8,9 @@ class Tamagotchi
     self.health = 100
   end
 
-  def health
-    self.health = @health - 1
-    @health
+  def decrease_health
+    self.health = health - 1
+    health
   end
 
   def put_to_bad
@@ -29,6 +32,6 @@ class Tamagotchi
   end
 
   def dead?
-    health < 0
+    health.negative?
   end
 end

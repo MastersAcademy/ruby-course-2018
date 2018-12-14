@@ -1,26 +1,30 @@
+# frozen_string_literal: true
+
 require_relative './shared'
 require_relative './models/tamagotchi'
 
+# Entry app
 class App
   API = {
-    '/' => ->(context) do
+    '/' => lambda do |context|
       context.initialize_tamagotchi
       content = File.read './app/views/index.html'
       Http.format_response :ok, :html, content
     end,
 
-    '/health' => ->(context) do
-      health = context.tamagotchi.dead? ? 'dead' : context.tamagotchi.health.to_s
+    '/health' => lambda do |context|
+      health = context.tamagotchi.decrease_health.to_s
+      health = context.tamagotchi.dead? ? 'dead' : health
       Http.format_response :ok, :plain_text, health
     end,
 
-    '/actions/to-feed' => ->(context) do
+    '/actions/to-feed' => lambda do |context|
       context.request_tamagotchi_action(:to_feed)
     end,
-    '/actions/put-to-bad' => ->(context) do
+    '/actions/put-to-bad' => lambda do |context|
       context.request_tamagotchi_action(:put_to_bad)
     end,
-    '/actions/play-game' => ->(context) do
+    '/actions/play-game' => lambda do |context|
       context.request_tamagotchi_action(:play_game)
     end
   }.freeze
@@ -31,6 +35,7 @@ class App
     request = Rack::Request.new env
     request_path = request.path
     return not_found_page(request_path) unless API.key? request_path
+
     API[request_path].call self
   end
 
@@ -44,7 +49,6 @@ class App
   end
 
   def request_tamagotchi_action(action)
-
     tamagotchi.send(action)
     Http.empty_response :ok
   end

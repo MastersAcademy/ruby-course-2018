@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
+# HTTP helpers
 module Http
   RESPONCE = {
-    html: {'Content-Type' => 'text/html'}.freeze,
-    json: {'Content-Type' => 'application/json'}.freeze,
-    plain_text: {'Content-Type' => 'text/plain'}.freeze
+    html: { 'Content-Type' => 'text/html' }.freeze,
+    json: { 'Content-Type' => 'application/json' }.freeze,
+    plain_text: { 'Content-Type' => 'text/plain' }.freeze
   }.freeze
 
   CODES = {
