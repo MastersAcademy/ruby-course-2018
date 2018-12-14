@@ -16,6 +16,8 @@ class MoviesView < BaseView
         print_all_movies
       when 'get random movie'
         print_random_movie
+      when 'add new movie'
+        add_movie
       else
         on_incorrect_option_selected
     end
@@ -39,7 +41,7 @@ class MoviesView < BaseView
       return
     end
 
-    movies.each(&method(:print_movie))
+    movies.each {|movie| ViewHelpers.print_movie movie}
   end
 
   def print_random_movie
@@ -51,6 +53,18 @@ class MoviesView < BaseView
       return
     end
 
-    print_movie movie
+    ViewHelpers.print_movie movie
+  end
+
+  def add_movie
+    name = request_user_input 'Name'
+    description = request_user_input 'Description'
+    category_ids = request_user_input 'Categories ids (in format id1,id2,id3 etc)'
+    category_ids = category_ids.split(',').map(&:to_i)
+    begin
+      Movie.create!(name: name, description: description, author: current_user, category_ids: category_ids)
+    rescue ActiveRecord::RecordInvalid
+      puts "\n  #{$!}"
+    end
   end
 end

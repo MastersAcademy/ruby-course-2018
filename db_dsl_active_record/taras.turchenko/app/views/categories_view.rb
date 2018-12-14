@@ -44,7 +44,7 @@ class CategoriesView < BaseView
       return
     end
 
-    movies.each(&method(:print_movie))
+    movies.each {|movie| ViewHelpers.print_movie movie}
   end
 
   def print_all_categories
