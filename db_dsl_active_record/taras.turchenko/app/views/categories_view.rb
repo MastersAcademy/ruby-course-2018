@@ -1,13 +1,6 @@
 require_relative './shared/base_view'
 
 class CategoriesView < BaseView
-  MENU_OPTIONS = {
-    back: 0,
-    'show all': 1,
-    'show all movies in category': 2,
-    'create new category': 3
-  }.freeze
-
   def initialize
     super MENU_OPTIONS
   end
@@ -29,6 +22,15 @@ class CategoriesView < BaseView
     puts
     start
   end
+
+  private
+
+  MENU_OPTIONS = {
+    back: 0,
+    'show all': 1,
+    'show all movies in category': 2,
+    'create new category': 3
+  }.freeze
 
   def print_movies_in_category(category_id)
     category = Category.find(category_id)

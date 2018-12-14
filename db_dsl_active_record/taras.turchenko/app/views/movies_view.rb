@@ -2,12 +2,7 @@ require_relative './shared/base_view'
 require_relative './shared/view_helpers'
 
 class MoviesView < BaseView
-  MENU_OPTIONS = {
-    back: 0,
-    'show all': 1,
-    'get random movie': 2,
-    'add new movie': 3
-  }.freeze
+  attr_accessor :current_user
 
   def initialize
     super MENU_OPTIONS
@@ -27,6 +22,15 @@ class MoviesView < BaseView
     puts
     start
   end
+
+  private
+
+  MENU_OPTIONS = {
+    back: 0,
+    'show all': 1,
+    'get random movie': 2,
+    'add new movie': 3
+  }.freeze
 
   def print_all_movies
     movies = Movie.all

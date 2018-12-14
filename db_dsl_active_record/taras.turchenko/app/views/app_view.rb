@@ -1,16 +1,9 @@
-require_relative './categories_view'
 require_relative './shared/base_view'
+require_relative './categories_view'
 require_relative './movies_view'
+require_relative './auth_view'
 
 class AppView < BaseView
-  MENU_OPTIONS = {
-    exit: 0,
-    users: 1,
-    categories: 2,
-    movies: 3
-  }.freeze
-
-  attr_accessor :categories_view, :movies_view
 
   def initialize
     super MENU_OPTIONS
@@ -19,6 +12,11 @@ class AppView < BaseView
   end
 
   def start
+    unless authorised?
+      self.current_user = AuthView.new.do_auth
+      movies_view.current_user = current_user
+    end
+
     selected_menu_option = get_user_selection 'Main menu options'
     return if selected_menu_option === :exit
     case selected_menu_option
@@ -31,5 +29,20 @@ class AppView < BaseView
     end
     puts
     start
+  end
+
+  private
+
+  MENU_OPTIONS = {
+    exit: 0,
+    categories: 1,
+    movies: 2
+  }.freeze
+
+  attr_accessor :categories_view, :movies_view, :current_user
+
+
+  def authorised?
+    current_user.present?
   end
 end
