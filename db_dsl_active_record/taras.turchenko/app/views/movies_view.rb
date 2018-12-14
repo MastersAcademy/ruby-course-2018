@@ -59,10 +59,11 @@ class MoviesView < BaseView
   def add_movie
     name = request_user_input 'Name'
     description = request_user_input 'Description'
+    url = request_user_input 'Link to your movie'
     category_ids = request_user_input 'Categories ids (in format id1,id2,id3 etc)'
     category_ids = category_ids.split(',').map(&:to_i)
     begin
-      Movie.create!(name: name, description: description, author: current_user, category_ids: category_ids)
+      Movie.create!(name: name, description: description, url: url, author: current_user, category_ids: category_ids)
     rescue ActiveRecord::RecordInvalid
       puts "\n  #{$!}"
     end
