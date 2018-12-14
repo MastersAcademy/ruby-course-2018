@@ -1,8 +1,3 @@
-class HelloWorld
-  def call(env)
-    content = File.read './app/index.html'
-    [200, {"Content-Type" => "text/html"}, [content]]
-  end
-end
+require_relative './app/app'
 
-run HelloWorld.new
+run App.new
