@@ -11,11 +11,12 @@ class App
   def call(env)
     request = Rack::Request.new env
     request_path = request.path
-    unless ROUTES.key? request_path
-      body = "Not found route #{request_path}"
-      return Http.format_response :not_found, :html, body
-    end
+    return not_found_page(request_path) unless ROUTES.key? request_path
     ROUTES[request_path].call
   end
 
+  def not_found_page(requested_path)
+    body = "Not found route #{requested_path}"
+    Http.format_response :not_found, :html, body
+  end
 end
