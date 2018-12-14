@@ -5,7 +5,6 @@ require './config/initializers/database.rb'
 namespace :db do
   desc 'Create the database'
   task :create do
-
     ActiveRecord::Base.establish_connection(DB_CONFIG.except('database'))
     ActiveRecord::Base.connection.create_database(DB_CONFIG['database'])
     puts 'Database created.'
@@ -23,7 +22,7 @@ namespace :db do
     Rake::Task['db:schema'].invoke
   end
 
-  desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
+  desc 'Create db/schema file that is portable against any DB supported by AR'
   task :schema do
     require 'active_record/schema_dumper'
     filename = 'db/schema.rb'
@@ -39,17 +38,17 @@ namespace :g do
     migration_class = ARGV[1]
     migration_name = migration_class.tableize
     timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-    path = File.expand_path("../db/migrate/#{timestamp}_#{migration_name}.rb", __FILE__)
+    migration_file_path = "../db/migrate/#{timestamp}_#{migration_name}.rb"
+    path = File.expand_path(migration_file_path, __FILE__)
 
+    content = <<~RUBY
+      class #{migration_class} < ActiveRecord::Migration[5.1]
+        def up
+        end
 
-    content = <<-RUBY
-class #{migration_class} < ActiveRecord::Migration[5.1]
-  def up
-  end
-
-  def down
-  end
-end
+        def down
+        end
+      end
     RUBY
     File.write(path, content)
     puts "Migration #{path} created"

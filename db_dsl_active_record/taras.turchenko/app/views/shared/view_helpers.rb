@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
+# Helpers for views
 module ViewHelpers
   def self.print_movie(movie)
     puts "  #{movie.id}. #{movie.name}"
-    puts(' ' + movie.description) if movie.description.present?
+    description = movie.description
+    puts(' ' + description) if description.present?
     puts " Link: #{movie.url}"
     puts " Author: #{movie.author.login}"
     puts " Rating: #{movie.rating}"
+    puts
   end
 
   def self.print_category(category)

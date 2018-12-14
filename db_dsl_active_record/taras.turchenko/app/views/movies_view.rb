@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'English'
+
 require_relative './shared/base_view'
 require_relative './shared/view_helpers'
 
@@ -19,20 +21,16 @@ class MoviesView < BaseView
   end
 
   def start
+    puts
     selected_menu_option = get_user_selection 'Movies menu options'
     return if selected_menu_option == :back
 
     case selected_menu_option.to_s
-    when 'show all'
-      print_all_movies
-    when 'get random movie'
-      print_random_movie
-    when 'add new movie'
-      add_movie
-    else
-      on_incorrect_option_selected
+    when 'show all' then print_all_movies
+    when 'get random movie' then print_random_movie
+    when 'add new movie' then add_movie
+    else on_incorrect_option_selected
     end
-    puts
     start
   end
 
@@ -46,9 +44,9 @@ class MoviesView < BaseView
   end
 
   def print_random_movie
-    random_id = Movie.pluck.sample
-    movie = Movie.offset(random_id).first
-    if movie.present?
+    movie_cortege = Movie.pluck.sample
+    if movie_cortege.present?
+      movie = Movie.find movie_cortege.first
       ViewHelpers.print_movie movie
     else
       puts ' No movies found'
@@ -62,13 +60,10 @@ class MoviesView < BaseView
     category_ids = request_user_input 'Categories ids (in format id1,id2 etc)'
 
     Movie.create!(
-      name: name,
-      description: description,
-      url: url,
-      author: current_user,
+      name: name, description: description, url: url, author: current_user,
       category_ids: category_ids.split(',').map(&:to_i)
     )
   rescue ActiveRecord::RecordInvalid
-    puts "\n  #{$!}"
+    puts "\n  #{$ERROR_INFO}"
   end
 end

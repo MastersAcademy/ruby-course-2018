@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'English'
+
 require_relative './shared/base_view'
 
 # Authentication view
@@ -15,15 +17,11 @@ class AuthView < BaseView
 
   def do_auth
     selected_menu_option = get_user_selection 'You are not authorised'
-    case selected_menu_option.to_s
-    when 'login'
-      login
-    when 'registration'
-      registration
-    else
+    unless MENU_OPTIONS.key? selected_menu_option
       on_incorrect_option_selected
       do_auth
     end
+    send selected_menu_option
   end
 
   def login
@@ -31,7 +29,7 @@ class AuthView < BaseView
     password = request_user_input 'password'
 
     user = User.find_by(login: login)
-    user if password === user.password
+    return user if password == user.password
 
     puts ' Incorrect password'
     do_auth
@@ -45,7 +43,7 @@ class AuthView < BaseView
     password = request_user_input 'password'
     User.create!(login: login, password: password)
   rescue ActiveRecord::RecordInvalid
-    puts "\n  #{$!}"
+    puts "\n  #{$ERROR_INFO}"
     do_auth
   end
 end
