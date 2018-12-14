@@ -27,19 +27,19 @@ class AppView < BaseView
       movies_view.current_user = current_user
     end
 
+    process_menu
+  end
+
+  def process_menu
     selected_menu_option = get_user_selection 'Main menu options'
+    return if selected_menu_option == :exit
+
     case selected_menu_option
-    when :categories
-      categories_view.start
-    when :movies
-      movies_view.start
-    when :exit
-      return
-    else
-      on_incorrect_option_selected
+    when :categories then categories_view.start
+    when :movies then movies_view.start
+    else on_incorrect_option_selected
     end
-    puts
-    start
+    process_menu
   end
 
   def authorised?
