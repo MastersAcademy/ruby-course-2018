@@ -9,6 +9,6 @@ class User < ActiveRecord::Base
     foreign_key: 'author_id'
   }
 
-  validates_presence_of :password
-  validates_presence_of :login
+  validates :password, presence: true
+  validates :login, presence: true
 end

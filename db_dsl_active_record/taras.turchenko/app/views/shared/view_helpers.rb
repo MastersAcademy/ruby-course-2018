@@ -8,4 +8,9 @@ module ViewHelpers
     puts " Author: #{movie.author.login}"
     puts " Rating: #{movie.rating}"
   end
+
+  def self.print_category(category)
+    puts "  #{category.id}. #{category.name}"
+    puts(' ' + category.description) if category.description.present?
+  end
 end

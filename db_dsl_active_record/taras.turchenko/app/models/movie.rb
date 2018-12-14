@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
     foreign_key: 'author_id'
   }
 
-  validates_presence_of :name
+  validates :name, presence: true
   validates :rating, numericality: {
     only_integer: true,
     greater_than_or_equal_to: 0,

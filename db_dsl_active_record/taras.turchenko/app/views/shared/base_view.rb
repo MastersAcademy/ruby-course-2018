@@ -7,8 +7,6 @@ class BaseView
     self.menu_options = menu_options
   end
 
-  protected
-
   def get_user_selection(menu_label)
     print_menu_options menu_label
     print ' Enter menu option`s number: '

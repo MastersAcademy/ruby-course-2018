@@ -3,6 +3,13 @@
 require_relative './shared/base_view'
 
 class CategoriesView < BaseView
+  MENU_OPTIONS = {
+    back: 0,
+    'show all': 1,
+    'show all movies in category': 2,
+    'create new category': 3
+  }.freeze
+
   def initialize
     super MENU_OPTIONS
   end
@@ -26,15 +33,6 @@ class CategoriesView < BaseView
     start
   end
 
-  private
-
-  MENU_OPTIONS = {
-    back: 0,
-    'show all': 1,
-    'show all movies in category': 2,
-    'create new category': 3
-  }.freeze
-
   def print_movies_in_category(category_id)
     category = Category.find(category_id)
     if category.blank?
@@ -42,24 +40,19 @@ class CategoriesView < BaseView
       return
     end
 
-    if category.movies.empty?
+    if category.movies.any?
+      movies.each { |movie| ViewHelpers.print_movie movie }
+    else
       puts " Category '#{category.name}' dont have movies"
-      return
     end
-
-    movies.each { |movie| ViewHelpers.print_movie movie }
   end
 
   def print_all_categories
     categories = Category.all
-    if categories.empty?
+    if categories.any?
+      categories.each { |category| ViewHelpers.print_category category }
+    else
       puts ' No categories found'
-      return
-    end
-
-    categories.each do |category|
-      puts "  #{category.id}. #{category.name}"
-      puts(' ' + category.description) if category.description.present?
     end
   end
 
@@ -67,10 +60,8 @@ class CategoriesView < BaseView
     puts ' Creating new category'
     name = request_user_input 'Name'
     description = request_user_input 'Description'
-    begin
-      Category.create!(name: name, description: description)
-    rescue ActiveRecord::RecordInvalid
-      puts "\n  #{$!}"
-    end
+    Category.create!(name: name, description: description)
+  rescue ActiveRecord::RecordInvalid
+    puts "\n  #{$!}"
   end
 end

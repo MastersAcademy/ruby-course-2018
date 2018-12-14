@@ -4,6 +4,13 @@ require_relative './shared/base_view'
 require_relative './shared/view_helpers'
 
 class MoviesView < BaseView
+  MENU_OPTIONS = {
+    back: 0,
+    'show all': 1,
+    'get random movie': 2,
+    'add new movie': 3
+  }.freeze
+
   attr_accessor :current_user
 
   def initialize
@@ -28,35 +35,23 @@ class MoviesView < BaseView
     start
   end
 
-  private
-
-  MENU_OPTIONS = {
-    back: 0,
-    'show all': 1,
-    'get random movie': 2,
-    'add new movie': 3
-  }.freeze
-
   def print_all_movies
     movies = Movie.all
-    if movies.empty?
+    if movies.present?
+      movies.each { |movie| ViewHelpers.print_movie movie }
+    else
       puts ' No movies found'
-      return
     end
-
-    movies.each { |movie| ViewHelpers.print_movie movie }
   end
 
   def print_random_movie
     random_id = Movie.pluck.sample
     movie = Movie.offset(random_id).first
-
-    if movie.blank?
+    if movie.present?
+      ViewHelpers.print_movie movie
+    else
       puts ' No movies found'
-      return
     end
-
-    ViewHelpers.print_movie movie
   end
 
   def add_movie
@@ -64,17 +59,15 @@ class MoviesView < BaseView
     description = request_user_input 'Description'
     url = request_user_input 'Link to your movie'
     category_ids = request_user_input 'Categories ids (in format id1,id2 etc)'
-    category_ids = category_ids.split(',').map(&:to_i)
-    begin
-      Movie.create!(
-        name: name,
-        description: description,
-        url: url,
-        author: current_user,
-        category_ids: category_ids
-      )
-    rescue ActiveRecord::RecordInvalid
-      puts "\n  #{$!}"
-    end
+
+    Movie.create!(
+      name: name,
+      description: description,
+      url: url,
+      author: current_user,
+      category_ids: category_ids.split(',').map(&:to_i)
+    )
+  rescue ActiveRecord::RecordInvalid
+    puts "\n  #{$!}"
   end
 end
