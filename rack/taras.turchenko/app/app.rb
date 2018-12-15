@@ -6,27 +6,11 @@ require_relative './models/tamagotchi'
 # Entry app
 class App
   API = {
-    '/' => lambda do |context|
-      context.initialize_tamagotchi
-      content = File.read './app/views/index.html'
-      Http.format_response :ok, :html, content
-    end,
-
-    '/health' => lambda do |context|
-      health = context.tamagotchi.decrease_health.to_s
-      health = context.tamagotchi.dead? ? 'dead' : health
-      Http.format_response :ok, :plain_text, health
-    end,
-
-    '/actions/to-feed' => lambda do |context|
-      context.request_tamagotchi_action(:to_feed)
-    end,
-    '/actions/put-to-bad' => lambda do |context|
-      context.request_tamagotchi_action(:put_to_bad)
-    end,
-    '/actions/play-game' => lambda do |context|
-      context.request_tamagotchi_action(:play_game)
-    end
+    '/' => :index,
+    '/health' => :tamagotchi_health,
+    '/actions/to-feed' => :feed_tamagotchi,
+    '/actions/put-to-bad' => :put_to_bad_tamagotchi,
+    '/actions/play-game' => :play_in_game_with_tamagotchi
   }.freeze
 
   attr_accessor :tamagotchi
@@ -36,20 +20,44 @@ class App
     request_path = request.path
     return not_found_page(request_path) unless API.key? request_path
 
-    API[request_path].call self
+    send API[request_path]
   end
 
-  def not_found_page(requested_path)
-    body = "Not found route #{requested_path}"
-    Http.format_response :not_found, :html, body
+  def index
+    initialize_tamagotchi
+    content = File.read './app/views/index.html'
+    Http.format_response :ok, :html, content
   end
 
   def initialize_tamagotchi
     self.tamagotchi = Tamagotchi.new
   end
 
+  def tamagotchi_health
+    health = tamagotchi.decrease_health.to_s
+    health = tamagotchi.dead? ? 'dead' : health
+    Http.format_response :ok, :plain_text, health
+  end
+
+  def feed_tamagotchi
+    request_tamagotchi_action(:to_feed)
+  end
+
   def request_tamagotchi_action(action)
     tamagotchi.send(action)
     Http.empty_response :ok
+  end
+
+  def put_to_bad_tamagotchi
+    request_tamagotchi_action(:put_to_bad)
+  end
+
+  def play_in_game_with_tamagotchi
+    request_tamagotchi_action(:play_game)
+  end
+
+  def not_found_page(requested_path)
+    body = "Not found route #{requested_path}"
+    Http.format_response :not_found, :html, body
   end
 end
