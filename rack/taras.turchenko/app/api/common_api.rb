@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-# Common api methods
-module MainAPI
-  def index
+# API methods for public content
+module CommonAPI
+  def start
     initialize_tamagotchi
-    content = File.read './app/views/index.html'
-    Http.format_response :ok, :html, content
+    Http.empty_response :ok
   end
 
   def initialize_tamagotchi

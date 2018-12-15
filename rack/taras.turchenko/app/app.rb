@@ -2,16 +2,16 @@
 
 require_relative './shared'
 require_relative './models/tamagotchi'
-require_relative './api/main_api'
+require_relative './api/common_api'
 require_relative './api/tamagotchi_actions_api'
 
 # Entry app
 class App
-  include MainAPI
+  include CommonAPI
   include TamagotchiActionsAPI
 
   API = {
-    '/' => :index,
+    '/start' => :start,
     '/health' => :tamagotchi_health,
     '/do' => :request_tamagotchi_action
   }.freeze

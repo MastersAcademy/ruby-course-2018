@@ -2,9 +2,8 @@
 
 # HTTP helpers
 module Http
-  RESPONCE = {
-    html: { 'Content-Type' => 'text/html' }.freeze,
-    plain_text: { 'Content-Type' => 'text/plain' }.freeze
+  CONTENT_TYPE = {
+    plain_text: 'text/plain',
   }.freeze
 
   CODES = {
@@ -12,11 +11,17 @@ module Http
     not_found: 404
   }.freeze
 
-  def self.format_response(status, headers_preset, body)
-    [Http::CODES[status], Http::RESPONCE[headers_preset], [body]]
+  def self.format_response(status, content_type, body)
+    headers = { 'Content-Type' => Http::CONTENT_TYPE[content_type] }
+    [Http::CODES[status], headers, [body]]
   end
 
   def self.empty_response(status)
     [Http::CODES[status], {}, ['']]
+  end
+
+  def self.format_static_responce(status, content_type, file_path)
+    content = File.read "./app/public/#{file_path}"
+    Http.format_response status, content_type, content
   end
 end
