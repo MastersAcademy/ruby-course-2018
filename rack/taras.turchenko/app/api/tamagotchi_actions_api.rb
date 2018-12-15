@@ -8,20 +8,8 @@ module TamagotchiActionsAPI
     Http.format_response :ok, :plain_text, health
   end
 
-  def feed_tamagotchi
-    request_tamagotchi_action(:to_feed)
-  end
-
-  def request_tamagotchi_action(action)
-    tamagotchi.send(action)
+  def request_tamagotchi_action(params)
+    tamagotchi.send(params['action'])
     Http.empty_response :ok
-  end
-
-  def put_to_bad_tamagotchi
-    request_tamagotchi_action(:put_to_bad)
-  end
-
-  def play_in_game_with_tamagotchi
-    request_tamagotchi_action(:play_game)
   end
 end

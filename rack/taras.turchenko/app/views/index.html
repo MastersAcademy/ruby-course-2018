@@ -13,9 +13,9 @@
 <body>
 <div data-health></div>
 
-<button class="block" type="button" data-action="to-feed">To feed (+15)</button>
-<button class="block" type="button" data-action="put-to-bad">Put to bad (+10)</button>
-<button class="block" type="button" data-action="play-game">Play a game (+13)</button>
+<button class="block" type="button" data-action="to_feed">To feed (+15)</button>
+<button class="block" type="button" data-action="put_to_bad">Put to bad (+10)</button>
+<button class="block" type="button" data-action="play_game">Play a game (+13)</button>
 
 Timeout after any action is 3 seconds
 
@@ -53,9 +53,9 @@ Timeout after any action is 3 seconds
             .forEach(buttonEl => buttonEl.disabled = true);
     }
 
-    initializeActionButton('to-feed');
-    initializeActionButton('put-to-bad');
-    initializeActionButton('play-game');
+    initializeActionButton('to_feed');
+    initializeActionButton('put_to_bad');
+    initializeActionButton('play_game');
 
     function initializeActionButton(action) {
         document
@@ -64,7 +64,7 @@ Timeout after any action is 3 seconds
     }
 
     function doAction(action) {
-        fetch(`/actions/${action}`).then(setActionButtonsTimeout);
+        fetch(`/do?action=${action}`).then(setActionButtonsTimeout);
     }
 
     function setActionButtonsTimeout() {
