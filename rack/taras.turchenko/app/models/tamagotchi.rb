@@ -10,7 +10,6 @@ class Tamagotchi
 
   def decrease_health
     self.health = health - 1
-    health
   end
 
   def put_to_bad
