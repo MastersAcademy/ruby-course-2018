@@ -3,7 +3,7 @@
 # HTTP helpers
 module Http
   CONTENT_TYPE = {
-    plain_text: 'text/plain',
+    plain_text: 'text/plain'
   }.freeze
 
   CODES = {
