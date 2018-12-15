@@ -6,10 +6,24 @@ class Tamagotchi
 
   def initialize
     self.health = 100
+    initialize_decrease_thread true
+  end
+
+  def initialize_decrease_thread(root = false)
+    return if dead?
+
+    thread = Thread.current
+    Thread.new do
+      thread.kill unless root
+
+      decrease_health
+    end.join
   end
 
   def decrease_health
-    self.health = health - 1
+    self.health -= 1
+    sleep 1
+    initialize_decrease_thread
   end
 
   def put_to_bad
