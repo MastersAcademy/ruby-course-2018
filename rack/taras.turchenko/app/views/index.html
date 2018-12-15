@@ -5,7 +5,9 @@
     <title>Tamagotchi</title>
 
     <style>
-        .block { display: block }
+        .block {
+            display: block
+        }
     </style>
 </head>
 <body>
@@ -18,6 +20,14 @@
 Timeout after any action is 3 seconds
 
 <script defer>
+    const SELECTORS = {
+        HEALTH: '[data-health]',
+        ALL_ACTION_BUTTONS: '[data-action]',
+        ACTION_BUTTON: (action) => `[data-action="${action}"]`
+    };
+</script>
+
+<script defer>
     syncHealth();
 
     function syncHealth() {
@@ -28,22 +38,18 @@ Timeout after any action is 3 seconds
     }
 
     function renderHealthFactory() {
-        const healthEl = document.querySelector('[data-health]');
+        const healthEl = document.querySelector(SELECTORS.HEALTH);
         return (health) => {
-            if (health === 'dead') {
-                healthEl.innerText = 'Your tamagotchi is dead';
-                return true;
-            }
-            healthEl.innerText = `Health: ${health}`;
+            const isDead = health === 'dead';
+            healthEl.innerText = isDead ? 'Your tamagotchi is dead' : `Health: ${health}`;
+            return isDead;
         }
     }
 
     function onSynced(isDead) {
-        if (!isDead) {
-            return setTimeout(syncHealth, 1000);
-        }
+        if (!isDead) return setTimeout(syncHealth, 1000);
         document
-            .querySelectorAll('[data-action]')
+            .querySelectorAll(SELECTORS.ALL_ACTION_BUTTONS)
             .forEach(buttonEl => buttonEl.disabled = true);
     }
 
@@ -53,19 +59,21 @@ Timeout after any action is 3 seconds
 
     function initializeActionButton(action) {
         document
-            .querySelector(`[data-action="${action}"]`)
+            .querySelector(SELECTORS.ACTION_BUTTON(action))
             .addEventListener('click', () => doAction(action));
     }
 
     function doAction(action) {
-        fetch(`/actions/${action}`).then(disableActionButtons);
+        fetch(`/actions/${action}`).then(setActionButtonsTimeout);
     }
 
-    function disableActionButtons() {
-        document.querySelectorAll('[data-action]').forEach(buttonEl => {
-            buttonEl.disabled = true;
-            setTimeout(() => buttonEl.disabled = false, 3000);
-        });
+    function setActionButtonsTimeout() {
+        document
+            .querySelectorAll(SELECTORS.ALL_ACTION_BUTTONS)
+            .forEach(buttonEl => {
+                buttonEl.disabled = true;
+                setTimeout(() => buttonEl.disabled = false, 3000);
+            });
     }
 </script>
 </body>
