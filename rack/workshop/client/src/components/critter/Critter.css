@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower|Roboto");
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Indie Flower", cursive;
+    font-size: 40px;
+    text-align: center;
+}
+
+.critter {
+    background: brown;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 200px;
+    margin: 50px auto;
+    position: relative;
+    width: 200px;
+}
+
+.critter::before {
+    background: goldenrod;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 40%;
+    margin-left: -30%;
+    position: absolute;
+    width: 60%;
+    bottom: 0;
+    left: 50%;
+}
+
+.ear {
+    background: brown;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 40px;
+    min-width: 40px;
+    position: absolute;
+    width: 40px;
+    bottom: 160px;
+}
+
+.ear::before {
+    background: goldenrod;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 60%;
+    margin-left: -30%;
+    position: absolute;
+    width: 60%;
+    bottom: 0;
+    left: 50%;
+}
+
+.ear.left {
+    left: 10px;
+}
+
+.ear.right {
+    right: 10px;
+}
+
+.face {
+    height: 55px;
+    margin-left: -40px;
+    position: absolute;
+    width: 80px;
+    top: 20%;
+    left: 50%;
+}
+
+.eye {
+    background: black;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.eye::before {
+    background: white;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 10%;
+    opacity: 1;
+    position: absolute;
+    width: 10%;
+    transition: opacity .2s;
+    top: 20%;
+    right: 20%;
+}
+
+.eye.left {
+    left: 0;
+}
+
+.eye.right {
+    right: 0;
+}
+
+.lid {
+    background: brown;
+    border-bottom: 0;
+    border-radius: 0 0 50% 50%;
+    height: 0;
+    width: 100%;
+    transition: height .6s, border-bottom .4s;
+}
+
+.mouth {
+    background: black;
+    border-radius: 8px 8px 24px 24px;
+    height: 12px;
+    margin-left: -12px;
+    position: absolute;
+    width: 24px;
+    transition: border-radius 1s;
+    bottom: 0;
+    left: 50%;
+}
+
+.activities {
+    margin: 0 auto;
+    width: 200px;
+}
+
+button {
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    height: 52px;
+    letter-spacing: 2px;
+    margin-right: 6px;
+    margin-left: 6px;
+    padding: 0;
+    width: 52px;
+}
+
+button.play {
+    background: violet;
+    border: 2px solid purple;
+    color: white;
+}
+
+button.feed {
+    background: limegreen;
+    border: 2px solid green;
+    color: white;
+}
+
+button.rest {
+    background: royalblue;
+    border: 2px solid blue;
+    color: white;
+}
+
+button.disabled {
+    cursor: default;
+    opacity: .4;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.stats {
+    position: absolute;
+    width: 200px;
+    top: 10px;
+    right: 10px;
+}
+
+.stats p {
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+}
+
+.stat {
+    border: 2px solid dimgray;
+    border-radius: 4px;
+    height: 20px;
+    margin-bottom: 2px;
+}
+
+.stat .progress {
+    background: lightgreen;
+    border: 2px solid white;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: width 1s;
+}
+
+#status {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+}
+
+.idle .face {
+    animation: look 10s infinite;
+}
+
+.idle .eye {
+    animation: blink 5s infinite;
+}
+
+.critter.play {
+    animation: play 4s;
+}
+
+.play .mouth {
+    animation: talk 2s infinite;
+}
+
+.feed .mouth {
+    animation: talk .5s infinite;
+}
+
+.rest .eye::before {
+    opacity: 0;
+}
+
+.rest .lid {
+    border-bottom: 2px solid black;
+    height: 30px;
+}
+
+.rest .mouth {
+    animation: snore 1.4s infinite;
+    border-radius: 50%;
+    margin-left: -6px;
+    width: 12px;
+}
+
+.worried .mouth {
+    border-radius: 50% 50% 8px 8px;
+}
+
+.sad .mouth {
+    border-radius: 24px 24px 8px 8px;
+}
+
+@keyframes look {
+    0% {
+        left: 50%;
+    }
+    15% {
+        left: 50%;
+    }
+    20% {
+        left: 53%;
+    }
+    50% {
+        left: 53%;
+    }
+    55% {
+        left: 47%;
+    }
+    85% {
+        left: 47%;
+    }
+    90% {
+        left: 50%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+@keyframes blink {
+    53% {
+        opacity: 1;
+    }
+    54% {
+        opacity: 0;
+    }
+    54% {
+        opacity: 0;
+    }
+    56% {
+        opacity: 1;
+    }
+}
+
+@keyframes play {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(15deg);
+    }
+    30% {
+        transform: rotate(-15deg);
+    }
+    50% {
+        transform: rotate(15deg);
+    }
+    70% {
+        transform: rotate(-15deg);
+    }
+    90% {
+        transform: rotate(15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes talk {
+    0% {
+        height: 12px;
+        bottom: 0;
+    }
+    20% {
+        height: 24px;
+        bottom: -6px;
+    }
+    40% {
+        height: 12px;
+        bottom: 0;
+    }
+    60% {
+        height: 24px;
+        bottom: -6px;
+    }
+    80% {
+        height: 12px;
+        bottom: 0;
+    }
+    100% {
+        height: 12px;
+    }
+}
+
+@keyframes snore {
+    0% {
+        height: 12px;
+        margin-left: -6px;
+        width: 12px;
+        bottom: 0;
+    }
+    50% {
+        height: 19.2px;
+        margin-left: -9.6px;
+        width: 19.2px;
+        bottom: -4.8px;
+    }
+    100% {
+        height: 12px;
+        margin-left: -6px;
+        width: 12px;
+        bottom: 0;
+    }
+}
