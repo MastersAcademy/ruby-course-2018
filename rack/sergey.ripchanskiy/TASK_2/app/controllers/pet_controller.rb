@@ -4,6 +4,7 @@ class PetController<BaseController
 
   def create
     pet = Pet.new(name: params['pet']['name'], kind: params['kind']['name'])
+    @pet = pet
     REDIS.set("pet_name", "#{pet.name}")
     REDIS.set("pet_kind", "#{pet.kind}")
     REDIS.set("pet_mood", "#{pet.mood}")
