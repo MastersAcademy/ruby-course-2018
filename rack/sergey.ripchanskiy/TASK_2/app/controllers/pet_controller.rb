@@ -18,6 +18,7 @@ class PetController<BaseController
   end
 
   def self.walk
+    REDIS.set("pet_status", "You are walking with your pet")
     @energy = REDIS.get("pet_energy").to_i
     @energy -= 1
       if empty_energy?
@@ -43,12 +44,14 @@ class PetController<BaseController
     @mood = REDIS.get("pet_mood").to_i
     @mood += 1
     REDIS.set("pet_mood", "#{@mood}")
+    REDIS.set("pet_status", "Tasty!!! Omnomnom")
   end
 
   def self.sleep
     @health = REDIS.get("pet_health").to_i
     @health += 1
     REDIS.set("pet_health", "#{@health}")
+    REDIS.set("pet_status", "Sleeping Time")
   end
 
   def self.empty_energy?
