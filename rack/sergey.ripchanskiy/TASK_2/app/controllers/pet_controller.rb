@@ -11,9 +11,7 @@ class PetController<BaseController
     REDIS.set("pet_energy", "#{pet.energy}")
     REDIS.set("pet_status", "Your pet is waiting for your commands")
     @name = REDIS.get("pet_name")
-    
     @kind = REDIS.get("pet_kind")
-    @pet = pet
     build_response render_start_game
   end
 
