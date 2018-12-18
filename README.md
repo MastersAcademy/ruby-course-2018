@@ -74,7 +74,7 @@ Terms and conditions
 ### Mentor: Yurii Rudenko
 
 
-# Lesson #4 (04/12/2018, Lection)
+# Lesson #4 (11/12/2018, Lection)
 ### TOPIC: Rack
 ### Mentor: Ivan Dobrelya
 ### Agenda:
@@ -86,12 +86,12 @@ Terms and conditions
 - Web-Frameworks: Sinatra, Padrino
 
 
-# Lesson #4.1 (11/12/2018, Workshop)
+# Lesson #4.1 (18/12/2018, Workshop)
 ### TOPIC: Rack
 ### Mentor: Serhii Ovcharenko
 
 
-# Lesson #5 (18/12/2018, Lection)
+# Lesson #5 (22/01/2019, Lection)
 ### TOPIC: Bundler and Gems
 ### Mentor: Oleg Monastyreckyi
 ### Agenda:
@@ -102,7 +102,7 @@ Terms and conditions
 - How to create gem
 
 
-# Lesson #5.1 (22/01/2019, Workshop)
+# Lesson #5.1 (29/01/2019, Workshop)
 ### TOPIC: Bundler and Gems
 ### Mentor: Oleg Monastyreckyi
 
