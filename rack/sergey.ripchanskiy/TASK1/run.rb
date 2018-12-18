@@ -5,7 +5,7 @@ require './config/initializers/database'
 seller = Seller.new
 seller.valid? #false
 
-Seller.create(name: 'Amazon')
+Seller.create(name: 'Amazon', email: 'sergeyrichanskiy@gmail.com')
 puts Seller.last
 
 # Create category 'Fantasy'

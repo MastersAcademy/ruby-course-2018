@@ -1,7 +1,7 @@
 version: '3'
 services:
   db:
-    container_name: db
+    container_name: db_workshop_rack
     image: postgres:10-alpine
     volumes:
     - data-postgres:/var/lib/postgresql/data
