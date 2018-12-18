@@ -14,13 +14,15 @@ Backend server will be up at `http://localhost:3000`
 
 ```
 {
-  health: Integer,
-  hunger: Integer,
-  happiness: Integer,
-  sleepiness: Integer,
-  mood: String(values allowed: sad, worried, happy),
-  event: String(values allowed: idle, play, feed, rest),
-  dead: Boolean,
+    entity: {
+      health: Integer,
+      hunger: Integer,
+      happiness: Integer,
+      sleepiness: Integer,
+      mood: String(values allowed: sad, worried, happy),
+      event: String(values allowed: idle, play, feed, rest),
+      dead: Boolean,
+    }
 }
 ```
 
