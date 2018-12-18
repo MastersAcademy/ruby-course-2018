@@ -1,7 +1,7 @@
 # Rack Tamagochi
-To start a project run `docker-compose up`
-Frontend server will be up at `http://localhost:8080`
-Backend server will be up at `http://localhost:3000`
+To start a project run `docker-compose up`  
+Frontend server will be up at `http://localhost:8080`  
+Backend server will be up at `http://localhost:3000`  
 
 ##### APIDOC:
 
