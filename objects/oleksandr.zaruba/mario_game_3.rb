@@ -55,4 +55,8 @@ p mario5.show_count_of_enemies
 p mario5.show_level_number
 p mario5.show_background_color
 p mario5.show_speed_of_enemies
-mario19.show_final_screen
+begin
+  mario19.show_final_screen
+rescue NoMethodError
+  puts 'Your level not last, play on!'
+end
