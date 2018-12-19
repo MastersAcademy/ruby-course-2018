@@ -1,1 +1,5 @@
-run Proc.new { |env| ['200', { 'Content-Type' => 'text/html' }, ['get rack\'d']] }
+# frozen_string_literal: true
+
+require_relative './app/api/app'
+
+run AppAPI.new
