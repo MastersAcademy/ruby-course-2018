@@ -54,35 +54,35 @@
           }
         },
         mounted() {
-            this.disable_actions()
+            this.disableActions()
             this.updateStats()
-            this.enable_actions()
+            this.enableActions()
         },
         methods: {
             updateStats() {
-                this.disable_actions()
+                this.disableActions()
                 getStats().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.enableActions()
             },
             rest() {
-                this.disable_actions()
+                this.disableActions()
                 postRest().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.enableActions()
             },
             feed() {
-                this.disable_actions()
+                this.disableActions()
                 postFeed().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.enableActions()
             },
             play() {
-                this.disable_actions()
+                this.disableActions()
                 postPlay().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.enableActions()
             },
-            disable_actions() {
+            disableActions() {
                 this.disabled = true
             },
-            enable_actions() {
+            enableActions() {
                 if (this.entity.dead)
                     this.disabled = false
             }
