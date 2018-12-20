@@ -1,8 +1,6 @@
-defaults: &defaults
+development:
   adapter: postgresql
   host: db
-  database: soundcloud_development
+  database: sales_development
   username: postgres
-
-development:
-  <<: *defaults
+  password:

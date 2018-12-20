@@ -8,19 +8,10 @@ namespace :db do
     puts 'Database created.'
   end
 
-  desc 'Migrate the database'
+  desc 'Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog).'
   task :migrate do
     ActiveRecord::Tasks::DatabaseTasks.migrate
     Rake::Task['db:schema'].invoke
-  end
-
-  desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
-  task :schema do
-    require 'active_record/schema_dumper'
-    filename = "db/schema.rb"
-    File.open(filename, "w:utf-8") do |file|
-      ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
-    end
   end
 
   desc 'Rollback the database (options: VERSION=x, VERBOSE=false, SCOPE=blog).'
@@ -28,26 +19,34 @@ namespace :db do
     ActiveRecord::Base.connection.migration_context.rollback(1)
     Rake::Task['db:schema'].invoke
   end
+
+  desc 'Create a db/schema.rb file that is portable against any DB supported by AR'
+  task :schema do
+    require 'active_record/schema_dumper'
+    filename = 'db/schema.rb'
+    File.open(filename, 'w:utf-8') do |file|
+      ActiveRecord::SchemaDumper.dump(ActiveRecord::Base.connection, file)
+    end
+  end
 end
 
 namespace :g do
-  desc "Generate migration"
+  desc 'Generate migration'
   task :migration do
     migration_class = ARGV[1]
     migration_name = migration_class.tableize
-    timestamp = Time.now.strftime("%Y%m%d%H%M%S")
+    timestamp = Time.now.strftime('%Y%m%d%H%M%S')
     path = File.expand_path("../db/migrate/#{timestamp}_#{migration_name}.rb", __FILE__)
 
-    content = <<-EOF
+    content = <<-RUBY
 class #{migration_class} < ActiveRecord::Migration[5.1]
   def up
   end
-  
+
   def down
   end
 end
-EOF
-
+    RUBY
     File.write(path, content)
     puts "Migration #{path} created"
     abort # needed stop other tasks
