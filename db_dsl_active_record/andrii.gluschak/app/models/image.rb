@@ -1,3 +1,3 @@
 class Image < ActiveRecord::Base
-  belongs_to :imageable, polimorphic: true
+  belongs_to :imageable, polymorphic: true
 end

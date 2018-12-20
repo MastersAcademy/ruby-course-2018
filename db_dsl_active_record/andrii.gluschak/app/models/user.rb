@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-
   has_many :posts
-  has_many :image, as: :imageable
+  has_many :images, as: :imageable
 
   before_validation :strip_first_nane
 

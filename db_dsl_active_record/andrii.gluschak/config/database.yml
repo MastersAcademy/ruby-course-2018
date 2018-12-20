@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
   host: db
-  database: sales_development
+  database: sales_development_test_2
   user: postgres
   password:
