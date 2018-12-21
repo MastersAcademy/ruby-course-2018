@@ -15,14 +15,14 @@ class AppAPI
   attr_accessor :tamagotchi
 
   def call(env)
-    request_handler = request_handler_from env
+    request_handler = request_handler_for env
     return BaseAPI.page_404 if request_handler.nil?
 
     self.tamagotchi ||= Tamagotchi.new
     send request_handler
   end
 
-  def request_handler_from(env)
+  def request_handler_for(env)
     method = env['REQUEST_METHOD']
     path = env['PATH_INFO']
     API[{ path: path, method: method }]
