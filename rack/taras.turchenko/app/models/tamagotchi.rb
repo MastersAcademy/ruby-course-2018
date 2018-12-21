@@ -57,4 +57,9 @@ class Tamagotchi
       send(setter, value)
     end
   end
+
+  def feed
+    increase_attr :hunger
+    self.event = :feed
+  end
 end

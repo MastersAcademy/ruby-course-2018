@@ -10,7 +10,8 @@ class AppAPI
 
   API = {
     { path: '/api/v1/stats', method: 'GET' } => :stats,
-    { path: '/api/v1/play', method: 'POST' } => :play
+    { path: '/api/v1/play', method: 'POST' } => :play,
+    { path: '/api/v1/feed', method: 'POST' } => :feed
   }.freeze
 
   attr_accessor :tamagotchi
