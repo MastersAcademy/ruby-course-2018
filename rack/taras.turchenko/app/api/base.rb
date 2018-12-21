@@ -16,10 +16,6 @@ module BaseAPI
   end
 
   def self.page_404
-    format_response(
-      404,
-      error: true,
-      message: 'Page not found'
-    )
+    format_response 404, error: true, message: 'Page not found'
   end
 end

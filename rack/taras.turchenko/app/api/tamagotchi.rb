@@ -4,7 +4,16 @@ require_relative './base'
 
 # Tamagotchi staff
 module TamagotchiAPI
-  def sync
+  def stats
+    BaseAPI.format_response 200, entity: tamagotchi.capture_attrs
+  end
+
+  def play
+    do_action :play
+  end
+
+  def do_action(action)
+    tamagotchi.send action
     BaseAPI.format_response 200, entity: tamagotchi.capture_attrs
   end
 end

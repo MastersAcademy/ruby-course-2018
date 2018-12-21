@@ -9,7 +9,8 @@ class AppAPI
   include TamagotchiAPI
 
   API = {
-    { path: '/api/v1/', method: 'GET' } => :sync
+    { path: '/api/v1/stats', method: 'GET' } => :stats,
+    { path: '/api/v1/play', method: 'POST' } => :play
   }.freeze
 
   attr_accessor :tamagotchi
