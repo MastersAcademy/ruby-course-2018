@@ -5,15 +5,20 @@ const HTTP = axios.create({
 });
 
 function postPlay() {
-    return HTTP.post('/play');
+    return postAction('play');
 }
 
 function postFeed() {
-    return HTTP.post('/feed');
+    return postAction('feed');
 }
 
 function postRest() {
-    return HTTP.post('/rest');
+    return postAction('rest');
+}
+
+function postAction(event) {
+    const params = { event };
+    return HTTP.post('/action', null, { params })
 }
 
 function getStats() {

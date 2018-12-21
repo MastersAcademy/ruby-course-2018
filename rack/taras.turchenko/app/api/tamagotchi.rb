@@ -4,24 +4,12 @@ require_relative './base'
 
 # Tamagotchi staff
 module TamagotchiAPI
-  def stats
+  def stats(_params = nil)
     BaseAPI.format_response 200, entity: tamagotchi.capture_attrs
   end
 
-  def play
-    do_action :play
-  end
-
-  def feed
-    do_action :feed
-  end
-
-  def rest
-    do_action :rest
-  end
-
-  def do_action(action)
-    tamagotchi.send action
-    BaseAPI.format_response 200, entity: tamagotchi.capture_attrs
+  def do_action(params)
+    tamagotchi.send params['event'].to_sym
+    stats
   end
 end

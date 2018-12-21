@@ -10,24 +10,23 @@ class AppAPI
 
   API = {
     { path: '/api/v1/stats', method: 'GET' } => :stats,
-    { path: '/api/v1/play', method: 'POST' } => :play,
-    { path: '/api/v1/feed', method: 'POST' } => :feed,
-    { path: '/api/v1/rest', method: 'POST' } => :rest
+    { path: '/api/v1/action', method: 'POST' } => :do_action
   }.freeze
 
   attr_accessor :tamagotchi
 
   def call(env)
-    request_handler = request_handler_for env
+    request = Rack::Request.new env
+    request_handler = request_handler_for request
     return BaseAPI.page_404 if request_handler.nil?
 
     self.tamagotchi ||= Tamagotchi.new
-    send request_handler
+    send request_handler, request.params
   end
 
-  def request_handler_for(env)
-    method = env['REQUEST_METHOD']
-    path = env['PATH_INFO']
-    API[{ path: path, method: method }]
+  def request_handler_for(request)
+    method = request.env['REQUEST_METHOD']
+    api_params = { path: request.path, method: method }
+    API[api_params]
   end
 end
