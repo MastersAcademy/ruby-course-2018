@@ -1,5 +1,6 @@
 # require_relative 'run.rb'
 require 'json'
+require_relative 'app/models/pet'
 
 HEADERS = {
   'Access-Control-Allow-Methods' => '*',
@@ -13,32 +14,20 @@ def respond_with(status, body)
 end
 
 application = proc do |env|
+  @pet ||= Pet.new
   if env['PATH_INFO'] == '/api/v1/' && env['REQUEST_METHOD'] == 'GET'
-    [
-      200,
-      HEADERS,
-      {'Content-Type' => 'application/json'},
-        [
-          {
-            health: 100,
-            hunger: 100,
-            happiness: 100,
-            sleepiness: 100,
-            mood: 'sad',
-            event: 'play',
-            dead: false
-          }.to_json
-        ]
-    ]
-  elsif env['PATH_INFO'] == '/api/v1/' && env['REQUEST_METHOD'] == 'GET'
-    elsif
-
-    else
-    [
-      404,
-      {'Content-Type' => 'application/json'},
-      [{ error: true, message: 'Not found'}.to_json]
-    ]
+    respond_with(200, entity: @pet.to_json)
+  elsif env['PATH_INFO'] == '/api/v1/rest/' && env['REQUEST_METHOD'] == 'POST'
+    @pet.rest
+    respond_with(200, entity: @pet.to_json)
+  elsif env['PATH_INFO'] == '/api/v1/play/' && env['REQUEST_METHOD'] == 'POST'
+    @pet.play
+    respond_with(200, entity: @pet.to_json)
+  elsif env['PATH_INFO'] == '/api/v1/feed/' && env['REQUEST_METHOD'] == 'POST'
+    @pet.feed
+    respond_with(200, entity: @pet.to_json)
+  else
+    respond_with 404, error: true, message: 'Not found'
   end
 end
 
