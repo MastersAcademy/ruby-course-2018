@@ -2,7 +2,7 @@
     <div>
         <h1 class="critter__name">Critter</h1>
 
-        <div class="critter idle" :class="[entity.mood, entity.event]">
+        <div class="critter idle" :class="critterClasses">
             <div class="ear ear--left"></div>
             <div class="ear ear--right"></div>
 
@@ -88,7 +88,13 @@
         },
 
         mounted() {
-            this.sendRequest(getStats);
+            const syncId = setInterval(() => {
+                if (this.entity.dead) {
+                    clearInterval(syncId);
+                } else {
+                    this.sendRequest(getStats)
+                }
+            }, 2000);
         },
 
         methods: {
@@ -122,6 +128,12 @@
 
             getProgressStyles(type) {
                 return { width: this.entity[type] + '%'}
+            }
+        },
+
+        computed: {
+            critterClasses() {
+                return [this.entity.mood, this.entity.event]
             }
         }
     }

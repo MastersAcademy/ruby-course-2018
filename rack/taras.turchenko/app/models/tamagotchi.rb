@@ -4,6 +4,7 @@
 class Tamagotchi
   attr_accessor :health, :hunger, :happiness, :sleepiness, :event
 
+  STATS = %i[hunger happiness sleepiness].freeze
   MIN = 0
   MAX = 100
   STEP = 10
@@ -36,21 +37,20 @@ class Tamagotchi
   end
 
   def dead?
-    health.zero?
+    health.zero? || health.negative?
   end
 
   def play
-    increase_attr :happiness
+    change_attr :happiness, (happiness + STEP)
     self.event = :play
   end
 
-  def increase_attr(attr)
-    value = send(attr) + STEP
+  def change_attr(attr, value)
     setter = (attr.to_s + '=').to_sym
-    if value > MAX
+    if value >= MAX
       send(setter, MAX)
       self.health -= STEP
-    elsif value < MIN
+    elsif value <= MIN
       send(setter, MIN)
       self.health -= STEP
     else
@@ -59,12 +59,18 @@ class Tamagotchi
   end
 
   def feed
-    increase_attr :hunger
+    change_attr :hunger, (hunger + STEP)
     self.event = :feed
   end
 
   def rest
-    increase_attr :sleepiness
+    change_attr :sleepiness, (sleepiness + STEP)
     self.event = :rest
+  end
+
+  def decrease_random_attr
+    attr = STATS.sample
+    value = send(attr) - STEP
+    change_attr attr, value
   end
 end
