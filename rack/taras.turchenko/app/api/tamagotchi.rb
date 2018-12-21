@@ -16,6 +16,10 @@ module TamagotchiAPI
     do_action :feed
   end
 
+  def rest
+    do_action :rest
+  end
+
   def do_action(action)
     tamagotchi.send action
     BaseAPI.format_response 200, entity: tamagotchi.capture_attrs

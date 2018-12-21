@@ -62,4 +62,9 @@ class Tamagotchi
     increase_attr :hunger
     self.event = :feed
   end
+
+  def rest
+    increase_attr :sleepiness
+    self.event = :rest
+  end
 end
