@@ -18,17 +18,20 @@ class Pet
   def rest
     self.sleepiness += STEP
     self.event = :rest
+    self.hunger -= STEP
   end
 
   def play
     self.happiness += STEP
     self.event = :play
     self.hunger -= STEP
+    self.sleepiness -= STEP / 2
   end
 
   def feed
     self.hunger += STEP
     self.event = :feed
+    self.sleepiness -= STEP
   end
 
   def dead?
@@ -59,8 +62,10 @@ class Pet
   end
 
   def health
-    if @health <0
+    if @health < 0
       0
+    elsif @health > 100
+      100
     else
       @health
     end
@@ -71,7 +76,17 @@ class Pet
   end
 
   def happiness=(value)
-    @happiness = process(value)
+    @happiness = value
+    if value < MIN
+      self.hunger -= STEP
+      self.sleepiness -= STEP
+      @happiness = MIN
+    elsif value > MAX
+      self.health += STEP / 2
+      @happiness = MAX
+    else
+      @happiness
+    end
   end
 
   def sleepiness=(value)
