@@ -1,7 +1,5 @@
 <template>
-    <div id="app">
-        <Critter/>
-    </div>
+    <Critter/>
 </template>
 
 <script>
@@ -13,4 +11,8 @@
     }
 </script>
 
-<style></style>
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+</style>

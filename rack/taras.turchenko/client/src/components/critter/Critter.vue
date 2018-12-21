@@ -1,44 +1,76 @@
 <template>
-    <div id="critter" >
-        <h1>Critter</h1>
-        <div class="critter idle" :class="[this.entity.mood, this.entity.event]">
-            <div class="ear left"></div>
-            <div class="ear right"></div>
+    <div>
+        <h1 class="critter__name">Critter</h1>
+
+        <div class="critter idle" :class="[entity.mood, entity.event]">
+            <div class="ear ear--left"></div>
+            <div class="ear ear--right"></div>
+
             <div class="face">
-                <div class="eye left">
+                <div class="eye eye--left">
                     <div class="lid"></div>
                 </div>
-                <div class="eye right">
+                <div class="eye eye--right">
                     <div class="lid"></div>
                 </div>
+
                 <div class="mouth"></div>
             </div>
         </div>
 
         <div class="activities">
-            <button class="play" :disabled="this.disabled" @click="play()">Play</button>
-            <button class="feed" :disabled="this.disabled" @click="feed()">Feed</button>
-            <button class="rest" :disabled="this.disabled" @click="rest()">Rest</button>
+            <button
+                    class="activities__button activities__button--play"
+                    type="button"
+                    :disabled="disabled"
+                    @click="play">
+                Play
+            </button>
+            <button
+                    class="activities__button activities__button--feed"
+                    type="button"
+                    :disabled="disabled"
+                    @click="feed">
+                Feed
+            </button>
+            <button
+                    class="activities__button activities__button--rest"
+                    type="button"
+                    :disabled="disabled"
+                    @click="rest">
+                Rest
+            </button>
         </div>
 
-        <div class="stats">
-            <p>Health</p>
-            <div class="stat health">
-                <div class="progress" :style="{ width: this.entity.health + '%'}"></div>
-            </div>
-            <p>Happiness</p>
-            <div class="stat happy">
-                <div class="progress" :style="{ width: this.entity.happiness + '%'}"></div>
-            </div>
-            <p>Hunger</p>
-            <div class="stat hunger">
-                <div class="progress" :style="{ width: this.entity.hunger + '%'}"></div>
-            </div>
-            <p>Sleepiness</p>
-            <div class="stat sleep">
-                <div class="progress" :style="{ width: this.entity.sleepiness + '%'}"></div>
-            </div>
-        </div>
+        <ul class="stats">
+            <li class="stats__item">
+                <p class="stats__item__name">Health</p>
+                <div class="stat health">
+                    <div class="stat__progress" :style="getProgressStyles('health')"></div>
+                </div>
+            </li>
+
+            <li class="stats__item">
+                <p class="stats__item__name">Happiness</p>
+                <div class="stat">
+                    <div class="stat__progress" :style="getProgressStyles('happiness')"></div>
+                </div>
+
+            </li>
+            <li class="stats__item">
+                <p class="stats__item__name">Hunger</p>
+                <div class="stat">
+                    <div class="stat__progress" :style="getProgressStyles('hunger')"></div>
+                </div>
+
+            </li>
+            <li class="stats__item">
+                <p class="stats__item__name">Sleepiness</p>
+                <div class="stat">
+                    <div class="stat__progress" :style="getProgressStyles('sleepiness')"></div>
+                </div>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -47,46 +79,52 @@
 
     export default {
         name: 'Critter',
-        data: () => {
+
+        data() {
           return {
               entity: {},
               disabled: false
-          }
+          };
         },
+
         mounted() {
-            this.disableActions()
-            this.updateStats()
-            this.enableActions()
+            this.sendRequest(getStats);
         },
+
         methods: {
-            updateStats() {
-                this.disableActions()
-                getStats().then(response => { this.entity = response.data.entity })
-                this.enableActions()
-            },
             rest() {
-                this.disableActions()
-                postRest().then(response => { this.entity = response.data.entity })
-                this.enableActions()
+                this.sendRequest(postRest);
             },
+
             feed() {
-                this.disableActions()
-                postFeed().then(response => { this.entity = response.data.entity })
-                this.enableActions()
+                this.sendRequest(postFeed)
             },
+
             play() {
-                this.disableActions()
-                postPlay().then(response => { this.entity = response.data.entity })
-                this.enableActions()
+                this.sendRequest(postPlay);
             },
+
+            sendRequest(action) {
+                this.disableActions();
+                action()
+                    .then((response) => this.entity = response.data.entity)
+                    .finally(this.enableActions)
+                    .catch(({message}) => alert(message));
+            },
+
             disableActions() {
                 this.disabled = true
             },
+
             enableActions() {
-                if (this.entity.dead)
-                    this.disabled = false
+                this.disabled = this.entity.dead;
+            },
+
+            getProgressStyles(type) {
+                return { width: this.entity[type] + '%'}
             }
         }
     }
 </script>
+
 <style scoped src="./Critter.css"></style>

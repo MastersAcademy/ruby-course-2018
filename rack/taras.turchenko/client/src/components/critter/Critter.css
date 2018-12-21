@@ -1,10 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower|Roboto");
 
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-h1 {
+.critter__name {
     font-family: "Indie Flower", cursive;
     font-size: 40px;
     text-align: center;
@@ -57,11 +53,11 @@ h1 {
     left: 50%;
 }
 
-.ear.left {
+.ear--left {
     left: 10px;
 }
 
-.ear.right {
+.ear--right {
     right: 10px;
 }
 
@@ -96,11 +92,11 @@ h1 {
     right: 20%;
 }
 
-.eye.left {
+.eye--left {
     left: 0;
 }
 
-.eye.right {
+.eye--right {
     right: 0;
 }
 
@@ -125,13 +121,21 @@ h1 {
     left: 50%;
 }
 
+.button:disabled {
+    cursor: default;
+    opacity: .4;
+}
+
+.button:focus {
+    outline: 0;
+}
+
 .activities {
     margin: 0 auto;
     width: 200px;
 }
 
-button {
-    border: 0;
+.activities__button {
     border-radius: 50%;
     cursor: pointer;
     font-family: "Roboto", sans-serif;
@@ -141,33 +145,24 @@ button {
     margin-left: 6px;
     padding: 0;
     width: 52px;
+    color: #FFF;
+    border-width: 2px;
+    border-style: solid;
 }
 
-button.play {
+.activities__button--play {
     background: violet;
-    border: 2px solid purple;
-    color: white;
+    border-color: purple;
 }
 
-button.feed {
+.activities__button--feed {
     background: limegreen;
-    border: 2px solid green;
-    color: white;
+    border-color:green;
 }
 
-button.rest {
+.activities__button--rest {
     background: royalblue;
-    border: 2px solid blue;
-    color: white;
-}
-
-button.disabled {
-    cursor: default;
-    opacity: .4;
-}
-
-button:focus {
-    outline: 0;
+    border-color: blue;
 }
 
 .stats {
@@ -175,9 +170,14 @@ button:focus {
     width: 200px;
     top: 10px;
     right: 10px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-.stats p {
+.stats__item { margin-bottom: 2px }
+
+.stats__item__name {
     font-family: "Roboto", sans-serif;
     font-size: 12px;
     letter-spacing: 1px;
@@ -190,10 +190,9 @@ button:focus {
     border: 2px solid dimgray;
     border-radius: 4px;
     height: 20px;
-    margin-bottom: 2px;
 }
 
-.stat .progress {
+.stat__progress {
     background: lightgreen;
     border: 2px solid white;
     content: "";
@@ -201,12 +200,6 @@ button:focus {
     height: 100%;
     width: 100%;
     transition: width 1s;
-}
-
-#status {
-    position: fixed;
-    top: 10px;
-    left: 15px;
 }
 
 .idle .face {

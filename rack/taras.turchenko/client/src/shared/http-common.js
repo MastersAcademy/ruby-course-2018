@@ -2,22 +2,22 @@ import axios from 'axios'
 
 const HTTP = axios.create({
     baseURL: 'http://localhost:3000/api/v1'
-})
+});
 
 function postPlay() {
-    return HTTP.post('/play')
+    return HTTP.post('/play');
 }
 
 function postFeed() {
-    return HTTP.post('/feed')
+    return HTTP.post('/feed');
 }
 
 function postRest() {
-    return HTTP.post('/rest')
+    return HTTP.post('/rest');
 }
 
 function getStats() {
-    return HTTP.get('/')
+    return HTTP.get('/stats');
 }
 
 export { postPlay, postFeed, postRest, getStats }
