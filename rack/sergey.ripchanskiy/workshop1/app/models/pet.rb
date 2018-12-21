@@ -23,7 +23,7 @@ class Pet
   def play
     self.happiness += STEP
     self.event = :play
-    #self.hunger -= STEP
+    self.hunger -= STEP
   end
 
   def feed
@@ -79,10 +79,15 @@ class Pet
   end
 
   def process(value)
-
+    if value < MIN
+      self.health -= STEP
+      MIN
+    elsif value > MAX
+      self.health -= STEP
+      MAX
+    else
+      value
+    end
   end
 
-  def in_range()
-
-  end
 end
