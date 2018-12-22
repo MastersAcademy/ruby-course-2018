@@ -17,13 +17,13 @@ application = proc do |env|
   @pet ||= Pet.new
   if env['PATH_INFO'] == '/api/v1/' && env['REQUEST_METHOD'] == 'GET'
     respond_with(200, entity: @pet.to_json)
-  elsif env['PATH_INFO'] == '/api/v1/rest/' && env['REQUEST_METHOD'] == 'POST'
+  elsif env['PATH_INFO'] == '/api/v1/rest' && env['REQUEST_METHOD'] == 'POST'
     @pet.rest
     respond_with(200, entity: @pet.to_json)
-  elsif env['PATH_INFO'] == '/api/v1/play/' && env['REQUEST_METHOD'] == 'POST'
+  elsif env['PATH_INFO'] == '/api/v1/play' && env['REQUEST_METHOD'] == 'POST'
     @pet.play
     respond_with(200, entity: @pet.to_json)
-  elsif env['PATH_INFO'] == '/api/v1/feed/' && env['REQUEST_METHOD'] == 'POST'
+  elsif env['PATH_INFO'] == '/api/v1/feed' && env['REQUEST_METHOD'] == 'POST'
     @pet.feed
     respond_with(200, entity: @pet.to_json)
   else

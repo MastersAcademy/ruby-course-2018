@@ -83,7 +83,7 @@
                 this.disabled = true
             },
             enable_actions() {
-                if (this.entity.dead)
+                if (!this.entity.dead)
                     this.disabled = false
             }
         }
