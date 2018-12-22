@@ -30,7 +30,8 @@ class Tamagotchi
 
   def mood
     case health
-    when 0..33 then :sad
+    when 0 then :dead
+    when 1..33 then :sad
     when 34..75 then :worried
     else :happy
     end

@@ -246,6 +246,27 @@
     border-radius: 24px 24px 8px 8px;
 }
 
+.dead .face, .dead .eye {
+    animation: none;
+}
+
+.dead .eye,
+.dead .eye::before {
+    background: none;
+}
+
+.dead .eye::before {
+    content: "x";
+    font-size: 35px;
+    top: -10px;
+    left: 5px;
+}
+
+.dead .mouth {
+    border-radius: 50% 50% 8px 8px;
+}
+
+
 @keyframes look {
     0% {
         left: 50%;
