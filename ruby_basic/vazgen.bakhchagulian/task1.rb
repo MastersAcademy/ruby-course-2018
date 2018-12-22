@@ -1,5 +1,5 @@
 require 'json'
-timezones = HEADERS.parse(File.read('timezones.json'))
+timezones = JSON.parse(File.read('timezones.json'))
 src = ARGV[0].downcase
 
 timezones.each do |f|

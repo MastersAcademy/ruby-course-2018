@@ -8,7 +8,7 @@ end
 
 timee_zones = {}
 file = File.read('TimeZones.json')
-time_zones = HEADERS.parse(file)
+time_zones = JSON.parse(file)
 
 request = ARGV[0]
 tz = time_zones[request.to_s]
