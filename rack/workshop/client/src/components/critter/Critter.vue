@@ -1,7 +1,7 @@
 <template>
     <div id="critter" >
         <h1>Critter</h1>
-        <div class="critter idle" :class="[this.entity.mood, this.entity.event]">
+        <div class="critter idle" :class="[entity.mood, entity.event]">
             <div class="ear left"></div>
             <div class="ear right"></div>
             <div class="face">
@@ -16,27 +16,27 @@
         </div>
 
         <div class="activities">
-            <button class="play" :disabled="this.disabled" @click="play()">Play</button>
-            <button class="feed" :disabled="this.disabled" @click="feed()">Feed</button>
-            <button class="rest" :disabled="this.disabled" @click="rest()">Rest</button>
+            <button class="play" :disabled="disabled" @click="play()">Play</button>
+            <button class="feed" :disabled="disabled" @click="feed()">Feed</button>
+            <button class="rest" :disabled="disabled" @click="rest()">Rest</button>
         </div>
 
         <div class="stats">
             <p>Health</p>
             <div class="stat health">
-                <div class="progress" :style="{ width: this.entity.health + '%'}"></div>
+                <div class="progress" :style="{ width: entity.health + '%'}"></div>
             </div>
             <p>Happiness</p>
             <div class="stat happy">
-                <div class="progress" :style="{ width: this.entity.happiness + '%'}"></div>
+                <div class="progress" :style="{ width: entity.happiness + '%'}"></div>
             </div>
             <p>Hunger</p>
             <div class="stat hunger">
-                <div class="progress" :style="{ width: this.entity.hunger + '%'}"></div>
+                <div class="progress" :style="{ width: entity.hunger + '%'}"></div>
             </div>
             <p>Sleepiness</p>
             <div class="stat sleep">
-                <div class="progress" :style="{ width: this.entity.sleepiness + '%'}"></div>
+                <div class="progress" :style="{ width: entity.sleepiness + '%'}"></div>
             </div>
         </div>
     </div>
@@ -54,36 +54,40 @@
           }
         },
         mounted() {
-            this.disable_actions()
             this.updateStats()
-            this.enable_actions()
         },
         methods: {
             updateStats() {
-                this.disable_actions()
-                getStats().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.disableActions();
+                getStats()
+                    .then(response => { this.entity = response.data.entity })
+                    .then(this.enableActions())
+
             },
             rest() {
-                this.disable_actions()
-                postRest().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.disableActions();
+                postRest()
+                    .then(response => { this.entity = response.data.entity })
+                    .then(this.enableActions())
+
             },
             feed() {
-                this.disable_actions()
-                postFeed().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.disableActions();
+                postFeed()
+                    .then(response => { this.entity = response.data.entity })
+                    .then(this.enableActions())
             },
             play() {
-                this.disable_actions()
-                postPlay().then(response => { this.entity = response.data.entity })
-                this.enable_actions()
+                this.disableActions();
+                postPlay()
+                    .then(response => { this.entity = response.data.entity })
+                    .then(this.enableActions())
             },
-            disable_actions() {
+            disableActions() {
                 this.disabled = true
             },
-            enable_actions() {
-                if (this.entity.dead)
+            enableActions() {
+                if (!this.entity.dead)
                     this.disabled = false
             }
         }
