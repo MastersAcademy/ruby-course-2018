@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  host: db
+  database: sales_development
+  username: postgres
+  password:
