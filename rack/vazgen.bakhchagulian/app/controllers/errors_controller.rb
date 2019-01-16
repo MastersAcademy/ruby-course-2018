@@ -1,3 +1,0 @@
-class ErrorsController < ApplicationController
-
-end
