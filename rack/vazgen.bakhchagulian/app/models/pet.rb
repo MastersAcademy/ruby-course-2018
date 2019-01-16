@@ -17,16 +17,22 @@ class Pet
 
   def rest
     self.sleepiness += STEP
+    self.hunger -= STEP
+    self.happiness += STEP
     self.event = :rest
   end
 
   def play
     self.happiness += STEP
+    self.hunger -= STEP
+    self.sleepiness -= STEP
     self.event = :play
   end
 
   def feed
     self.hunger += STEP
+    self.sleepiness -= STEP
+    self.happiness += STEP
     self.event = :feed
   end
 
