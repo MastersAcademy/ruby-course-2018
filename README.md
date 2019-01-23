@@ -92,20 +92,85 @@ Terms and conditions
 
 
 # Lesson #5 (22/01/2019, Lection)
-### TOPIC: Bundler and Gems
-### Mentor: Oleg Monastyreckyi
+### TOPIC: Rails
+### Mentor: Serhii Ovcharenko
 ### Agenda:
 
-- Bundler
-- What is gem?
-- Gem structure
-- How to create gem
+- Rails overview
+- Rails main components
+- RESTful applications * Stateless * Cacheable * Layered system * Code on demand(optional) * Uniform interface 
+  - Identification of resource 
+  - Manipulation of resources through these representations 
+  - Self-descriptive message 
+  - Hypermedia as the engine of application state(HATEOAS)
+- Rails routing
+- Rails naming conventions
+- Rails controllers parameters
+- Rails controllers
+- Controllers filters
+- Rescue in controllers
+- Testing routing and controllers
 
 
 # Lesson #5.1 (29/01/2019, Workshop)
-### TOPIC: Bundler and Gems
-### Mentor: Oleg Monastyreckyi
+### TOPIC: Rails
+### Mentor: Serhii Ovcharenko
 
+# Lesson #6 (05/02/2019, Lection)
+### TOPIC: API
+### Mentor: Serhii Ovcharenko
+### Agenda:
+- Rails API
+- Grape
+- Swagger
+
+# Lesson #6.1 (12/02/2019, Workshop)
+### TOPIC: API
+### Mentor: Serhii Ovcharenko
+
+# Lesson #7 (19/02/2019, Lection)
+### TOPIC: Exceptions
+### Mentor: Vlad Mokosii
+### Agenda:
+- Exceptions hierarchy
+- Exceptions raise
+- Exceptions handling
+- Usage of exceptions and intelligent handling
+
+# Lesson #8 (26/02/2019, Lection)
+### TOPIC: Functional Ruby
+### Mentor: Yurii Rudenko
+### Agenda:
+- First-class functions and higher-order functions
+- Proc and lambda difference
+- Blocks as proc
+- The power of lambda
+
+# Lesson #9 (05/03/2019, Lection)
+### TOPIC: Multi-threading
+### Mentor: Yurii Rudenko
+### Agenda:
+- Threads
+- GIL
+- Fibers
+- Troubles with concurrency
+
+# Lesson #10 (12/03/2019, Lection)
+### TOPIC: Performance
+### Mentor: Yurii Rudenko
+### Agenda:
+- Why web apps are slow
+- What is 'slow'
+- What we gonna do
+
+# Lesson #11 (19/03/2019, Lection)
+### TOPIC: Tests
+### Mentor: Oleg Monastyreckyi
+### Agenda:
+- Tools: Test::Unit, RSpec, Code testing
+- Capybara
+- Additional info
+- PhantomJS, Selenium
 
 # Authors
  * Bogdan Sergiienko(https://github.com/fritzvl)
@@ -113,5 +178,3 @@ Terms and conditions
  * Yuriy Shcherbyna (https://github.com/shcherb)
  * Yurii Rudenko (https://github.com/YuriiRudenko)
  * Vlad Mokosii (https://github.com/isildy)
-
-
