@@ -1,16 +1,12 @@
-a = true
+a = gets.chomp == 'true'
 puts a.class
 
-if a == true
-  a = 1
-else
-  a = 0
-end
-puts a
-puts a.class
-puts a.size.to_s + ' bytes'
+b = a ? 1 : 0
+puts b
+puts b.class
+puts "#{b.size} byte"
 
-a = a.to_s
-puts a
-puts a.class
-puts a.bytesize.to_s + ' byte'
+c = b.to_s
+puts c
+puts c.class
+puts "#{c.bytesize} byte"

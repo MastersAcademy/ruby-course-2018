@@ -1,2 +1,2 @@
-a = ['one', 'two', 'seven', 'ten', 'five']
+a = gets.chomp.split
 puts a.sort.reverse

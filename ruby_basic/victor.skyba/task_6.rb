@@ -1,17 +1,31 @@
 class Calc
-  def sum(a, b)
-    a + b
+  def initialize
+    p 'Please, enter first number'
+    @a = gets.chomp.to_i
+    p 'Please, enter second number'
+    @b = gets.chomp.to_i
   end
-  def min(a, b)
-    a - b
+
+  def sum
+    @a + @b
   end
-  def mult(a, b)
-    a * b
+
+  def min
+    @a - @b
   end
-  def sep(a, b)
-    a / b
+
+  def mult
+    @a * @b
+  end
+
+  def sep
+    if @b == 0
+      'You can not divide by zero. Please, repeat!'
+    else
+      @a.to_f / @b
+    end
   end
 end
 
 var1 = Calc.new
-var1.sep(10, 5)
+p var1.sep

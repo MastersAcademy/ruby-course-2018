@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  db:
+    container_name: rack_db
+    image: postgres:10-alpine
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+    ports:
+      - 5431:5432
+  api:
+    container_name: rack_api
+    command: bundle exec rackup config.ru -o 0.0.0.0 -p 3000
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    volumes:
+      - .:/app:rw
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+  frontend:
+    container_name: rack_frontend
+    command: npm run serve
+    build:
+      context: client
+      dockerfile: Dockerfile.frontend
+    ports:
+      - 8080:8080
+volumes:
+  data-postgres:
+    driver: local

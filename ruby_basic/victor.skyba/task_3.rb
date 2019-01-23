@@ -1,3 +1,3 @@
-a = [1 , 2, 3, 4, 5]
-b = [2, 3, 4, 6]
+a = gets.chomp.split
+b = gets.chomp.split
 puts a & b
