@@ -5,7 +5,7 @@ class Pet
 
   MAX = 100
   MIN = 0
-  STEP = 10
+  STEP = rand(1..10)
 
   def initialize
     self.health = MAX
@@ -18,16 +18,23 @@ class Pet
   def rest
     self.sleepiness += STEP
     self.event = :rest
+    self.health += STEP
+    self.hunger += STEP
   end
 
   def play
     self.happiness += STEP
     self.event = :play
+    self.health -= STEP
+    self.hunger += STEP
+
   end
 
   def feed
     self.hunger += STEP
     self.event = :feed
+    self.health += STEP
+    self.sleepiness -= STEP
   end
 
   def dead?
