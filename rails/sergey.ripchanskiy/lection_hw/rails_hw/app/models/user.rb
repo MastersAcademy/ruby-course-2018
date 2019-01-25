@@ -1,10 +1,13 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
+  has_secure_password
   before_validation :strip_first_name
-  validates :first_name, presence: true
-  has_many :books
-
-  # validates :first_name, presence: true, format: {with: /[a-zA-Z]+/}
-
+  validates :email, :first_name, :last_name, presence: true, uniqueness: true
+  validates :email,
+            presence: true,
+            uniqueness: true,
+            format: {
+                with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+            }
 
   def full_name
     [first_name, last_name].map(&:strip).delete_if(&:blank?).join(' ')

@@ -1,4 +1,4 @@
-class Book < ActiveRecord::Base
+class Book < ApplicationRecord
   belongs_to :seller
   belongs_to :category
   validates :seller, :category, presence: true
