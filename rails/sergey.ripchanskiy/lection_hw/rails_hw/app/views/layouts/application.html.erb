@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsHw</title>
+    <title>Scafold</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,21 @@
   </head>
 
   <body>
+  <ul class="topnav">
+    <li><%= link_to "Books", books_path %></li>
+    <li><%= link_to "Sellers", sellers_path %></li>
+
+    <% if current_user %>
+
+      <li class="right"><%= link_to "Logout", logout_path %></li>
+      <li class="right"><%= link_to "LogIn as:  #{current_user.email}", user_path(current_user) %> </li>
+    <% else %>
+    <li class="right"><%= link_to "LogIn", login_path %></li>
+    <li class="right"><%= link_to "SignUp", signup_path %></li>
+    <% end %>
+  </ul>
+  <div class="body_container">
     <%= yield %>
+  </div>
   </body>
 </html>
