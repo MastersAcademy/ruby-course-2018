@@ -50,16 +50,10 @@ ul.topnav li.right {float: right;}
     margin-right: 1%;
 }
 
-
-/*book*/
-.list_of_books {
-    display: flex;
-    /*justify-content: space-between;*/
-}
-
 .book {
-    height: 300px;
-    width: 300px;;
+    display: inline-block;
+    height: 240px;
+    width: 200px;;
     border: 1px solid gray;
     margin: 10px 10px;
 }
