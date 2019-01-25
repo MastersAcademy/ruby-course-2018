@@ -17,6 +17,10 @@ class CategoriesController < ApplicationController
     redirect_to new_category_path
   end
 
+  def show
+    @category = Category.find params[:id]
+  end
+
   def category_params
     params.permit :name, :description
   end
