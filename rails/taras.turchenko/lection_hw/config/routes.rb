@@ -4,4 +4,8 @@ Rails.application.routes.draw do
     get :stats
     get :action
   end
+
+  scope :cinema do
+    resources :categories
+  end
 end

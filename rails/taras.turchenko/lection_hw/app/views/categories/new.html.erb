@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<h1>Create new category</h1>
+<%= form_tag categories_path do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </div>
+  <div>
+    <%= label_tag :description %>
+    <%= text_area_tag :description %>
+  </div>
+  <%= submit_tag 'Create!' %>
+<% end %>
