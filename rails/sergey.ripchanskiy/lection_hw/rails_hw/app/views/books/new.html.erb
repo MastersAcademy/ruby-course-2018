@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: @book, local: true) do |form| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
@@ -31,8 +32,16 @@
     <%= form.text_field :description %>
   </div>
 
+    <div class="field">
+      <%= form.label :category %>
+      <%= select_tag(:category_id, options_for_select(categories), :prompt => "Select a category") %>
+      <%= form.label :seller %>
+      <%= select_tag(:seller_id, options_for_select(sellers), :prompt => "Select a category") %>
+    </div>
+
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

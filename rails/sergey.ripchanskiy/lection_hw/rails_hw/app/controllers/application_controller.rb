@@ -7,4 +7,15 @@ class ApplicationController < ActionController::Base
       @current_user = nil
     end
   end
+
+  def categories
+    Category.all.map { |c| [c.categories, c.id] }
+  end
+  helper_method :categories
+
+  def sellers
+    Seller.all.map { |c| [c.name, c.id] }
+  end
+  helper_method :sellers
+
 end
