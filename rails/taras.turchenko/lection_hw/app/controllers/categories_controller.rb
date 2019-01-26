@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   def new; end
 
   def create
-    Category.create! category_params
+    Category.create! filter(params)
     redirect_to categories_path
   rescue
     flash[:notice] = $ERROR_INFO
@@ -21,7 +21,22 @@ class CategoriesController < ApplicationController
     @category = Category.find params[:id]
   end
 
-  def category_params
+  def edit
+    @category = Category.find params[:id]
+  end
+
+  def update
+    category = Category.find params[:id]
+    begin
+      category.update! filter(params[:category])
+      redirect_to category_path(category)
+    rescue
+      flash[:notice] = $ERROR_INFO
+      redirect_to edit_category_path(category)
+    end
+  end
+
+  def filter(params)
     params.permit :name, :description
   end
 end
