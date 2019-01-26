@@ -1,0 +1,5 @@
+<div class="message">
+  [<%= message.created_at.strftime("%l:%M %p") %>]
+  <%= message.user.nickname.capitalize %>:
+  <%= message.body %>
+</div>
