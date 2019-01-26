@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   scope :cinema do
     resources :categories
+    resources :movies
   end
 end
