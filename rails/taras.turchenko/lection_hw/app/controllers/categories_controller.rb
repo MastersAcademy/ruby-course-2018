@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'English'
-
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
@@ -35,6 +33,19 @@ class CategoriesController < ApplicationController
       redirect_to edit_category_path(category)
     end
   end
+
+  def destroy
+    category = Category.find params[:id]
+    begin
+      category.destroy!
+      redirect_to categories_path
+    rescue
+      flash[:notice] = $ERROR_INFO
+      redirect_to category
+    end
+  end
+
+  private
 
   def filter(params)
     params.permit :name, :description
