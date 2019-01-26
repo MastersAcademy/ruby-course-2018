@@ -4,3 +4,4 @@
   <%= button_to 'Delete', @category, method: 'delete', class: 'offset-right--xs' %>
   <%= link_to 'Edit', edit_category_path(@category)  %>
 </div>
+<%= render 'movies/list', movies: @category.movies %>

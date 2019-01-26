@@ -1,0 +1,6 @@
+<li>
+  <h2><%= movie.name %> by <%= movie.author.email %></h2>
+  <p><%= movie.rating %></p>
+  <p><%= movie.description %></p>
+  <p><%= render 'movies/categories', collection: movie.categories %></p>
+</li>
