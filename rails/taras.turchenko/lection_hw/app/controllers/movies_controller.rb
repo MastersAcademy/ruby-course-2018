@@ -18,7 +18,9 @@ class MoviesController < ApplicationController
     redirect_to new_movie_path
   end
 
-  def show; end
+  def show
+    @movie = Movie.find params[:id]
+  end
 
   def update; end
 

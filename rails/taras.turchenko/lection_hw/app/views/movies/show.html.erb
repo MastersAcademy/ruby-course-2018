@@ -1,2 +1,8 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<h1><%= @movie.name %></h1>
+<h2>by <%= @movie.author.email %></h2>
+<p>Rating: <%= @movie.rating %></p>
+<p><%= @movie.description %></p>
+<p>
+  Categories:
+  <%= render partial: 'movies/category', collection: @movie.categories %>
+</p>

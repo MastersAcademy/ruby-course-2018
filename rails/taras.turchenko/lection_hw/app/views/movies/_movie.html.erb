@@ -2,5 +2,8 @@
   <%= link_to movie do %>
     <h2><%= movie.name %> by <%= movie.author.email %>. <%= movie.rating %></h2>
   <% end %>
-  <p><%= render partial: 'movies/category', collection: movie.categories %></p>
+  <p>
+    Categories:
+    <%= render partial: 'movies/category', collection: movie.categories %>
+  </p>
 </li>
