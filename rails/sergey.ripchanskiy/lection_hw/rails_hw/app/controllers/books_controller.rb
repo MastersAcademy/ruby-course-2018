@@ -13,8 +13,7 @@ class BooksController < ApplicationController
     @book.seller_id = params[:seller_id]
     @book.category_id = params[:category_id]
     if @book.save
-      @books = Book.all
-      render :index, notice: 'Book was successfully created.'
+      redirect_to books_path, notice: 'Book was successfully created.'
     else
       render :new
     end
