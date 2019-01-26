@@ -48,6 +48,6 @@ class CategoriesController < ApplicationController
   private
 
   def filter(params)
-    params.permit :name, :description
+    params.permit Category::PROPERTIES
   end
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Movie < ApplicationRecord
+  PROPERTIES = [:id, :categories, :category_ids, :author, :author_id, :name, :rating, :url].freeze
+
   has_and_belongs_to_many :categories
   belongs_to :author,
              class_name: 'User',

@@ -1,2 +1,25 @@
-<h1>Movies#new</h1>
-<p>Find me in app/views/movies/new.html.erb</p>
+<p id="notice"><%= notice %></p>
+<h1>Add new movie</h1>
+<%= form_tag movies_path do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_area_tag :description %>
+  </div>
+
+  <div>
+    <%= label_tag :url %>
+    <%= url_field_tag :url %>
+  </div>
+
+  <div>
+    <% options = options_for_select Category.prepare_for_selector %>
+    <%= select_tag :category_ids, options, multiple: true %>
+  </div>
+
+  <%= submit_tag 'Create!' %>
+<% end %>

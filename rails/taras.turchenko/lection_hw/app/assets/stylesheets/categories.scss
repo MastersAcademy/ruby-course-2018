@@ -5,3 +5,9 @@
 /*
 *= require 'shared/_helpers'
 */
+
+.category-label:not(:last-child) {
+  margin-right: 10px;
+
+  &:after { content: "," }
+}

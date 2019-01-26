@@ -3,9 +3,28 @@ class MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def new; end
+
+  def create
+    attrs = declared(params).merge(
+      author: current_user,
+      description: params[:description],
+      category_ids: params[:category_ids]
+    )
+    movie = Movie.create! attrs
+    redirect_to movie
+  rescue
+    flash[:notice] = $ERROR_INFO
+    redirect_to new_movie_path
+  end
+
   def show; end
 
   def update; end
 
-  def new; end
+  private
+
+  def declared(params)
+    params.permit Movie::PROPERTIES
+  end
 end
