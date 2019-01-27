@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Movie < ApplicationRecord
-  PROPERTIES = [:id, :categories, :category_ids, :author, :author_id, :name, :rating, :url].freeze
+  PROPERTIES = %i(id categories category_ids author author_id name rating url).freeze
 
   has_and_belongs_to_many :categories
   belongs_to :author,
@@ -19,4 +19,9 @@ class Movie < ApplicationRecord
   validates :url,
             presence: true,
             format: { with: URI::DEFAULT_PARSER.make_regexp }
+
+  def vote!(value)
+    new_rating = rating ? (rating + value) / 2 : value
+    update! rating: new_rating
+  end
 end

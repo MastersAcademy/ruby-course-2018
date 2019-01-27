@@ -6,3 +6,8 @@
   Categories:
   <%= render partial: 'movies/category', collection: @movie.categories %>
 </p>
+
+<%= form_tag movie_vote_path(@movie.id), method: :patch do %>
+  <%= number_field_tag :rating, @movie.rating, in: 0..100, step: 1 %>
+  <%= submit_tag 'Vote!' %>
+<% end %>

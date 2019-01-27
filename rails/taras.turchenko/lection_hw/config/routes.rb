@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   scope :cinema do
     resources :categories
     resources :movies
+    patch 'movies/:id/vote', to: 'movies#vote'
   end
 end

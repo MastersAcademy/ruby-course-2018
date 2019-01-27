@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Category < ApplicationRecord
-  PROPERTIES = [:id, :name, :description].freeze
+  PROPERTIES = %i(id name description).freeze
 
   has_and_belongs_to_many :movies
 

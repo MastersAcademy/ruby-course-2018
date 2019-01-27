@@ -24,6 +24,16 @@ class MoviesController < ApplicationController
 
   def update; end
 
+  def vote
+    movie = Movie.find params[:id]
+    begin
+      movie.vote! params[:rating].to_i
+    rescue
+      flash[:notice] = $ERROR_INFO
+    end
+    redirect_to movie
+  end
+
   private
 
   def declared(params)
