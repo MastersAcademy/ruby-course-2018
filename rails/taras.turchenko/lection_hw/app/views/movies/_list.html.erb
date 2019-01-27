@@ -1,3 +1,4 @@
 <ul>
-  <%= render partial: 'movies/movie', collection: movies %>
+  <% list = render partial: 'movies/movie', collection: movies %>
+  <%= list || 'No movies yet' %>
 </ul>
