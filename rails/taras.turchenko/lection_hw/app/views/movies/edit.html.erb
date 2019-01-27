@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<%= form_for @movie do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :url %>
+    <%= form.url_field :url %>
+  </div>
+
+  <div>
+    <% options = Category.prepare_for_selector %>
+    <%= form.select :category_ids, options, {}, multiple: true %>
+  </div>
+
+  <%= submit_tag 'Update!' %>
+<% end %>
