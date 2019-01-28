@@ -21,7 +21,7 @@ class Movie < ApplicationRecord
             format: { with: URI::DEFAULT_PARSER.make_regexp }
 
   def vote!(value)
-    new_rating = rating ? (rating + value) / 2 : value
+    new_rating = rating.zero? ? value : (rating + value) / 2
     update! rating: new_rating
   end
 end

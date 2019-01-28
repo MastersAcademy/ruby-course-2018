@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
-# Adding table 'users'
 class CreateUsers < ActiveRecord::Migration[5.1]
   def up
-    create_table :users
+    create_table :users do |t|
+      t.string :email
+      t.string :password_digest
 
-    add_column :users, :email, :string
+      t.timestamps
+    end
+    add_index :users, :email, unique: true
   end
 
   def down

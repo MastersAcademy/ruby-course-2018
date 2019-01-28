@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 <h1>Add new movie</h1>
 <%= form_tag movies_path do %>
-  <div>
+  <div class="field">
     <%= label_tag :name %>
     <%= text_field_tag :name %>
   </div>
 
-  <div>
+  <div class="field">
     <%= label_tag :description %>
     <%= text_area_tag :description %>
   </div>
 
-  <div>
+  <div class="field">
     <%= label_tag :url %>
     <%= url_field_tag :url %>
   </div>
 
-  <div>
+  <div class="field">
     <% options = options_for_select Category.prepare_for_selector %>
     <%= select_tag :category_ids, options, multiple: true %>
   </div>

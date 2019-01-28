@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 <%= form_for @movie do |form| %>
-  <div>
+  <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :url %>
     <%= form.url_field :url %>
   </div>
 
-  <div>
+  <div class="field">
     <% options = Category.prepare_for_selector %>
     <%= form.select :category_ids, options, {}, multiple: true %>
   </div>

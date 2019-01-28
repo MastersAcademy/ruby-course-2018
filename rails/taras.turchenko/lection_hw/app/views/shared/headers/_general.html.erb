@@ -1,0 +1,10 @@
+<header class="flex flex-content--between">
+  <nav>
+    <%= link_to 'Categories', categories_path %>
+    <%= link_to 'Movies', movies_path %>
+  </nav>
+  <div>
+    <span class="offset-right--xs"><%= current_user.email %></span>
+    <%= link_to 'Logout', logout_path %>
+  </div>
+</header>

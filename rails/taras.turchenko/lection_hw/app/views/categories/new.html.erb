@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 <h1>Create new category</h1>
 <%= form_tag categories_path do %>
-  <div>
+  <div class="field">
     <%= label_tag :name %>
     <%= text_field_tag :name %>
   </div>
-  <div>
+  <div class="field">
     <%= label_tag :description %>
     <%= text_area_tag :description %>
   </div>

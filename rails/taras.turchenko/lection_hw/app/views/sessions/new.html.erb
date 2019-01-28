@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h1>Login</h1>
+<%= form_tag sessions_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions flex">
+    <%= submit_tag 'SignIn' %>
+    <%= link_to 'SignUp', signup_path %>
+  </div>
+<% end %>
