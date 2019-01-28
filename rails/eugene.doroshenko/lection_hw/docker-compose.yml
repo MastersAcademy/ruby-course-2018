@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db_rails:
+    container_name: db_rails_hw
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    ports:
+      - 5431:5432
+  rails_hw:
+    container_name: rails_lection_hw
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/rails_lection_hw
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db_rails
