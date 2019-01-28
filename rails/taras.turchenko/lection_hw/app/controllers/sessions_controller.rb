@@ -4,14 +4,21 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    email = params[:email]
-    user = User.find_by email: email
+    user = User.find_by email: params[:email]
+    return authenticate(user) if user.present?
 
-    if user.blank?
-      flash[:notice] = "Not found user #{email}"
-      redirect_to sessions_new_path
-    end
+    flash[:notice] = "Not found user \"#{params[:email]}\""
+    redirect_to login_path
+  end
 
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path
+  end
+
+  private
+
+  def authenticate(user)
     authenticated = user.authenticate params[:password]
 
     if user && authenticated
@@ -21,11 +28,5 @@ class SessionsController < ApplicationController
       flash[:notice] = 'Password is invalid'
       redirect_to sessions_new_path
     end
-  end
-
-  def destroy
-    session[:user_id] = nil
-    flash[:notice] = 'Logged out!'
-    redirect_to login_path
   end
 end
