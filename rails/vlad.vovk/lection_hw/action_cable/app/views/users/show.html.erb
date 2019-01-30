@@ -1,4 +1,10 @@
 <h1>User info</h1>
+<%= link_to 'Create Room', new_room_path %>
+<br>
 
-<%= @user.email %>
-<%= @user.nickname %>
+<% @rooms.each do |room| %>
+<div>
+  <h3><%= link_to room.title, room %></h3>
+  <%= link_to 'Delete', room, method: :delete %>
+</div>
+<% end %>

@@ -1,7 +1,12 @@
 class Message < ApplicationRecord
-  belongs_to :user
+  after_create_commit :broadcast
 
-  after_create_commit { 
+  belongs_to :user, optional: true
+  belongs_to :room, optional: true
+
+  validates :body, presence: true, length: { maximum: 255 }
+
+  def broadcast
     MessageBroadcastJob.perform_later(self)
-  }
+  end
 end

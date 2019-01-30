@@ -16,6 +16,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'popper_js'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'bootstrap', '~> 4.2.1'
 
 # gem 'mini_magick', '~> 4.8'
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -64,11 +64,7 @@ class Pet < ActiveRecord::Base
   end
 
   def health
-    if @health < 0
-      0
-    else
-      @health
-    end
+    @health.negative? ? 0 : @health
   end
 
   def hunger=(value)
@@ -84,14 +80,6 @@ class Pet < ActiveRecord::Base
   end
 
   def process(value)
-    if value < MIN
-      self.health -= STEP
-      MIN
-    elsif value > MAX
-      self.health -= STEP
-      MAX
-    end
-  else
-    value
+    self.health -= STEP if value > MIN
   end
 end
