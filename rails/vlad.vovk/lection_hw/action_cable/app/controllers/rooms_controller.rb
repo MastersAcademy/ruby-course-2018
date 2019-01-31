@@ -16,7 +16,9 @@ class RoomsController < ApplicationController
 
   def show
     @users = @room.users
-    @message = @room.messages.create(message_params.merge(user_id: current_user.id))
+    #@message = @room.messages.create(message_params.merge(user_id: current_user.id))
+    @messages = Message.all
+    @message  = Message.new
   end
 
   def destroy
@@ -31,9 +33,5 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:title)
-  end
-
-  def message_params
-    params.require(:message).permit(:body, :user_id)
   end
 end

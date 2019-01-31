@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :messages, dependent: :destroy
+  has_many :messages
   has_and_belongs_to_many :rooms
 
   before_save :downcase_email
@@ -12,6 +12,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   def downcase_email
-    self.email = self.email.delete(' ').downcase
+    self.email = self.email.strip.downcase
   end
 end
