@@ -8,7 +8,7 @@
 
 5.times do |number|
   Seller.create(name: "seller #{number}", email: "seller#{number}@example.com")
-  Category.create(categories: "category#{number}")
+  Category.create(name: "category#{number}")
   User.create(email: "#{number}@mail.com",
               first_name: "User#{number}",
               last_name: "lsname#{number}",
