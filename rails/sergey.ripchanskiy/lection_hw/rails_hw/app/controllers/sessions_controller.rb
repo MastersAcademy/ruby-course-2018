@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(params[:email])
@@ -18,3 +17,4 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: 'Logged out!'
   end
 end
+
