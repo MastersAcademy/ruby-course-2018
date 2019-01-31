@@ -34,11 +34,10 @@
 
     <div class="field">
       <%= form.label :category %>
-      <%= select_tag(:category_id, options_for_select(categories), :prompt => "Select a category") %>
+      <%= form.select :category_id, options_for_select(categories), :prompt => "Select a category" %>
       <%= form.label :seller %>
-      <%= select_tag(:seller_id, options_for_select(sellers), :prompt => "Select a category") %>
+      <%= form.select :seller_id, options_for_select(sellers), :prompt => "Select a seller" %>
     </div>
-
 
   <div class="actions">
     <%= form.submit %>
