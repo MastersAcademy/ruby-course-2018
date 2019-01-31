@@ -53,13 +53,13 @@ class Pet < ApplicationRecord
 
   def to_json
     {
-        health: health,
-        hunger: hunger,
-        happiness: happiness,
-        sleepiness: sleepiness,
-        mood: mood,
-        event: event,
-        dead: dead?
+      health: health,
+      hunger: hunger,
+      happiness: happiness,
+      sleepiness: sleepiness,
+      mood: mood,
+      event: event,
+      dead: dead?
     }
   end
 
