@@ -2,11 +2,11 @@ version: '3'
 services:
   wan_password_db:
     container_name: "wan_password_workshop_db"
-    image: postgres:9.5-alpine
+    image: postgres:9.5
     volumes:
       - data-postgres:/var/lib/postgresql/data
     ports:
-      - 5431:5432
+      - 5432:5432
   wan_password_rails:
     container_name: "wan_password_workshop_rails"
     build: .
@@ -18,7 +18,9 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - db
+      - wan_password_db
+    env_file:
+      - .env
 volumes:
   data-tmp:
     driver: local
