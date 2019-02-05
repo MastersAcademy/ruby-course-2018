@@ -1,0 +1,22 @@
+class ColorAdd
+  COLORS = {
+      black: 30,
+      red: 31,
+      green: 32,
+      yellow: 33,
+      blue: 34
+  }.freeze
+
+  def initialize(text)
+    @text = text
+  end
+
+  COLORS.each do |meth, color|
+    define_method meth do
+      "\e[#{color}m#{@text}\e[0m"
+    end
+  end
+end
+
+a = gets.chomp
+puts ColorAdd.new(a).black

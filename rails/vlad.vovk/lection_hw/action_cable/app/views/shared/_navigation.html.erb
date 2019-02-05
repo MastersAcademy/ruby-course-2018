@@ -1,0 +1,22 @@
+ <nav class="main-navigation">
+  <div class="navbar-header animated fadeInUp">
+    <%= link_to 'Chat', pages_home_path, class: "navbar-brand" %>
+  </div>
+  <ul class="nav-list">
+  <% if current_user %>
+    <li class="nav-list-item">
+      <%= link_to current_user.nickname, current_user, class: "nav-link" %>
+    </li>
+    <li class="nav-list-item">
+      <%= link_to 'Logout', logout_path, class: "nav-link" %>
+    </li>
+    <% else %>
+    <li class="nav-list-item">
+      <%= link_to 'Login', login_path, class: "nav-link" %>
+    </li>
+    <li class="nav-list-item">
+       <%= link_to 'Sing up', signup_path, class: "nav-link" %>
+    </li>
+    <% end %>
+  </ul>
+</nav>

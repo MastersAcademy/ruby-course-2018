@@ -1,0 +1,8 @@
+<h1> Create Room </h1>
+
+<%= form_with model: @room do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit 'Create Room' %>
+<% end %>

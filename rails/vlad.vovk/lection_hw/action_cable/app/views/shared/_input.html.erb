@@ -1,0 +1,10 @@
+<% if current_user.present? %>
+  <div class="input-group">
+    <%= form_with model: @message do |f| %>
+      <%= f.text_field :body %>
+      <%= f.submit 'Submit'  %>
+    <% end %>
+  </div>
+<% else %>
+  <h4> You must <%= link_to 'Login', login_path %> for send message</h4>
+<% end %>

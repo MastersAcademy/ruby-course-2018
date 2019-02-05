@@ -9,6 +9,7 @@ services:
       - 5431:5432
   api:
     container_name: rack_api
+#    command: bundle exec rackup config.ru -o 0.0.0.0 -p 3000
     build:
       context: .
       dockerfile: Dockerfile.backend
@@ -16,8 +17,8 @@ services:
       - .:/app:rw
     env_file:
       - .env
-    ports:
-      - 3000:3000
+#    ports:
+#      - 3000:3000
     tty: true
     stdin_open: true
     depends_on:
