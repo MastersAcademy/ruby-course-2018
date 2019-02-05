@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    container_name: db
+    image: postgres:10-alpine
+    volumes:
+      - data-postgres:/var/lib/postgresql/data
+    ports:
+      - 5431:5432
+  ruby:
+    container_name: ruby
+    build: .
+    volumes:
+      - .:/app:rw
+    depends_on:
+      - db
+    env_file:
+      - .env
+    tty: true
+    stdin_open: true
+volumes:
+  data-postgres:
+    driver: local
