@@ -1,0 +1,11 @@
+<center><h1><%= @room.title %></h1></center>
+
+<h3>Users in conversation:</h3>
+<% @users.each do |user| %>
+  <div>
+    <h4><%= user.nickname %></h4>
+  </div>
+<% end %>
+
+<%= render 'shared/chatbox' %>
+<%= render 'shared/input' %>
