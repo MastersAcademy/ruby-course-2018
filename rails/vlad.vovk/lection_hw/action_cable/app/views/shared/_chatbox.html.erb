@@ -1,0 +1,5 @@
+<div id="messages" class="col-md-12 col-lg-12"style="height: 250px; overflow-y: scroll; height:100%">
+  <% @messages.each do |message| %>
+    <%= render 'messages/message', message: message %>
+  <% end %>
+</div>
