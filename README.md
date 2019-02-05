@@ -116,7 +116,11 @@ Terms and conditions
 ### TOPIC: Rails
 ### Mentor: Serhii Ovcharenko
 
-# Lesson #6 (05/02/2019, Lection)
+# Lesson #5.2 (05/02/2019, Workshop)
+### TOPIC: Rails
+### Mentor: Serhii Ovcharenko
+
+# Lesson #6 (12/02/2019, Lection)
 ### TOPIC: API
 ### Mentor: Serhii Ovcharenko
 ### Agenda:
@@ -124,11 +128,11 @@ Terms and conditions
 - Grape
 - Swagger
 
-# Lesson #6.1 (12/02/2019, Workshop)
+# Lesson #6.1 (19/02/2019, Workshop)
 ### TOPIC: API
 ### Mentor: Serhii Ovcharenko
 
-# Lesson #7 (19/02/2019, Lection)
+# Lesson #7 (26/02/2019, Lection)
 ### TOPIC: Exceptions
 ### Mentor: Vlad Mokosii
 ### Agenda:
@@ -137,7 +141,7 @@ Terms and conditions
 - Exceptions handling
 - Usage of exceptions and intelligent handling
 
-# Lesson #8 (26/02/2019, Lection)
+# Lesson #8 (05/03/2019, Lection)
 ### TOPIC: Functional Ruby
 ### Mentor: Yurii Rudenko
 ### Agenda:
@@ -146,7 +150,7 @@ Terms and conditions
 - Blocks as proc
 - The power of lambda
 
-# Lesson #9 (05/03/2019, Lection)
+# Lesson #9 (12/03/2019, Lection)
 ### TOPIC: Multi-threading
 ### Mentor: Yurii Rudenko
 ### Agenda:
@@ -155,7 +159,7 @@ Terms and conditions
 - Fibers
 - Troubles with concurrency
 
-# Lesson #10 (12/03/2019, Lection)
+# Lesson #10 (19/03/2019, Lection)
 ### TOPIC: Performance
 ### Mentor: Yurii Rudenko
 ### Agenda:
@@ -163,7 +167,7 @@ Terms and conditions
 - What is 'slow'
 - What we gonna do
 
-# Lesson #11 (19/03/2019, Lection)
+# Lesson #11 (02/04/2019, Lection)
 ### TOPIC: Tests
 ### Mentor: Oleg Monastyreckyi
 ### Agenda:

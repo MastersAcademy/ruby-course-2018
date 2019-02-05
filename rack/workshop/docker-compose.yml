@@ -9,7 +9,6 @@ services:
       - 5431:5432
   api:
     container_name: rack_api
-    command: bundle exec rackup config.ru -o 0.0.0.0 -p 3000
     build:
       context: .
       dockerfile: Dockerfile.backend
