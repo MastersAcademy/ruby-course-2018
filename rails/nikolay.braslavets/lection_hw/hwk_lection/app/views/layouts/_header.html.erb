@@ -1,0 +1,19 @@
+<% if current_user %>
+ <p align="right">Logged in as <%= current_user.email %>.</p>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="/users">List Users</a>
+    <a href="/">Your playlist</a>
+    <a href="/">Your Song</a>
+    <a href="/">Your Library</a>
+    <%= link_to "Log Out", logout_path %>
+  </div>
+
+<% else %>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <%= link_to "Sign Up", signup_path %> or
+    <%= link_to "Log In", login_path %>
+  </div>
+
+<% end %>
