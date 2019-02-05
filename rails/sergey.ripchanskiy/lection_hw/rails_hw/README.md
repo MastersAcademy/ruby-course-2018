@@ -1,0 +1,1 @@
+run rails db:seed fo books and sellers creation

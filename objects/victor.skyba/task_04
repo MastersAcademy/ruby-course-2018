@@ -1,0 +1,22 @@
+class Calc
+  OPERATORS = {
+      plus: :+,
+      minus: :-,
+      divide: :/,
+      multiply: :*
+  }.freeze
+
+  def initialize(first, second)
+    @a = first
+    @b = second
+  end
+
+  OPERATORS.each do |method, operator|
+    define_method method do
+      @a.send(operator, @b)
+    end
+  end
+end
+
+puts Calc.new(4, 6).plus
+puts Calc.new(4, 10).minus
