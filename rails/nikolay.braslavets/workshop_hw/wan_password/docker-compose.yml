@@ -2,19 +2,17 @@ version: '3'
 services:
   wan_password_db:
     container_name: "wan_password_workshop_db"
-    image: postgres:9.5-alpine
+    image: postgres:9.5
     volumes:
       - data-postgres:/var/lib/postgresql/data
     ports:
       - 5431:5432
   wan_password_rails:
     container_name: "wan_password_workshop_rails"
-    build: ""
+    build: .
     command: /bin/sh -c "rm -f /myapp/tmp/pids/server.pid && bundle exec rails s -p 3000 -b 0.0.0.0"
     volumes:
       - .:/myapp:rw
-      - data-tmp:/myapp/tmp
-      - bundle:/bundle
     ports:
       - 3000:3000
     depends_on:
@@ -22,9 +20,5 @@ services:
     env_file:
       - .env
 volumes:
-  data-tmp:
-    driver: local
   data-postgres:
-    driver: local
-  bundle:
     driver: local
