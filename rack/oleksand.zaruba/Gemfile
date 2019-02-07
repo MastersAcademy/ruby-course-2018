@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'activerecord'
+gem 'debase'
+gem 'pg'
+gem 'rack'
+gem 'ruby-debug-ide'

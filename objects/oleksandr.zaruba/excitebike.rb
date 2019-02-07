@@ -36,8 +36,8 @@ class Excitebike
   end
 end
 
-# biker = Excitebike.new(5, 6, 7, 8)
-# p biker.show_count_of_obstacles
-# p biker.show_level_number
-# p biker.show_background_color
-# p biker.show_speed_of_obtacles
+biker = Excitebike.new(5, 6, 7, 8)
+p biker.show_count_of_obstacles
+p biker.show_level_number
+p biker.show_background_color
+p biker.show_speed_of_obtacles

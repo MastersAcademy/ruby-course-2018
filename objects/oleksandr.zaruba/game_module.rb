@@ -1,4 +1,3 @@
-require './initializer'
 module GameModuls
   attr_accessor :level_background, :level_number, :count_of_enemies, :speed_enemies
 
