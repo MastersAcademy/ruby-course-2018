@@ -1,0 +1,22 @@
+<%= form_for @song do |f| %>
+
+  <div class="from-control">
+    <%= f.label :artist %>
+    <%= f.text_field :artist %>
+  </div>
+
+  <div class="from-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="from-control">
+    <%= f.label :genre %>
+    <%= f.text_field :genre %>
+  </div>
+
+  <div class="from-control">
+    <%= f.submit 'Save' %>
+  </div>
+
+<% end %>

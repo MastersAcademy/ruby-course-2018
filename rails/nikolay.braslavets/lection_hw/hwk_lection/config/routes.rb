@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  resources :songs
+  resources :playlists
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

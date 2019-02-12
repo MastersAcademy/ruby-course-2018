@@ -1,0 +1,17 @@
+<%= form_for @playlist do |f| %>
+
+  <div class="from-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="from-control">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="from-control">
+    <%= f.submit 'Save' %>
+  </div>
+
+<% end %>
