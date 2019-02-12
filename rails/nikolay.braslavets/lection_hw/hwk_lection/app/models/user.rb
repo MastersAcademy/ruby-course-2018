@@ -9,7 +9,7 @@ class User < ApplicationRecord
   before_validation :strip_first_name
 
   validates :first_name, :last_name, presence: true,
-            format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+            format: { with: /\A[a-zA-Zа-яА-Я]+\z/, message: "only allows letters" }
 
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
