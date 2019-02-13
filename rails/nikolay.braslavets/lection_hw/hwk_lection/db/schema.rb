@@ -29,10 +29,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_111013) do
     t.string "name"
     t.string "genre"
     t.bigint "user_id"
-    t.bigint "playlist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["playlist_id"], name: "index_songs_on_playlist_id"
     t.index ["user_id"], name: "index_songs_on_user_id"
   end
 
@@ -47,6 +45,5 @@ ActiveRecord::Schema.define(version: 2019_02_12_111013) do
   end
 
   add_foreign_key "playlists", "users"
-  add_foreign_key "songs", "playlists"
   add_foreign_key "songs", "users"
 end
