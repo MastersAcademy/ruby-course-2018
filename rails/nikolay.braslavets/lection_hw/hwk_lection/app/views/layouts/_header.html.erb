@@ -1,11 +1,10 @@
 <% if current_user %>
  <p align="right">Logged in as <%= current_user.email %>.</p>
   <div class="topnav">
-    <a class="active" href="#home">Home</a>
+    <a class="active" href="/">Home</a>
     <a href="/users">List Users</a>
     <a href="/playlists">Your playlist</a>
     <a href="/songs">Your Song</a>
-    <a href="/">Your Library</a>
     <%= link_to "Log Out", logout_path %>
   </div>
 

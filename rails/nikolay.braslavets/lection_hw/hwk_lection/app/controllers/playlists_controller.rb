@@ -35,7 +35,7 @@ class PlaylistsController < ApplicationController
 
   def destroy
     @playlist.destroy
-    redirect_to playlist_path
+    redirect_to playlists_path
   end
 
   private

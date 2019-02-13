@@ -1,21 +1,38 @@
-<%= form_for @song do |f| %>
+<%= form_with(model: @song, local: true) do |f| %>
 
-  <div class="from-control">
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
     <%= f.label :artist %>
     <%= f.text_field :artist %>
   </div>
 
-  <div class="from-control">
+  <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="from-control">
+  <div class="field">
     <%= f.label :genre %>
     <%= f.text_field :genre %>
   </div>
 
-  <div class="from-control">
+  <div class="field">
+    <%= f.label :playlist_id %>
+    <%= f.collection_select :playlist_id, Playlist.order(:name), :id, :name, inclede_blank: true %>
+  </div>
+
+  <div class="actions">
     <%= f.submit 'Save' %>
   </div>
 
