@@ -1,0 +1,29 @@
+<h1>Lis of your Playlist</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th align="left">Playlist name</th>
+    <th align="left">Description playlist</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @playlist.each do |playlist| %>
+    <tr>
+      <td valign="top"><%= link_to playlist.name, playlist_path(playlist) %></td>
+      <td valign="left"><%= playlist.description %></td>
+      <td valign="top"><%= link_to 'Show', playlist %></td>
+      <td valign="top"><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
+      <td valign="top">
+        <%= link_to 'Destroy', playlist, method: :delete,
+                    data: { confirm: 'You delete playlist and all song associated with him. Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Go home', root_path %> | <%= link_to 'New playlist', new_playlist_path %>
+
