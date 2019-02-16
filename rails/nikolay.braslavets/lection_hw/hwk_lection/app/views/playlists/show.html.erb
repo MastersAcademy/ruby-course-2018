@@ -1,0 +1,12 @@
+<h1>Playlist info page</h1>
+<p>
+  <strong>Playlist name:</strong>
+  <%= @playlist.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @playlist.description %>
+</p>
+
+
+<%= link_to 'Edit playlist', edit_playlist_path(@playlist) %> | <%= link_to 'Back', playlists_path %>

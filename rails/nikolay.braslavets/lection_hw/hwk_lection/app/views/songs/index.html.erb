@@ -1,0 +1,28 @@
+<h1>Lis of your Songs</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th align="left">Song name</th>
+    <th align="left">Artist name</th>
+    <th align="left">Genre</th>
+    <th colspan="3">Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= link_to song.name, song_path(song) %></td>
+      <td><%= song.artist %></td>
+      <td><%= song.genre %></td>
+      <td><%= link_to 'Show', song %></td>
+      <td><%= link_to 'Edit', edit_song_path(song) %></td>
+      <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Go home', root_path %> | <%= link_to 'New song', new_song_path %>
+
