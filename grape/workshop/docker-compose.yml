@@ -1,0 +1,32 @@
+version: "3.4"
+x-default: &default
+  env_file: .env
+  stdin_open: true
+  tty: true
+  volumes:
+    - .:/home/app
+  networks:
+    - backend
+services:
+  grape_workshop_api:
+    <<: *default
+    build: .
+    container_name: "grape_workshop_api"
+    # command: bash -c "rm -f tmp/pids/server.pid && rails db:create && rails db:migrate && rails s -b 0.0.0.0"
+    command: bash -c "rm -f tmp/pids/server.pid && rails db:migrate && rails s -b 0.0.0.0"
+    depends_on:
+      - grape_workshop_db
+    ports:
+      - 3000:3000
+  grape_workshop_db:
+    <<: *default
+    container_name: "grape_workshop_db"
+    image: postgres:9.6.1
+    ports:
+      - 5431:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
+networks:
+  backend:
