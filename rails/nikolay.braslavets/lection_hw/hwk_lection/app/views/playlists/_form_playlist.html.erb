@@ -1,0 +1,29 @@
+<%= form_with(model: @playlist, local: true) do |f| %>
+
+  <% if @playlist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@playlist.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @playlist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, size: "102" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, size: "100x10" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+
+<% end %>

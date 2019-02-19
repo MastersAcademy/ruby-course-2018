@@ -14,7 +14,7 @@ class MarioGame
   def last_level
     if @level_number == 20
       show_final_screen
-    elsif p "Your level is #{level_number},to finish game you need: 20"
+    else p "Your level is #{level_number},to finish game you need: 20"
     end
   end
 

@@ -1,0 +1,15 @@
+<h1>Song info page</h1>
+<p>
+  <strong>Song name:</strong>
+  <%= @song.name %>
+</p>
+<p>
+  <strong>Artist name:</strong>
+  <%= @song.artist %>
+</p>
+<p>
+  <strong>Genre:</strong>
+  <%= @song.genre %>
+</p>
+
+<%= link_to 'Edit song', edit_song_path(@song) %> | <%= link_to 'Back', songs_path %>

@@ -1,4 +1,4 @@
-# Input example: ruby yourscript.rb
+# Input example: ruby yourscript.rb 
 
 p 'input boolean true or false'
 

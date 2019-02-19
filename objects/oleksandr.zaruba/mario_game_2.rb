@@ -7,14 +7,14 @@ class MarioGame
     @count_of_enemies = count_of_enemies
     @speed_enemies = speed_enemies
     @level_number = level_number
-    last_level?
+    last_level
   end
 
   # Second task
 
   private
 
-  def last_level?
+  def last_level
     show_final_screen if @level_number == 20
   end
 
