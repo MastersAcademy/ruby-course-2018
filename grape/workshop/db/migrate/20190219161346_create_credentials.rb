@@ -5,7 +5,7 @@ class CreateCredentials < ActiveRecord::Migration[5.2]
       t.string :email, null: false
       t.string :password, null: false
 
-      t.belongs_to :user
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

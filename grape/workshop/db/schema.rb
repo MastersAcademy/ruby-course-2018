@@ -32,4 +32,5 @@ ActiveRecord::Schema.define(version: 2019_02_19_161346) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "credentials", "users"
 end
