@@ -5,19 +5,19 @@ require './config/initializers/database.rb'
 # Generate users
 15.times do
   User.create(
-      first_name: Faker::Name.first_name,
-      last_name: Faker::Name.last_name,
-      email: Faker::Internet.email,
-      password: Faker::Internet.password(8)
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8)
   )
 end
 
 # Generate tracks
 50.times do
   Track.create(
-      artist: Faker::Artist.name,
-      title: Faker::Lorem.sentence,
-      album: Faker::Music.album
+    artist: Faker::Artist.name,
+    title: Faker::Lorem.sentence,
+    album: Faker::Music.album
   )
 end
 
