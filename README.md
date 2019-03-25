@@ -141,33 +141,7 @@ Terms and conditions
 - Exceptions handling
 - Usage of exceptions and intelligent handling
 
-# Lesson #8 (05/03/2019, Lection)
-### TOPIC: Functional Ruby
-### Mentor: Yurii Rudenko
-### Agenda:
-- First-class functions and higher-order functions
-- Proc and lambda difference
-- Blocks as proc
-- The power of lambda
-
-# Lesson #9 (12/03/2019, Lection)
-### TOPIC: Multi-threading
-### Mentor: Yurii Rudenko
-### Agenda:
-- Threads
-- GIL
-- Fibers
-- Troubles with concurrency
-
-# Lesson #10 (19/03/2019, Lection)
-### TOPIC: Performance
-### Mentor: Yurii Rudenko
-### Agenda:
-- Why web apps are slow
-- What is 'slow'
-- What we gonna do
-
-# Lesson #11 (02/04/2019, Lection)
+# Lesson #11 (19/03/2019, Lection)
 ### TOPIC: Tests
 ### Mentor: Oleg Monastyreckyi
 ### Agenda:
@@ -182,3 +156,29 @@ Terms and conditions
  * Yuriy Shcherbyna (https://github.com/shcherb)
  * Yurii Rudenko (https://github.com/YuriiRudenko)
  * Vlad Mokosii (https://github.com/isildy)
+
+# Lesson #8 (26/03/2019, Lection)
+### TOPIC: Functional Ruby
+### Mentor: Yurii Rudenko
+### Agenda:
+- First-class functions and higher-order functions
+- Proc and lambda difference
+- Blocks as proc
+- The power of lambda
+
+# Lesson #9 (02/04/2019, Lection)
+### TOPIC: Multi-threading
+### Mentor: Yurii Rudenko
+### Agenda:
+- Threads
+- GIL
+- Fibers
+- Troubles with concurrency
+
+# Lesson #10 (09/04/2019, Lection)
+### TOPIC: Performance
+### Mentor: Yurii Rudenko
+### Agenda:
+- Why web apps are slow
+- What is 'slow'
+- What we gonna do
