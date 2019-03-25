@@ -132,7 +132,11 @@ Terms and conditions
 ### TOPIC: API
 ### Mentor: Serhii Ovcharenko
 
-# Lesson #7 (26/02/2019, Lection)
+# Lesson #6.2 (26/02/2019, Workshop)
+### TOPIC: API
+### Mentor: Serhii Ovcharenko
+
+# Lesson #7 (05/03/2019, Lection)
 ### TOPIC: Exceptions
 ### Mentor: Vlad Mokosii
 ### Agenda:
@@ -141,7 +145,7 @@ Terms and conditions
 - Exceptions handling
 - Usage of exceptions and intelligent handling
 
-# Lesson #11 (19/03/2019, Lection)
+# Lesson #8 (19/03/2019, Lection)
 ### TOPIC: Tests
 ### Mentor: Oleg Monastyreckyi
 ### Agenda:
@@ -157,7 +161,7 @@ Terms and conditions
  * Yurii Rudenko (https://github.com/YuriiRudenko)
  * Vlad Mokosii (https://github.com/isildy)
 
-# Lesson #8 (26/03/2019, Lection)
+# Lesson #9 (26/03/2019, Lection)
 ### TOPIC: Functional Ruby
 ### Mentor: Yurii Rudenko
 ### Agenda:
@@ -166,7 +170,7 @@ Terms and conditions
 - Blocks as proc
 - The power of lambda
 
-# Lesson #9 (02/04/2019, Lection)
+# Lesson #10 (02/04/2019, Lection)
 ### TOPIC: Multi-threading
 ### Mentor: Yurii Rudenko
 ### Agenda:
@@ -175,7 +179,7 @@ Terms and conditions
 - Fibers
 - Troubles with concurrency
 
-# Lesson #10 (09/04/2019, Lection)
+# Lesson #11 (09/04/2019, Lection)
 ### TOPIC: Performance
 ### Mentor: Yurii Rudenko
 ### Agenda:
