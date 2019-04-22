@@ -32,6 +32,9 @@ gem 'grape-swagger-rails'
 
 gem 'rack-cors'
 gem 'activeadmin'
+gem 'sorcery'
+gem 'jwt'
+
 
 
 group :development, :test do

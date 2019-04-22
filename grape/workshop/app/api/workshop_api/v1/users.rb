@@ -8,7 +8,6 @@ module WorkshopApi
             requires :password, type: String
           end
         end
-
         post do
           entity = User.new(declared_params[:user])
 
@@ -19,18 +18,17 @@ module WorkshopApi
           end
         end
 
-        
         namespace :me do
           before { authenticate }
+
           get do
             present :entity, current_user, with: WorkshopApi::Entities::UserEntity::Me
           end
-
           params do
-
+            
           end
-          put do
 
+          put do
           end
         end
       end

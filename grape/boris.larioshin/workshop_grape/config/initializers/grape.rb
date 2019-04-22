@@ -1,5 +1,5 @@
 GrapeSwaggerRails.options.api_key_type = 'header'
-GrapeSwaggerRails.options.url          = '/api/swagger_doc'
+GrapeSwaggerRails.options.url          = 'Authorization'
 GrapeSwaggerRails.options.app_name     = 'Grape Api'
 GrapeSwaggerRails.options.before_action do
   if request.present?
